@@ -4,7 +4,6 @@ import org.example.transacaoservice.business.model.Transacao;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
-import java.util.Locale;
 import java.util.Optional;
 
 @Repository
