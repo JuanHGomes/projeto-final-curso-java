@@ -1,6 +1,7 @@
 package org.example.transacaoservice.business.validators;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.transacaoservice.business.model.Transacao;
 import org.example.transacaoservice.data.transacao.TransacaoRepository;
 import org.springframework.stereotype.Component;
@@ -9,26 +10,33 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class TempoEntreTransacoesValidator implements FraudeValidators {
-    private static final Duration LIMITE_DURACAO_ENTRE_TRANSACAO = Duration.ofMinutes(1);
+    private static final Duration INTERVALO_MINITMO = Duration.ofMinutes(1);
 
     private final TransacaoRepository transacaoRepository;
 
     @Override
-    public boolean validate(Transacao transacao) {
-        Optional<Transacao> transacaoOptional = transacaoRepository.getTransacaoByAccountNumber(transacao.getNumeroConta());
+    public boolean validate(Transacao novaTransacao) {
+        String numeroConta = novaTransacao.getNumeroConta();
+        boolean fraudeDetectada = getTimeStampByNumeroConta(numeroConta)
+                .filter(timeStamp -> isIntevaloEntreTransacoesMenorOuIgualAhMinimo(timeStamp, novaTransacao.getTimeStamp()))
+                .isPresent();
 
-        transacaoOptional.ifPresent();
-
-        if(Duration.between(transacao.getTimeStamp(), transacaoOptional.get().getTimeStamp()).compareTo(LIMITE_DURACAO_ENTRE_TRANSACAO) >= 0){
-            return false;
+        if(fraudeDetectada){
+            log.warn("Tentativa de transação realizada dentro de {} minutos", INTERVALO_MINITMO);
+            return true;
         }
+        return false;
+    }
 
-        if(!transacaoOptional.isEmpty()){
-            return false;
-        }
+    private boolean isIntevaloEntreTransacoesMenorOuIgualAhMinimo(LocalDateTime timeStampTransacaoEmMemoria, LocalDateTime timeStampNovaTransacao) {
+        return Duration.between(timeStampTransacaoEmMemoria, timeStampNovaTransacao).compareTo(INTERVALO_MINITMO) <= 0;
+    }
 
+    private Optional<LocalDateTime> getTimeStampByNumeroConta(String numeroConta) {
+        return transacaoRepository.getTimeStampByNumeroConta(numeroConta);
     }
 }

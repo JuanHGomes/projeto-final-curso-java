@@ -18,4 +18,9 @@ public class TransacaoController {
     public boolean validarFundos(@RequestBody Transacao transacao) throws Exception {
         return transacaoService.validarFundos(transacao);
     }
+
+    @PostMapping("validarFraude")
+    public boolean validarFraude(@RequestBody Transacao transacao){
+        return transacaoService.validarFraude(transacao);
+    }
 }

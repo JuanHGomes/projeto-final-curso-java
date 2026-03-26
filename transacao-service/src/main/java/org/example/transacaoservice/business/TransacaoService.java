@@ -35,7 +35,7 @@ public class TransacaoService {
     }
 
     public boolean validarFraude(Transacao transacao){
-       return fraudeValidatorsList.stream().anyMatch(
+       return fraudeValidatorsList.stream().noneMatch(
                fraudeValidator -> fraudeValidator.validate(transacao));
     }
 }
