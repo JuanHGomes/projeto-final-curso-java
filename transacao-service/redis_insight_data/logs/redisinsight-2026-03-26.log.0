@@ -379,3 +379,4 @@
 }
 3/26/2026, 11:47:45 AM | INFO | NestApplication | Nest application successfully started | { error: undefined, data: undefined }
 3/26/2026, 11:47:45 AM | INFO | boostrap | Server is running on http(s)://0.0.0.0:5540 | { error: undefined, data: undefined }
+3/26/2026, 5:49:59 PM | INFO | boostrap | Signal SIGTERM received. Shutting down... | { error: undefined, data: undefined }

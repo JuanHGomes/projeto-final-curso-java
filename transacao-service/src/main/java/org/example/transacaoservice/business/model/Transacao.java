@@ -13,5 +13,6 @@ public class Transacao {
     private Long valor;
     private TipoTransacao tipoTransacao;
     private LocalDateTime timeStamp;
+    private String estabelecimento;
     private boolean aprovada;
 }

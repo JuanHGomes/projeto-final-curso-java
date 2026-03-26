@@ -15,6 +15,8 @@ public class TransacaoRedisRepositoryImpl implements TransacaoRepository{
     private static final String TRANSACAO_PREFIX = "transacao:";
 
     private final RedisTemplate<String, Object> redisTemplate;
+    private final ObjectMapper objectMapper;
+
 
     @Override
     public Transacao save(Transacao transacao) {
@@ -23,12 +25,30 @@ public class TransacaoRedisRepositoryImpl implements TransacaoRepository{
 
     @Override
     public Optional<LocalDateTime> getTimeStampByNumeroConta(String numeroConta) {
-        ObjectMapper objectMapper = new ObjectMapper();
-
         String json = (String) redisTemplate.opsForValue()
                 .get(TRANSACAO_PREFIX+numeroConta);
+
+        if(json == null){
+            return Optional.empty();
+        }
+
         Transacao transacao = objectMapper.readValue(json, Transacao.class);
 
         return Optional.ofNullable(transacao.getTimeStamp());
+    }
+
+    @Override
+    public Optional<Transacao> getTransacaoByNumeroConta(String numeroConta) {
+
+        String json = (String) redisTemplate.opsForValue()
+                .get(TRANSACAO_PREFIX+numeroConta);
+
+        if(json == null){
+            return Optional.empty();
+        }
+
+        Transacao transacao = objectMapper.readValue(json, Transacao.class);
+
+        return Optional.of(transacao);
     }
 }
