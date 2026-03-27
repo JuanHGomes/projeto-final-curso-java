@@ -19,4 +19,9 @@ public class ContaRepositoryRedisImpl implements ContaRepository{
     public Long getLimiteCreditoByNumeroConta(String numeroConta) {
         return (Long) redisTemplate.opsForHash().get(numeroConta, "limiteCredito");
     }
+
+    @Override
+    public boolean updateSaldo(String numeroConta, Long valor) {
+        return false;
+    }
 }

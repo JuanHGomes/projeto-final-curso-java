@@ -7,4 +7,8 @@ public class Conta {
     private String numeroConta;
     private Long saldo;
     private Long limiteCredito;
+
+    public void setSaldo(Long saldo) {
+        this.saldo = saldo;
+    }
 }

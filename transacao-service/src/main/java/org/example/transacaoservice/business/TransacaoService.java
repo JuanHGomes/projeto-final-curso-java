@@ -49,6 +49,7 @@ public class TransacaoService {
     }
 
     private boolean executarTransacaoDebito(Transacao transacao) {
+        contaRepository.updateSaldo(transacao.getNumeroConta(),transacao.getValor());
         return false;
     }
 
