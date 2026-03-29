@@ -1,6 +1,7 @@
 package org.example.transacaoservice.data.conta;
 
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
 public class ContaEntity {

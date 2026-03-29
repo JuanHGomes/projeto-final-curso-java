@@ -2,7 +2,7 @@ package org.example.transacaoservice.business.validators;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.transacaoservice.business.model.Transacao;
+import org.example.transacaoservice.business.transacao.model.Transacao;
 import org.example.transacaoservice.data.transacao.TransacaoRepository;
 import org.springframework.stereotype.Component;
 

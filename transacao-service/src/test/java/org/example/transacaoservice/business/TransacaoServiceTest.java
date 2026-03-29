@@ -1,6 +1,7 @@
 package org.example.transacaoservice.business;
 
-import org.example.transacaoservice.business.model.Transacao;
+import org.example.transacaoservice.business.transacao.TransacaoService;
+import org.example.transacaoservice.business.transacao.model.Transacao;
 import org.example.transacaoservice.business.validators.FraudeValidators;
 import org.example.transacaoservice.data.conta.ContaRepository;
 import org.example.transacaoservice.enums.TipoTransacao;

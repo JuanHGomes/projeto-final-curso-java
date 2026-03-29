@@ -1,6 +1,6 @@
 package org.example.transacaoservice.data.transacao;
 
-import org.example.transacaoservice.business.model.Transacao;
+import org.example.transacaoservice.business.transacao.model.Transacao;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

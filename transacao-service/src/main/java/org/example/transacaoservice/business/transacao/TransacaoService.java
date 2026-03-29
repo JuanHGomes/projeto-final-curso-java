@@ -1,11 +1,12 @@
-package org.example.transacaoservice.business;
+package org.example.transacaoservice.business.transacao;
 
 import lombok.RequiredArgsConstructor;
-import org.example.transacaoservice.business.model.Transacao;
+import org.example.transacaoservice.business.transacao.model.Transacao;
 import org.example.transacaoservice.business.validators.FraudeValidators;
 import org.example.transacaoservice.data.conta.ContaRepository;
 import org.example.transacaoservice.data.transacao.TransacaoRepository;
 import org.example.transacaoservice.enums.TipoTransacao;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class TransacaoService {
+    @Qualifier("contaRepositoryJpaImpl")
     private final ContaRepository contaRepository;
     private final TransacaoRepository transacaoRepository;
     private final List<FraudeValidators> fraudeValidatorsList;

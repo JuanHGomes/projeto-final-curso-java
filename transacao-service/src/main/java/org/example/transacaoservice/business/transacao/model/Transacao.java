@@ -1,4 +1,4 @@
-package org.example.transacaoservice.business.model;
+package org.example.transacaoservice.business.transacao.model;
 
 import lombok.Getter;
 import lombok.Setter;
