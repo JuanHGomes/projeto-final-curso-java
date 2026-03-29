@@ -20,8 +20,6 @@ services:
       - "8001:5540"
     volumes:
       - ./redis_insight_data:/data
-    networks:
-      - app-net
 
   # Postgres Database
   postgres:
@@ -36,9 +34,3 @@ services:
       - "5432:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
-    networks:
-      - app-net
-
-networks:
-  app-net:
-    driver: bridge
