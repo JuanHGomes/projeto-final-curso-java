@@ -1,3 +1,14 @@
 spring:
   application:
     name: notificacao-service
+  cloud:
+    function:
+      definition: notificationConsumer
+    stream:
+      bindings:
+        notificationConsumer-in-0:
+          destination: notifications
+          group: notification-service
+      kafka:
+        binder:
+          brokers: localhost:9092
