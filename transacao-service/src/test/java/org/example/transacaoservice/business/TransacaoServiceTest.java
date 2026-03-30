@@ -4,6 +4,7 @@ import org.example.transacaoservice.business.transacao.TransacaoService;
 import org.example.transacaoservice.business.transacao.model.Transacao;
 import org.example.transacaoservice.business.validators.FraudeValidators;
 import org.example.transacaoservice.data.conta.ContaRepository;
+import org.example.transacaoservice.data.transacao.TransacaoRepository;
 import org.example.transacaoservice.enums.TipoTransacao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -34,6 +35,9 @@ class TransacaoServiceTest {
 
     @InjectMocks
     private TransacaoService transacaoService;
+
+    @Mock
+    private TransacaoRepository transacaoRepository;
 
     private Transacao transacao;
 
@@ -160,7 +164,7 @@ class TransacaoServiceTest {
         when(fraudeValidator2.validate(transacao)).thenReturn(false);
 
         List<FraudeValidators> validators = List.of(fraudeValidator1, fraudeValidator2);
-        transacaoService = new TransacaoService(contaRepository, validators);
+        transacaoService = new TransacaoService(contaRepository, transacaoRepository, validators);
 
         boolean resultado = transacaoService.validarFraude(transacao);
 
@@ -175,7 +179,7 @@ class TransacaoServiceTest {
         when(fraudeValidator1.validate(transacao)).thenReturn(true);
 
         List<FraudeValidators> validators = List.of(fraudeValidator1, fraudeValidator2);
-        transacaoService = new TransacaoService(contaRepository, validators);
+        transacaoService = new TransacaoService(contaRepository, transacaoRepository, validators);
 
         boolean resultado = transacaoService.validarFraude(transacao);
 
@@ -190,7 +194,7 @@ class TransacaoServiceTest {
         when(fraudeValidator2.validate(transacao)).thenReturn(true);
 
         List<FraudeValidators> validators = List.of(fraudeValidator1, fraudeValidator2);
-        transacaoService = new TransacaoService(contaRepository, validators);
+        transacaoService = new TransacaoService(contaRepository, transacaoRepository, validators);
 
         boolean resultado = transacaoService.validarFraude(transacao);
 
@@ -202,7 +206,7 @@ class TransacaoServiceTest {
     @Test
     @DisplayName("Should return true when validators list is empty")
     void deveRetornarTrueQuandoListaValidadoresVazia() {
-        transacaoService = new TransacaoService(contaRepository, Collections.emptyList());
+        transacaoService = new TransacaoService(contaRepository, transacaoRepository, Collections.emptyList());
 
         boolean resultado = transacaoService.validarFraude(transacao);
 
@@ -223,7 +227,7 @@ class TransacaoServiceTest {
         when(fraudeValidator1.validate(transacao)).thenReturn(true);
 
         List<FraudeValidators> validators = List.of(fraudeValidator1, fraudeValidator2);
-        transacaoService = new TransacaoService(contaRepository, validators);
+        transacaoService = new TransacaoService(contaRepository, transacaoRepository, validators);
 
         boolean resultado = transacaoService.validarFraude(transacao);
 
