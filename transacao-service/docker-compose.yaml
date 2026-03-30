@@ -9,9 +9,9 @@ services:
     volumes:
       - ./redis_data:/data
     networks:
-      - app-net
+      - backend-net
 
-  # Redis Insight (GUI)
+  # Redis GUI
   redis-insight:
     image: redis/redisinsight:latest
     container_name: redis-insight
@@ -20,17 +20,42 @@ services:
       - "8001:5540"
     volumes:
       - ./redis_insight_data:/data
+    networks:
+      - backend-net
 
-  # Postgres Database
+  # PostgreSQL Database
   postgres:
     image: postgres:16-alpine
     container_name: my-postgres-db
     restart: always
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydatabase
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: appdb
     ports:
       - "5432:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend-net
+
+  # PostgreSQL GUI (pgAdmin)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    volumes:
+      - ./pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - backend-net
+
+networks:
+  backend-net:
+    driver: bridge
