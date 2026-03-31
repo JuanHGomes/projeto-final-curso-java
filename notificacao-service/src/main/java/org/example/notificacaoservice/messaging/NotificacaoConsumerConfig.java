@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 
 @RequiredArgsConstructor
 @Component
-public class NotificacaoConsumer {
+public class NotificacaoConsumerConfig {
     private final NotificacaoService notificacaoService;
 
     @Bean
