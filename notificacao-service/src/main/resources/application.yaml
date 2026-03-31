@@ -9,6 +9,10 @@ spring:
         notificacaoConsumer-in-0:
           destination: notificacao
           group: notificacao-service
+          content-type: application/json
+        notificacaoProducer-out-0:
+          destination: notificacao
+          content-type: application/json
       kafka:
         binder:
           brokers: localhost:9092

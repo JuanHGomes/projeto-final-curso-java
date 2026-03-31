@@ -11,7 +11,6 @@ public class NotificacaoService {
     private final NotificacaoHub hub;
 
     public Flux<Notificacao> receberNotificacao(String numeroConta) {
-
         return hub.subscribe(numeroConta);
     }
 
