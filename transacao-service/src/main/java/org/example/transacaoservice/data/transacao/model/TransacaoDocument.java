@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 @Document(collection = "transacoes")
 public class TransacaoDocument {
     @Id
+    private String id;
     private String numeroConta;
     private Long valor;
     private TipoTransacao tipoTransacao;
