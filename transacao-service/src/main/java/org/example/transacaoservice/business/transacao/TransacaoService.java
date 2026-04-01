@@ -1,7 +1,7 @@
 package org.example.transacaoservice.business.transacao;
 
 import lombok.RequiredArgsConstructor;
-import org.example.transacaoservice.business.transacao.executors.TransacaoOperators;
+import org.example.transacaoservice.business.transacao.operators.TransacaoOperators;
 import org.example.transacaoservice.business.transacao.model.Transacao;
 import org.example.transacaoservice.business.validators.FraudeValidators;
 import org.example.transacaoservice.data.conta.ContaRepository;
@@ -9,6 +9,7 @@ import org.example.transacaoservice.data.transacao.TransacaoRepository;
 import org.example.transacaoservice.enums.TipoTransacao;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -44,21 +45,24 @@ public class TransacaoService {
                fraudeValidator -> fraudeValidator.validate(transacao));
     }
 
-    public boolean executarTransacao(Transacao transacao) throws Exception {
+    @Transactional
+    public void executarTransacao(Transacao transacao) throws Exception {
         switch (transacao.getTipoTransacao()){
-            case TipoTransacao.CREDITO -> {return executarTransacaoCredito(transacao);}
-            case TipoTransacao.DEBITO -> {return executarTransacaoDebito(transacao);}
+            case TipoTransacao.CREDITO ->  executarTransacaoCredito(transacao);
+            case TipoTransacao.DEBITO -> executarTransacaoDebito(transacao);
             default -> throw new Exception("Tipo de transação inválida");
         }
     }
 
-    private boolean executarTransacaoDebito(Transacao transacao) {
+    private void executarTransacaoDebito(Transacao transacao) {
         Long valor = transacao.getValor();
-        transacaoOperatorsList.forEach();
-        return false;
+        String numeroConta = transacao.getNumeroConta();
+        transacaoOperatorsList.forEach(operator -> operator.updateSaldo(numeroConta, valor));
     }
 
-    private boolean executarTransacaoCredito(Transacao transacao) {
-        return false;
+    private void executarTransacaoCredito(Transacao transacao) {
+        Long valor = transacao.getValor();
+        String numeroConta = transacao.getNumeroConta();
+        transacaoOperatorsList.forEach(operator -> operator.updateLimiteCredito(numeroConta, valor));
     }
 }

@@ -3,6 +3,8 @@ package org.example.transacaoservice.data.conta;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.example.transacaoservice.business.conta.model.Conta;
+import org.example.transacaoservice.business.transacao.operators.TransacaoOperators;
+import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +12,8 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Repository
-public class ContaRepositoryJpaImpl implements ContaRepository{
+@Order(2)
+public class ContaRepositoryJpaImpl implements ContaRepository, TransacaoOperators {
 
     private final ContaRepositoryDao dao;
 
@@ -26,7 +29,8 @@ public class ContaRepositoryJpaImpl implements ContaRepository{
     }
 
     @Override
-    public boolean updateSaldo(String numeroConta, Long valor) {
+    //todo mudar para mongo, salvar somente as transacoes
+    public void updateSaldo(String numeroConta, Long valor) {
         Optional<Conta> conta = dao.findByNumeroConta(numeroConta);
 
         conta.ifPresentOrElse(contaEncontrada -> {
@@ -36,7 +40,11 @@ public class ContaRepositoryJpaImpl implements ContaRepository{
             dao.save(contaEncontrada);
         }, () -> {throw new RuntimeException("Conta não encontrada");
         });
-
-        return true;
     }
+
+    @Override
+    public void updateLimiteCredito(String numeroConta, Long valor) {
+
+    }
+
 }
