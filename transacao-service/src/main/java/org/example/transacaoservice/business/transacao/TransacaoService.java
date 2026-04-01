@@ -1,6 +1,7 @@
 package org.example.transacaoservice.business.transacao;
 
 import lombok.RequiredArgsConstructor;
+import org.example.transacaoservice.business.transacao.executors.TransacaoOperators;
 import org.example.transacaoservice.business.transacao.model.Transacao;
 import org.example.transacaoservice.business.validators.FraudeValidators;
 import org.example.transacaoservice.data.conta.ContaRepository;
@@ -18,6 +19,7 @@ public class TransacaoService {
     private final ContaRepository contaRepository;
     private final TransacaoRepository transacaoRepository;
     private final List<FraudeValidators> fraudeValidatorsList;
+    private final List<TransacaoOperators> transacaoOperatorsList;
 
     public boolean validarFundos(Transacao transacao) throws Exception {
         switch (transacao.getTipoTransacao()){
@@ -51,7 +53,8 @@ public class TransacaoService {
     }
 
     private boolean executarTransacaoDebito(Transacao transacao) {
-        contaRepository.updateSaldo(transacao.getNumeroConta(),transacao.getValor());
+        Long valor = transacao.getValor();
+        transacaoOperatorsList.forEach();
         return false;
     }
 
