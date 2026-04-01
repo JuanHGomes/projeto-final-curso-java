@@ -1,6 +1,7 @@
 package org.example.transacaoservice.business.transacao;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.transacaoservice.business.transacao.operators.TransacaoOperators;
 import org.example.transacaoservice.business.transacao.model.Transacao;
 import org.example.transacaoservice.business.validators.FraudeValidators;
@@ -13,12 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class TransacaoService {
-    @Qualifier("contaRepositoryJpaImpl")
     private final ContaRepository contaRepository;
-    private final TransacaoRepository transacaoRepository;
     private final List<FraudeValidators> fraudeValidatorsList;
     private final List<TransacaoOperators> transacaoOperatorsList;
 
@@ -47,6 +47,7 @@ public class TransacaoService {
 
     @Transactional
     public void executarTransacao(Transacao transacao) throws Exception {
+        log.info("Iniciando execução de transação: {}", transacao);
         switch (transacao.getTipoTransacao()){
             case TipoTransacao.CREDITO ->  executarTransacaoCredito(transacao);
             case TipoTransacao.DEBITO -> executarTransacaoDebito(transacao);
@@ -55,14 +56,11 @@ public class TransacaoService {
     }
 
     private void executarTransacaoDebito(Transacao transacao) {
-        Long valor = transacao.getValor();
-        String numeroConta = transacao.getNumeroConta();
-        transacaoOperatorsList.forEach(operator -> operator.updateSaldo(numeroConta, valor));
+        log.info("Iniciando execução de transação: DEBITO");
+        transacaoOperatorsList.forEach(operator -> operator.updateSaldo(transacao));
     }
 
     private void executarTransacaoCredito(Transacao transacao) {
-        Long valor = transacao.getValor();
-        String numeroConta = transacao.getNumeroConta();
-        transacaoOperatorsList.forEach(operator -> operator.updateLimiteCredito(numeroConta, valor));
+        transacaoOperatorsList.forEach(operator -> operator.updateLimiteCredito(transacao));
     }
 }

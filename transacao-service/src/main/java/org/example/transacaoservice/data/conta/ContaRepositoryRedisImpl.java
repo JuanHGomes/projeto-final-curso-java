@@ -1,16 +1,19 @@
 package org.example.transacaoservice.data.conta;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.example.transacaoservice.business.transacao.model.Transacao;
 import org.example.transacaoservice.business.transacao.operators.TransacaoOperators;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
+@Slf4j
 @RequiredArgsConstructor
 @Repository
 @Order(1)
 public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOperators {
-    private static final String CONTA_PREFIX = "conta:";
+    private static final String CONTA_PREFIX = "numeroConta:";
 
     private final RedisTemplate<String, Object> redisTemplate;
 
@@ -26,12 +29,15 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
     }
 
     @Override
-    public void updateSaldo(String numeroConta, Long valor) {
-       redisTemplate.opsForHash().increment(CONTA_PREFIX+numeroConta, "saldo", -valor);
+    public void updateSaldo(Transacao transacao) {
+        log.info("Iniciando atualização do saldo no Redis");
+       redisTemplate.opsForHash().increment(
+               CONTA_PREFIX+transacao.getNumeroConta(), "saldo", -transacao.getValor());
     }
 
     @Override
-    public void updateLimiteCredito(String numeroConta, Long valor) {
-        redisTemplate.opsForHash().increment(CONTA_PREFIX+numeroConta, "limiteCredito", -valor);
+    public void updateLimiteCredito(Transacao transacao) {
+        redisTemplate.opsForHash().increment(
+                CONTA_PREFIX+transacao.getNumeroConta(), "limiteCredito", -transacao.getValor());
     }
 }

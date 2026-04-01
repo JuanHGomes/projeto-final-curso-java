@@ -23,4 +23,9 @@ public class TransacaoController {
     public boolean validarFraude(@RequestBody Transacao transacao){
         return transacaoService.validarFraude(transacao);
     }
+
+    @PostMapping("executarTransacao")
+    public void executarTransacao(@RequestBody Transacao transacao) throws Exception {
+        transacaoService.executarTransacao(transacao);
+    }
 }
