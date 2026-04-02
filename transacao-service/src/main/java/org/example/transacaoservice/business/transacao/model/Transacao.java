@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.example.transacaoservice.enums.TipoTransacao;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -20,5 +21,5 @@ public class Transacao {
     private TipoTransacao tipoTransacao;
     private LocalDateTime timeStamp;
     private String estabelecimento;
-    private boolean aprovada;
+    private Map<String, Boolean> historico;
 }

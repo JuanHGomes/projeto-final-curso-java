@@ -18,21 +18,30 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class TransacaoService {
+    private static final String FUNDOS_KEY = "FUNDOS_SUFICIENTES";
+    private static final String EXECUCAO_KEY = "EXECUCAO_SUCESSO";
+    private static final String FRAUDE_KEY = "FRAUDE";
+
+
     private final ContaRepository contaRepository;
     private final List<FraudeValidators> fraudeValidatorsList;
     private final List<TransacaoOperators> transacaoOperatorsList;
 
-    public boolean validarFundos(Transacao transacao) throws Exception {
-        switch (transacao.getTipoTransacao()){
-            case TipoTransacao.CREDITO -> {return validarLimiteCredito(transacao);}
-            case TipoTransacao.DEBITO -> {return validarSaldo(transacao);}
+    public Transacao validarFundos(Transacao transacao) throws Exception {
+        log.info("Iniciando validação de fundos, transacao: {}", transacao.toString());
+        boolean isFundosSuficientes = switch (transacao.getTipoTransacao()) {
+            case TipoTransacao.CREDITO -> validarLimiteCredito(transacao);
+            case TipoTransacao.DEBITO -> validarSaldo(transacao);
             default -> throw new Exception("Tipo de transação inválida");
-        }
+        };
+
+        return atualizarHistorico(transacao, FUNDOS_KEY, isFundosSuficientes);
     }
 
     private boolean validarSaldo(Transacao transacao) {
         Long saldo = contaRepository.getSaldoByNumeroConta(transacao.getNumeroConta());
-        return saldo >= transacao.getValor();
+        Long valor = transacao.getValor();
+        return saldo >= valor;
     }
 
     private boolean validarLimiteCredito(Transacao transacao) {
@@ -40,27 +49,41 @@ public class TransacaoService {
         return limiteCredito >= transacao.getValor();
     }
 
-    public boolean validarFraude(Transacao transacao){
-       return fraudeValidatorsList.stream().noneMatch(
-               fraudeValidator -> fraudeValidator.validate(transacao));
+    public Transacao validarFraude(Transacao transacao) {
+       boolean isFraude = fraudeValidatorsList.stream().anyMatch(
+                fraudeValidator -> fraudeValidator.validate(transacao));
+
+       return atualizarHistorico(transacao, FRAUDE_KEY, isFraude);
     }
 
     @Transactional
-    public void executarTransacao(Transacao transacao) throws Exception {
+    public Transacao executarTransacao(Transacao transacao) throws Exception {
+
         log.info("Iniciando execução de transação: {}", transacao);
-        switch (transacao.getTipoTransacao()){
-            case TipoTransacao.CREDITO ->  executarTransacaoCredito(transacao);
+        boolean isTranscaoExecutadaComSucesso = switch (transacao.getTipoTransacao()) {
+            case TipoTransacao.CREDITO -> executarTransacaoCredito(transacao);
             case TipoTransacao.DEBITO -> executarTransacaoDebito(transacao);
             default -> throw new Exception("Tipo de transação inválida");
-        }
+        };
+
+        return atualizarHistorico(transacao, EXECUCAO_KEY, isTranscaoExecutadaComSucesso);
     }
 
-    private void executarTransacaoDebito(Transacao transacao) {
+    private boolean executarTransacaoDebito(Transacao transacao) {
         log.info("Iniciando execução de transação: DEBITO");
-        transacaoOperatorsList.forEach(operator -> operator.updateSaldo(transacao));
+      return transacaoOperatorsList.stream()
+              .allMatch(operator -> operator.updateSaldo(transacao));
     }
 
-    private void executarTransacaoCredito(Transacao transacao) {
-        transacaoOperatorsList.forEach(operator -> operator.updateLimiteCredito(transacao));
+    private boolean executarTransacaoCredito(Transacao transacao) {
+        log.info("Iniciando execução de transação: CREDITO");
+        return transacaoOperatorsList.stream()
+                .allMatch(operator -> operator.updateLimiteCredito(transacao));
+    }
+
+    private Transacao atualizarHistorico(Transacao transacao, String key, boolean valor) {
+        transacao.getHistorico()
+                .put(key, valor);
+        return transacao;
     }
 }

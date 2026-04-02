@@ -8,6 +8,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Slf4j
 @RequiredArgsConstructor
 @Repository
@@ -19,25 +21,36 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
 
     @Override
     public Long getSaldoByNumeroConta(String numeroConta) {
-        Long saldo = (Long) redisTemplate.opsForHash().get(CONTA_PREFIX+numeroConta, "saldo");
-        return saldo;
+       Optional<Object> value = Optional.ofNullable(redisTemplate.opsForHash().get(CONTA_PREFIX+numeroConta, "saldo"));
+      return value
+              .map(Object::toString)
+              .map(Long::valueOf)
+              .orElse(0L);
     }
 
     @Override
     public Long getLimiteCreditoByNumeroConta(String numeroConta) {
-        return (Long) redisTemplate.opsForHash().get(CONTA_PREFIX+numeroConta, "limiteCredito");
+        Optional<Object> value = Optional.ofNullable(redisTemplate.opsForHash().get(CONTA_PREFIX+numeroConta, "limiteCredito"));
+        return value
+                .map(Object::toString)
+                .map(Long::valueOf)
+                .orElse(0L);
     }
 
     @Override
-    public void updateSaldo(Transacao transacao) {
+    public boolean updateSaldo(Transacao transacao) {
         log.info("Iniciando atualização do saldo no Redis");
-       redisTemplate.opsForHash().increment(
+       Long saldoAtualizado = redisTemplate.opsForHash().increment(
                CONTA_PREFIX+transacao.getNumeroConta(), "saldo", -transacao.getValor());
+
+       return saldoAtualizado != null;
     }
 
     @Override
-    public void updateLimiteCredito(Transacao transacao) {
-        redisTemplate.opsForHash().increment(
+    public boolean updateLimiteCredito(Transacao transacao) {
+        Long limiteCreditoAtualizado = redisTemplate.opsForHash().increment(
                 CONTA_PREFIX+transacao.getNumeroConta(), "limiteCredito", -transacao.getValor());
+
+        return limiteCreditoAtualizado != null;
     }
 }

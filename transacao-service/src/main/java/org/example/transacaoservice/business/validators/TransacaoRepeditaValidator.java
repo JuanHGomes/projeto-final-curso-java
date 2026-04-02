@@ -14,7 +14,6 @@ public class TransacaoRepeditaValidator implements FraudeValidators {
 
     @Override
     public boolean validate(Transacao novaTransacao) {
-
         String numeroConta = novaTransacao.getNumeroConta();
 
         boolean isFraude = transacaoRepository.getTransacaoByNumeroConta(numeroConta)
@@ -30,10 +29,8 @@ public class TransacaoRepeditaValidator implements FraudeValidators {
     }
 
     private boolean isValorEhEstabelecimentoIdenticos(Transacao transacaoAnterior, Transacao novaTransacao) {
-
         Long valorTransacaoAnterior = transacaoAnterior.getValor();
         Long valorNovaTransacao = novaTransacao.getValor();
-
         String estabelecimentoTransacaoAnterior = transacaoAnterior.getEstabelecimento();
         String estabelecimentoNovaTransacao = novaTransacao.getEstabelecimento();
 

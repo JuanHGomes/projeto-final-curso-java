@@ -13,7 +13,6 @@ public class TransacaoMapper {
                 .tipoTransacao(transacao.getTipoTransacao())
                 .timeStamp(transacao.getTimeStamp())
                 .estabelecimento(transacao.getEstabelecimento())
-                .aprovada(transacao.isAprovada())
                 .build();
     }
 
@@ -24,7 +23,6 @@ public class TransacaoMapper {
                 .tipoTransacao(transacaoDocument.getTipoTransacao())
                 .timeStamp(transacaoDocument.getTimeStamp())
                 .estabelecimento(transacaoDocument.getEstabelecimento())
-                .aprovada(transacaoDocument.isAprovada())
                 .build();
     }
 }

@@ -646,3 +646,219 @@
   },
   data: [ { userId: '1', accountId: '1', sessionId: '1' } ]
 }
+4/1/2026, 4:25:15 PM | ERROR | KeytarEncryptionStrategy | Failed to initialize keytar module | {
+  error: {
+    type: 'Error',
+    message: 'Error loading shared library libsecret-1.so.0: No such file or directory (needed by /usr/src/app/redisinsight/api/node_modules/keytar/build/Release/keytar.node)',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:15 PM | ERROR | CommandsJsonProvider:redisjson | Unable to update redisjson commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:15 PM | ERROR | CommandsJsonProvider:redistimeseries | Unable to update redistimeseries commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:15 PM | ERROR | CommandsJsonProvider:redisgears | Unable to update redisgears commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:15 PM | ERROR | CommandsJsonProvider:main | Unable to update main commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:15 PM | ERROR | CommandsJsonProvider:redisgraph | Unable to update redisgraph commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:15 PM | ERROR | CommandsJsonProvider:main | Unable to update main commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:15 PM | ERROR | CommandsJsonProvider:redisearch | Unable to update redisearch commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:15 PM | ERROR | CommandsJsonProvider:redisearch | Unable to update redisearch commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:15 PM | ERROR | CommandsJsonProvider:redistimeseries | Unable to update redistimeseries commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:redistimeseries | Unable to update redistimeseries commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:redisgears | Unable to update redisgears commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:main | Unable to update main commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:redisgears | Unable to update redisgears commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:redisbloom | Unable to update redisbloom commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:redisgraph | Unable to update redisgraph commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:redisjson | Unable to update redisjson commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:redisjson | Unable to update redisjson commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:redisgraph | Unable to update redisgraph commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:redisbloom | Unable to update redisbloom commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:redisbloom | Unable to update redisbloom commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | CommandsJsonProvider:redisearch | Unable to update redisearch commands | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | LocalFeaturesConfigService | Unable to fetch remote config | {
+  error: {
+    type: 'AxiosError',
+    message: 'unable to verify the first certificate',
+    stack: undefined,
+    cause: undefined
+  },
+  data: undefined
+}
+4/1/2026, 4:25:16 PM | ERROR | LocalFeaturesConfigService | Something wrong with remote config | {
+  error: {
+    type: 'UnableToFetchRemoteConfigException',
+    message: 'Unable to fetch remote config',
+    stack: undefined,
+    cause: undefined
+  },
+  data: [ { userId: '1', accountId: '1', sessionId: '1' } ]
+}
