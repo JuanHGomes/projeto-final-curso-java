@@ -10,8 +10,7 @@ public class TransacaoService {
 
     private final TransacaoRepository transacaoRepository;
 
-    public void validarFundos(Transacao transacao) {
-        transacaoRepository.validarFundos(transacao);
-
+    public Transacao validarFundos(Transacao transacao) {
+       return transacaoRepository.validarFundos(transacao);
     }
 }
