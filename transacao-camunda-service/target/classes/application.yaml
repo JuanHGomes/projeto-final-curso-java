@@ -1,4 +1,22 @@
-spring.datasource.url: jdbc:h2:file:./camunda-h2-database
+server:
+  port: 8083
+spring:
+  datasource:
+    url: jdbc:h2:file:./camunda-h2-database
+  cloud:
+    function:
+      definition: transacaoConsumer
+    stream:
+      bindings:
+        transacaoConsumer-in-0:
+          destination: transacao
+          group: transacao-service
+          content-type: application/json
+      kafka:
+        binder:
+          brokers: localhost:9092
+
+
 
 camunda.bpm.admin-user:
   id: demo

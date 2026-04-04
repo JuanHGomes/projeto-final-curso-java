@@ -5,6 +5,7 @@ import com.example.workflow.business.enums.TipoTransacao;
 import java.time.LocalDateTime;
 import java.util.Map;
 
+@Builder
 public class Transacao {
     private String numeroConta;
     private Long valor;
