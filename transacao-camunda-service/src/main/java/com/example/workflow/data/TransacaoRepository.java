@@ -11,7 +11,7 @@ public class TransacaoRepository {
         this.client = client;
     }
 
-    public void validarFundos(Transacao transacao) {
-        client.validarFundos(transacao);
+    public Transacao validarFundos(Transacao transacao) {
+        return client.validarFundos(transacao);
     }
 }
