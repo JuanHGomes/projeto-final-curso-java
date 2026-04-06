@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_08ayz1u" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.44.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.24.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_08ayz1u" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.45.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.24.0">
   <bpmn:process id="Process_0yx7sis" isExecutable="true" camunda:historyTimeToLive="180">
     <bpmn:exclusiveGateway id="Gateway_0lo9ikp" name="Valido ?">
       <bpmn:incoming>Flow_1plj3ol</bpmn:incoming>
@@ -27,7 +27,7 @@
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_01p4a05" sourceRef="Activity_0t1vse6" targetRef="Gateway_1bha5wb" />
     <bpmn:sequenceFlow id="Flow_1w25qwf" name="Sim" sourceRef="Gateway_1bha5wb" targetRef="Activity_14mpukm">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isFraude}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!isFraude}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:exclusiveGateway id="Gateway_0sdvu51" name="Sucesso?">
       <bpmn:incoming>Flow_1kd8xs8</bpmn:incoming>
@@ -46,7 +46,7 @@
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_090emzi" sourceRef="Activity_1ngtuka" targetRef="Gateway_1tx5ip1" />
     <bpmn:sequenceFlow id="Flow_0ibr43n" name="Não" sourceRef="Gateway_1bha5wb" targetRef="Gateway_1mtcmqc">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!isFraude}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isFraude}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_0c5uz7j" name="Não" sourceRef="Gateway_0sdvu51" targetRef="Gateway_1mtcmqc">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!execucaoSucesso}</bpmn:conditionExpression>
