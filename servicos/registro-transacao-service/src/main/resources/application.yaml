@@ -1,0 +1,19 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: registro-transacao-service
+  mongodb:
+    uri: mongodb://mongo:mongo@localhost:27017/test?authSource=admin
+  cloud:
+    function:
+      definition: registroTransacaoConsumer
+    stream:
+      bindings:
+        registroTransacaoConsumer-in-0:
+          destination: registro-transacao-topic
+          group: registro-transacao-service
+          content-type: application/json
+      kafka:
+        binder:
+          brokers: localhost:9092

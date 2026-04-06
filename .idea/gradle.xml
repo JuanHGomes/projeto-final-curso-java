@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/notificacao-service" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/servicos/notificacao-service" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/notificacao-service" />
+            <option value="$PROJECT_DIR$/servicos/notificacao-service" />
           </set>
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/registro-transacao-service" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/servicos/registro-transacao-service" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/registro-transacao-service" />
+            <option value="$PROJECT_DIR$/servicos/registro-transacao-service" />
           </set>
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/transacao-service" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/servicos/transacao-service" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/transacao-service" />
+            <option value="$PROJECT_DIR$/servicos/transacao-service" />
           </set>
         </option>
       </GradleProjectSettings>

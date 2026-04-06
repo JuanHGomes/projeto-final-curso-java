@@ -3,7 +3,7 @@ mongodb_data/
 redis_data/
 redis_insight_data/
 kafka_data/
-transacao-service/mongodb_data/
+servicos/transacao-service/mongodb_data/
 
 # OS files
 .DS_Store

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/projeto-final-curso-java.iml" filepath="$PROJECT_DIR$/.idea/projeto-final-curso-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/notificacao-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/notificacao-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/projeto-final.iml" filepath="$PROJECT_DIR$/.idea/projeto-final.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/transacao-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/transacao-service.main.iml" />
     </modules>
   </component>
