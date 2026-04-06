@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 @RequiredArgsConstructor
 @Service
 public class TransacaoService {
-    private static final String BASE_NOTIFICACAO_TRANSACAO_NAO_CONCLUIDA = "Transação não concluída! Veja abaixo o motivo\r";
+    private static final String BASE_NOTIFICACAO_TRANSACAO_NAO_CONCLUIDA = "Transação não concluída! Veja abaixo o motivo\n";
     private static final String TOPICO_NOTIFICACAO = "notificacaoProducer-out-0";
 
     private final TransacaoRepository transacaoRepository;
@@ -34,7 +34,6 @@ public class TransacaoService {
     }
 
     public void enviarNotificacao(Transacao transacao){
-        log.info("Iniciado envio de notificação");
         AtualizacaoHistorico ultimaAtualizacaoHistorico = getUltimaAtualizacaoHistorico((LinkedHashMap<String, Boolean>)transacao.getHistorico());
         String numeroConta = transacao.getNumeroConta();
         String etapa = ultimaAtualizacaoHistorico.etapa();

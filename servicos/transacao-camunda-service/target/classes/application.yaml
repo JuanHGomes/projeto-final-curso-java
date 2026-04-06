@@ -22,8 +22,10 @@ spring:
         binder:
           brokers: localhost:9092
 
-
-
-camunda.bpm.admin-user:
-  id: demo
-  password: demo
+camunda:
+  bpm:
+    admin-user:
+      id: demo
+      password: demo
+    job-execution:
+      enabled: true
