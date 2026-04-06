@@ -9,9 +9,13 @@ spring:
     stream:
       bindings:
         transacaoConsumer-in-0:
-          destination: transacao
+          destination: transacao-topic
           group: transacao-service
           content-type: application/json
+        transacaoProducer-out-0:
+          destination: transacao-topic
+        notificacaoProducer-out-0:
+          destination: notificacao-topic
       kafka:
         binder:
           brokers: localhost:9092

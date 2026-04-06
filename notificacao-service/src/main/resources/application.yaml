@@ -7,11 +7,11 @@ spring:
     stream:
       bindings:
         notificacaoConsumer-in-0:
-          destination: notificacao
+          destination: notificacao-topic
           group: notificacao-service
           content-type: application/json
         notificacaoProducer-out-0:
-          destination: notificacao
+          destination: notificacao-topic
           content-type: application/json
       kafka:
         binder:

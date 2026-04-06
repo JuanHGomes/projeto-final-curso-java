@@ -4,18 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-public class Notificacao {
-    private String numeroConta;
-    private String mensagem;
+public record Notificacao(
+        String numeroConta,
+        String mensagem
 
-    public String getNumeroConta() {
-        return numeroConta;
-    }
-
-    public String getMensagem() {
-        return mensagem;
-    }
+) {
 }
