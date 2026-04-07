@@ -27,7 +27,7 @@ public class ValidarFraudeDelegate implements JavaDelegate {
         Transacao transacaoValidada = transacaoService.validarFraude(transacao);
 
         boolean isFraude = transacaoValidada.getHistorico().get(FRAUDE_KEY);
-        log.info("Validacao de frude finalizada, resultado: {}", isFraude);
+        log.info("Validacao de frude finalizada, resultado: isFraude = {}", isFraude);
 
         execution.setVariable(TRANSACAO_VARIABLE, transacaoValidada);
         execution.setVariable(IS_FRAUDE_VARIABLE, isFraude);

@@ -1,6 +1,5 @@
 package org.example.transacaoservice.business.jobs;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.transacaoservice.business.transacao.TransacaoService;
@@ -9,6 +8,7 @@ import org.example.transacaoservice.data.transacao.TransacaoRepository;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import tools.jackson.databind.ObjectMapper;
 
 import java.util.Set;
 

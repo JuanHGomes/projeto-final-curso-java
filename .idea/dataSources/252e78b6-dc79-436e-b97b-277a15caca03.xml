@@ -25,5 +25,8 @@
     <redis-key id="18" parent="2" name="numeroConta:123">
       <Type>hash-table</Type>
     </redis-key>
+    <redis-key id="19" parent="2" name="transacao:123">
+      <Type>string</Type>
+    </redis-key>
   </database-model>
 </dataSource>

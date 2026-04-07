@@ -22,5 +22,18 @@ public class Transacao {
     private TipoTransacao tipoTransacao;
     private LocalDateTime timeStamp;
     private String estabelecimento;
+
     private LinkedHashMap<String, Boolean> historico;
+
+    @Override
+    public String toString() {
+        return "Transacao{" +
+                "numeroConta='" + numeroConta + '\'' +
+                ", valor=" + valor +
+                ", tipoTransacao=" + tipoTransacao +
+                ", timeStamp=" + timeStamp +
+                ", estabelecimento='" + estabelecimento + '\'' +
+                ", historico=" + historico +
+                '}';
+    }
 }

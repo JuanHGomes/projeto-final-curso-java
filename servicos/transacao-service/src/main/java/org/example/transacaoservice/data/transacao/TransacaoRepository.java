@@ -10,6 +10,5 @@ import java.util.Optional;
 public interface TransacaoRepository {
     public Transacao save(Transacao transacao);
     public Optional<LocalDateTime> getTimeStampByNumeroConta(String numeroConta);
-
     public Optional<Transacao> getTransacaoByNumeroConta(String numeroConta);
 }

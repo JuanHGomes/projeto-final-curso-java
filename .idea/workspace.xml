@@ -5,8 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e2462e-52b3-4f92-a8c2-d4728cd0aaa4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notas.md" beforeDir="false" afterPath="$PROJECT_DIR$/notas.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camunda-h2-database.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/api/CamundaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/api/CamundaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ValidarFraudeDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ValidarFraudeDelegate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/resources/transacao.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/resources/transacao.bpmn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/ValidarFraudeDelegate.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/ValidarFraudeDelegate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/business/TransacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/business/TransacaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/data/TransacaoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/data/TransacaoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/data/TransacaoRestClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/data/TransacaoRestClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/transacao.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/transacao.bpmn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/jobs/ReconciliacaoJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/jobs/ReconciliacaoJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/transacao/TransacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/transacao/TransacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TempoEntreTransacoesValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TempoEntreTransacoesValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepositoryRedisImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepositoryRedisImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TranascaoRepositoryMongoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryMongoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,12 +88,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.transacao-camunda.executor": "Run",
+    "Application.transacao-camunda.executor": "Debug",
     "Docker.Compose-projeto-final.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
-    "Gradle.notificacao-service [:org.example.notificacaoservice.NotificacaoServiceApplication.main()].executor": "Run",
-    "Gradle.registro-transacao-service [:org.example.registrotransacaoservice.RegistroTransacaoServiceApplication.main()].executor": "Run",
-    "Gradle.transacao-service [:org.example.transacaoservice.TransacaoServiceApplication.main()].executor": "Run",
+    "Gradle.notificacao-service [:org.example.notificacaoservice.NotificacaoServiceApplication.main()].executor": "Debug",
+    "Gradle.registro-transacao-service [:org.example.registrotransacaoservice.RegistroTransacaoServiceApplication.main()].executor": "Debug",
+    "Gradle.transacao-service [:org.example.transacaoservice.TransacaoServiceApplication.main()].executor": "Debug",
+    "HTTP Request.generated-requests | #1.executor": "Run",
     "HTTP Request.generated-requests | #8.executor": "Run",
     "HTTP Request.generated-requests | #9.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -113,8 +129,19 @@
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="HttpClient.HttpRequestRunConfigurationType">
+          <value>
+            <map>
+              <entry key="generated-requests | #1" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
-  <component name="RunManager" selected="Application.registro-transacao">
+  <component name="RunManager" selected="Application.transacao-camunda">
     <configuration name="notificao-service" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="ms-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -157,6 +184,9 @@
       <toRun name="transacao-camunda" type="Application" />
       <toRun name="transacao-service" type="Application" />
       <toRun name="Compose-projeto-final" type="docker-deploy" />
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests | #8" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#8" index="8" runType="Run single request">
@@ -208,6 +238,7 @@
       <item itemvalue="Application.registro-transacao" />
       <item itemvalue="Compound.Projeto-final" />
       <item itemvalue="Docker.Compose-projeto-final" />
+      <item itemvalue="HTTP Request.generated-requests | #1" />
       <item itemvalue="HTTP Request.generated-requests | #9" />
       <item itemvalue="HTTP Request.generated-requests | #8" />
       <item itemvalue="Spring Boot.NotificacaoServiceApplication" />
@@ -217,6 +248,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="HTTP Request.generated-requests | #8" />
         <item itemvalue="HTTP Request.generated-requests | #9" />
       </list>
@@ -243,5 +275,39 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TempoEntreTransacoesValidator.java</url>
+          <line>25</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TempoEntreTransacoesValidator.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryRedisImpl.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ValidarFundosDelegate.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/messaging/TransacaoConsumerConfig.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

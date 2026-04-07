@@ -14,7 +14,7 @@ import java.util.Optional;
 @Slf4j
 @RequiredArgsConstructor
 @Repository
-public class TranascaoRepositoryMongoImpl implements TransacaoRepository, TransacaoOperators {
+public class TransacaoRepositoryMongoImpl implements TransacaoRepository, TransacaoOperators {
     private final MongoTemplate mongoTemplate;
     private final TransacaoMapper mapper;
 

@@ -1,6 +1,5 @@
 package org.example.transacaoservice.data.conta;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.transacaoservice.business.transacao.model.Transacao;
@@ -8,6 +7,7 @@ import org.example.transacaoservice.business.transacao.operators.TransacaoOperat
 import org.springframework.core.annotation.Order;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
+import tools.jackson.databind.ObjectMapper;
 
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
@@ -43,28 +43,23 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
 
     @Override
     public boolean updateSaldo(Transacao transacao) {
-        String key = CONTA_PREFIX + transacao.getNumeroConta();
-        String lockKey = TRANSACAO_PREFIX + transacao.getNumeroConta();
+        String keyConta = CONTA_PREFIX + transacao.getNumeroConta();
+        String keyTransacao = TRANSACAO_PREFIX + transacao.getNumeroConta();
 
-        if (Boolean.TRUE.equals(redisTemplate.hasKey(lockKey))) {
-            log.warn("Já existe uma transação em curso para a conta: {}", transacao.getNumeroConta());
-            return false;
-        }
-
-        Long saldoAtualizado = redisTemplate.opsForHash().increment(key, "saldo", -transacao.getValor());
+        Long saldoAtualizado = redisTemplate.opsForHash().increment(keyConta, "saldo", -transacao.getValor());
 
         if (saldoAtualizado != null && saldoAtualizado < 0) {
-            redisTemplate.opsForHash().increment(key, "saldo", transacao.getValor());
+            redisTemplate.opsForHash().increment(keyConta, "saldo", transacao.getValor());
             return false;
         }
 
         try {
             String json = objectMapper.writeValueAsString(transacao);
-            redisTemplate.opsForValue().set(lockKey, json, 10, TimeUnit.MINUTES);
+            redisTemplate.opsForValue().set(keyTransacao, json, 10, TimeUnit.MINUTES);
             return true;
         } catch (Exception e) {
             log.error("Erro ao salvar reserva no Redis", e);
-            redisTemplate.opsForHash().increment(key, "saldo", transacao.getValor());
+            redisTemplate.opsForHash().increment(keyTransacao, "saldo", transacao.getValor());
             return false;
         }
     }

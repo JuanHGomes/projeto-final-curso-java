@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -21,12 +22,12 @@ public class TempoEntreTransacoesValidator implements FraudeValidators {
     @Override
     public boolean validate(Transacao novaTransacao) {
         String numeroConta = novaTransacao.getNumeroConta();
-        boolean fraudeDetectada = getTimeStampByNumeroConta(numeroConta)
+        boolean fraudeDetectada = getTransacaoTimeStampByNumeroConta(numeroConta)
                 .filter(timeStamp -> isIntevaloEntreTransacoesMenorOuIgualAhMinimo(timeStamp, novaTransacao.getTimeStamp()))
                 .isPresent();
 
         if(fraudeDetectada){
-            log.warn("Tentativa de transação realizada dentro de {} minutos", INTERVALO_MINITMO);
+            log.warn("Tentativa de transação realizada dentro de {} minutos", INTERVALO_MINITMO.toMinutes());
             return true;
         }
         return false;
@@ -36,7 +37,8 @@ public class TempoEntreTransacoesValidator implements FraudeValidators {
         return Duration.between(timeStampTransacaoEmMemoria, timeStampNovaTransacao).compareTo(INTERVALO_MINITMO) <= 0;
     }
 
-    private Optional<LocalDateTime> getTimeStampByNumeroConta(String numeroConta) {
-        return transacaoRepository.getTimeStampByNumeroConta(numeroConta);
+    private Optional<LocalDateTime> getTransacaoTimeStampByNumeroConta(String numeroConta) {
+        return transacaoRepository.getTransacaoByNumeroConta(numeroConta)
+                .map(Transacao::getTimeStamp);
     }
 }

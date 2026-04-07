@@ -37,17 +37,6 @@ public class TransacaoService {
         return atualizarHistorico(transacao, FUNDOS_KEY, isReservaSucesso);
     }
 
-    private boolean validarSaldo(Transacao transacao) {
-        Long saldo = contaRepository.getSaldoByNumeroConta(transacao.getNumeroConta());
-        Long valor = transacao.getValor();
-        return saldo >= valor;
-    }
-
-    private boolean validarLimiteCredito(Transacao transacao) {
-        Long limiteCredito = contaRepository.getLimiteCreditoByNumeroConta(transacao.getNumeroConta());
-        return limiteCredito >= transacao.getValor();
-    }
-
     public Transacao validarFraude(Transacao transacao) {
        boolean isFraude = fraudeValidatorsList.stream().anyMatch(
                 fraudeValidator -> fraudeValidator.validate(transacao));
@@ -81,8 +70,7 @@ public class TransacaoService {
     }
 
     private Transacao atualizarHistorico(Transacao transacao, String key, boolean valor) {
-        transacao.getHistorico()
-                .put(key, valor);
+        transacao.getHistorico().put(key, valor);
         return transacao;
     }
 }
