@@ -5,27 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e2462e-52b3-4f92-a8c2-d4728cd0aaa4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/registro-transacao-service.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/camunda-h2-database.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/business/RegistroTransacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/business/RegistroTransacaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/data/RegistroTransacaoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/data/RegistroTransacaoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/data/RegistroTransacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/data/RegistroTransacaoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/EnviarNotificacaoDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/EnviarNotificacaoDelegate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/EnviarRegistroTransacaoDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/EnviarRegistroTransacaoDelegate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/business/TransacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/business/TransacaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/resources/transacao.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/resources/transacao.bpmn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/EnviarNotificacaoDelegate.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/EnviarNotificacaoDelegate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/EnviarRegistroTransacaoDelegate.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/EnviarRegistroTransacaoDelegate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/business/TransacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/business/TransacaoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/data/TransacaoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/data/TransacaoRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/messaging/KafkaConsumerConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/messaging/KafkaProducer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/transacao.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/transacao.bpmn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notas.md" beforeDir="false" afterPath="$PROJECT_DIR$/notas.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,21 +47,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HttpClientOnboardingState"><![CDATA[{
-  "isOnboardingCommentShown": true
-}]]></component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="HttpClientOnboardingState">{
+  &quot;isOnboardingCommentShown&quot;: true
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="3BzD0sNGA9ZESHWnbQy1y73SkGK" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -94,8 +75,9 @@
   "keyToString": {
     "Application.transacao-camunda.executor": "Run",
     "Docker.Compose-projeto-final.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
     "Gradle.notificacao-service [:org.example.notificacaoservice.NotificacaoServiceApplication.main()].executor": "Run",
-    "Gradle.registro-transacao-service [:org.example.registrotransacaoservice.RegistroTransacaoServiceApplication.main()].executor": "Debug",
+    "Gradle.registro-transacao-service [:org.example.registrotransacaoservice.RegistroTransacaoServiceApplication.main()].executor": "Run",
     "Gradle.transacao-service [:org.example.transacaoservice.TransacaoServiceApplication.main()].executor": "Run",
     "HTTP Request.generated-requests | #8.executor": "Run",
     "HTTP Request.generated-requests | #9.executor": "Run",
@@ -131,20 +113,8 @@
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
-    <option name="configurationStatuses">
-      <map>
-        <entry key="HttpClient.HttpRequestRunConfigurationType">
-          <value>
-            <map>
-              <entry key="generated-requests | #8" value="STOPPED" />
-              <entry key="generated-requests | #9" value="STOPPED" />
-            </map>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
-  <component name="RunManager" selected="Application.transacao-camunda">
+  <component name="RunManager" selected="Application.registro-transacao">
     <configuration name="notificao-service" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="ms-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
