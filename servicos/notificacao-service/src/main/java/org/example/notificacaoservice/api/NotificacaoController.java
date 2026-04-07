@@ -20,9 +20,25 @@ public class NotificacaoController {
     private final NotificacaoService notificacaoService;
     private final StreamBridge streamBridge;
 
+    @GetMapping("/")
+    public String healthCheck(){
+        return "Notificacao Service is running";
+    }
+
     @GetMapping(value = "/notificacao", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Notificacao> dispararNotificacoes(@RequestParam String numeroConta){
-        return notificacaoService.receberNotificacao(numeroConta);
+        Flux<Notificacao> welcome = Flux.just(Notificacao.builder()
+                .numeroConta(numeroConta)
+                .mensagem("Conectado ao serviço de notificações.")
+                .build());
+        
+        Flux<Notificacao> heartbeat = Flux.interval(java.time.Duration.ofSeconds(20))
+                .map(i -> Notificacao.builder()
+                        .numeroConta(numeroConta)
+                        .mensagem("heartbeat")
+                        .build());
+
+        return Flux.concat(welcome, Flux.merge(notificacaoService.receberNotificacao(numeroConta), heartbeat));
     }
 
     @PostMapping

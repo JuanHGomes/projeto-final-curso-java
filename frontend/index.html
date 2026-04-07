@@ -70,6 +70,7 @@
             const [extrato, setExtrato] = useState([]);
             const [notificacoes, setNotificacoes] = useState([]);
             const [loading, setLoading] = useState(false);
+            const [status, setStatus] = useState("Desconectado");
 
             const fetchExtrato = async (conta) => {
                 setLoading(true);
@@ -89,11 +90,22 @@
             useEffect(() => {
                 if (numeroConta) {
                     fetchExtrato(numeroConta);
+                    setStatus("Conectando...");
                     
                     const eventSource = new EventSource(`http://localhost:8081/notificacao?numeroConta=${numeroConta}`);
                     
+                    eventSource.onopen = (event) => {
+                        console.log("SSE Connection opened for account:", numeroConta);
+                        setStatus("Conectado");
+                    };
+
                     eventSource.onmessage = (event) => {
+                        console.log("New message received:", event.data);
                         const data = JSON.parse(event.data);
+                        
+                        // Ignore heartbeat messages
+                        if (data.mensagem === "heartbeat") return;
+
                         const msg = data.mensagem;
                         setNotificacoes(prev => [...prev, msg]);
                         fetchExtrato(numeroConta);
@@ -104,8 +116,8 @@
                     };
 
                     eventSource.onerror = (err) => {
-                        console.error("SSE Error:", err);
-                        eventSource.close();
+                        console.error("SSE Error occurred. ReadyState:", eventSource.readyState);
+                        setStatus("Erro de Conexão");
                     };
 
                     return () => {
@@ -139,6 +151,12 @@
                                     value={numeroConta} 
                                     onChange={(e) => setNumeroConta(e.target.value)}
                                 />
+                                <div className="mt-2 text-sm">
+                                    <span className="text-gray-600">Status: </span>
+                                    <span className={status === "Conectado" ? "text-green-600 font-bold" : "text-red-600 font-bold"}>
+                                        {status}
+                                    </span>
+                                </div>
                                 <button 
                                     className="btn btn-primary w-full mt-4"
                                     onClick={() => fetchExtrato(numeroConta)}
