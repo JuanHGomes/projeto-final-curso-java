@@ -6,12 +6,14 @@ import org.example.notificacaoservice.business.NotificacaoService;
 import org.example.notificacaoservice.business.model.Notificacao;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @RestController
 public class NotificacaoController {

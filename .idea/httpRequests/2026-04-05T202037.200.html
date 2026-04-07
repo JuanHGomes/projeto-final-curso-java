@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge"/>
+
+    <title>Camunda Tasklist</title>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0"/>
+
+    <meta name="description"
+          content="Camunda Tasklist"/>
+    <meta name="author"
+          content="Camunda services GmbH"/>
+
+    <base href="/camunda/app/tasklist/default/"
+          admin-api="/camunda/api/admin/"
+          cockpit-api="/camunda/api/cockpit/"
+          tasklist-api="/camunda/api/tasklist/"
+          welcome-api="/camunda/api/welcome/"
+          engine-api="/camunda/api/engine/"
+          app-root="/camunda"
+          app-name="tasklist"/>
+
+    <link rel="icon" href="/camunda/favicon.ico">
+    <script defer src="/camunda/lib/runtime.js?bust=7.24.0" nonce="IAEl2pVQeAydcEQ2rtd0BeIHE_E"
+            charset="UTF-8"></script>
+    <script defer src="/camunda/lib/deps.js?bust=7.24.0" nonce="IAEl2pVQeAydcEQ2rtd0BeIHE_E" charset="UTF-8"></script>
+    <script defer src="/camunda/app/tasklist/camunda-tasklist-bootstrap.js?bust=7.24.0"
+            nonce="IAEl2pVQeAydcEQ2rtd0BeIHE_E" charset="UTF-8"></script>
+    <link href="/camunda/app/tasklist/camunda-tasklist-bootstrap.css?bust=7.24.0" rel="stylesheet">
+
+    <link rel="stylesheet"
+          type="text/css"
+          href="/camunda/app/tasklist/styles/user-styles.css?bust=7.24.0">
+</head>
+
+<body ng-controller="camTasklistAppCtrl">
+<div cam-widget-header
+     authentication="authentication"
+     user-name="userFullName"
+     current-app="tasklist"
+     toggle-navigation="{{ 'TOGGLE_NAVIGATION' | translate }}"
+     sign-out="{{ 'SIGN_OUT_ACTION' | translate }}"
+     my-profile="{{ 'MY_PROFILE' | translate }}"
+     ng-cloak>
+    <ul cam-if-logged-in
+        ng-controller="camHeaderViewsCtrl">
+        <li ng-repeat="actionProvider in navbarActions"
+            ng-class="actionProvider.id">
+            <view ng-cloak
+                  provider="actionProvider"
+                  vars="navbarVars">
+            </view>
+        </li>
+    </ul>
+</div>
+
+<div class="site-wrap">
+
+    <!-- # page-content -->
+    <div class="page-wrap three-cols-layout" ng-view>
+        <div class="app-splash">
+            <div>
+                <div class="spinner spinner-big"></div>
+            </div>
+        </div><!-- / .app-splash -->
+    </div>
+    <!-- / page-content -->
+
+</div>
+
+
+<div notifications-panel
+     class="page-notifications"></div>
+
+
+<!-- # page-footer -->
+<footer cam-widget-footer
+        version="v7.24.0"></footer>
+
+
+<script type="text/javascript" nonce="IAEl2pVQeAydcEQ2rtd0BeIHE_E">
+    window.tasklistConf = {
+        apiUri: '/camunda/api/engine',
+        mock: false,
+
+        // overrides the settings above
+        resources: {}
+    };
+
+    window.PLUGIN_DEPENDENCIES = [{
+        ngModuleName: 'tasklist.plugin.tasklistPlugins',
+        requirePackageName: 'tasklist-plugin-tasklistPlugins'
+    }] || [];
+    window.PLUGIN_PACKAGES = [{
+        name: 'tasklist-plugin-tasklistPlugins',
+        location: '/camunda/api/tasklist/plugin/tasklistPlugins/static/app',
+        main: 'plugin.js'
+    }] || [];
+
+    window.require = {
+        waitSeconds: 0
+    };
+</script>
+</body>
+</html>

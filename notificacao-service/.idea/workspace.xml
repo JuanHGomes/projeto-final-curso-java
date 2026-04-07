@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a7f5e9e8-5120-427c-8ddc-6fbfd3625fce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../transacao-camunda-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-camunda-service/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-camunda-service/camunda-h2-database.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-camunda-service/camunda-h2-database.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-camunda-service/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-camunda-service/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/WiredTiger" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/mongodb_data/WiredTiger" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/WiredTiger.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/mongodb_data/WiredTiger.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/WiredTiger.turtle" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/mongodb_data/WiredTiger.turtle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/WiredTiger.wt" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/mongodb_data/WiredTiger.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/WiredTigerHS.wt" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/mongodb_data/WiredTigerHS.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/_mdb_catalog.wt" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/mongodb_data/_mdb_catalog.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/collection-0-3780785550464480940.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/collection-0-7214527302783534228.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/collection-2-3780785550464480940.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/collection-3-7214527302783534228.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/collection-4-3780785550464480940.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/index-1-3780785550464480940.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/index-1-7214527302783534228.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/index-2-7214527302783534228.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/index-3-3780785550464480940.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/index-4-7214527302783534228.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/index-5-3780785550464480940.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/index-6-3780785550464480940.wt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/mongod.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/mongodb_data/mongod.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/sizeStorer.wt" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/mongodb_data/sizeStorer.wt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/mongodb_data/storage.bson" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/mongodb_data/storage.bson" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/redis_data/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/redis_data/dump.rdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/redis_insight_data/logs/.6bd19c9df3732b1bf0cd1db334f34b10fe1e56f4-audit.json" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/redis_insight_data/logs/.6bd19c9df3732b1bf0cd1db334f34b10fe1e56f4-audit.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/redis_insight_data/logs/.87bccf485c553f9b743e455b12e7287f192e2f9b-audit.json" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/redis_insight_data/logs/.87bccf485c553f9b743e455b12e7287f192e2f9b-audit.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../transacao-service/redis_insight_data/redisinsight.db" beforeDir="false" afterPath="$PROJECT_DIR$/../transacao-service/redis_insight_data/redisinsight.db" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3BwZic6VMkjOq3yxlm23NMPTRHE" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/juan/repos/agi/projeto-final-curso-java/notificacao-service",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a7f5e9e8-5120-427c-8ddc-6fbfd3625fce" name="Changes" comment="" />
+      <created>1775402221057</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775402221057</updated>
+      <workItem from="1775402222191" duration="6000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
