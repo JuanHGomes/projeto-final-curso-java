@@ -47,4 +47,11 @@ public class TransacaoController {
 
         return ResponseEntity.ok(transacaoResponse);
     }
+
+    @PostMapping("estornarTransacao")
+    public ResponseEntity<Void> estornarTransacao(@RequestBody TransacaoRequest transacaoRequest) {
+        Transacao transacao = mapper.toTransacao(transacaoRequest);
+        transacaoService.estornarTransacao(transacao);
+        return ResponseEntity.ok().build();
+    }
 }

@@ -45,4 +45,14 @@ public class TranascaoRepositoryMongoImpl implements TransacaoRepository, Transa
         log.info("Iniciando save da tansação no mongo");
         return save(transacao) != null;
     }
+
+    @Override
+    public void confirmarTransacao(Transacao transacao) {
+        log.info("Confirmação de transação no Mongo (No-op)");
+    }
+
+    @Override
+    public void estornarTransacao(Transacao transacao) {
+        log.info("Estorno de transação no Mongo (No-op)");
+    }
 }

@@ -9,6 +9,7 @@ public class TransacaoRestClient {
     private static final String ENDPOINT_VALIDAR_FUNDOS = "validarFundos";
     private static final String ENDPOINT_VALIDAR_FRAUDE = "validarFraude";
     private static final String ENDPOINT_EXECUTAR_TRANSACAO = "executarTransacao";
+    private static final String ENDPOINT_ESTORNAR_TRANSACAO = "estornarTransacao";
 
     private static final String BASE_URL_TRANSACAO = "http://localhost:8082/transacao/";
     private final RestTemplate restTemplate;
@@ -40,5 +41,10 @@ public class TransacaoRestClient {
         Transacao transacaoExecutada = restTemplate.postForObject(url, transacao, Transacao.class);
 
         return transacaoExecutada;
+    }
+
+    public void estornarTransacao(Transacao transacao) {
+        String url = buildUrl(ENDPOINT_ESTORNAR_TRANSACAO);
+        restTemplate.postForObject(url, transacao, Void.class);
     }
 }

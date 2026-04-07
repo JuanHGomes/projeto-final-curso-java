@@ -6,9 +6,7 @@ import org.example.transacaoservice.business.transacao.operators.TransacaoOperat
 import org.example.transacaoservice.business.transacao.model.Transacao;
 import org.example.transacaoservice.business.validators.FraudeValidators;
 import org.example.transacaoservice.data.conta.ContaRepository;
-import org.example.transacaoservice.data.transacao.TransacaoRepository;
 import org.example.transacaoservice.enums.TipoTransacao;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,15 +25,16 @@ public class TransacaoService {
     private final List<FraudeValidators> fraudeValidatorsList;
     private final List<TransacaoOperators> transacaoOperatorsList;
 
+    @Transactional
     public Transacao validarFundos(Transacao transacao) throws Exception {
-        log.info("Iniciando validação de fundos, transacao: {}", transacao.toString());
-        boolean isFundosSuficientes = switch (transacao.getTipoTransacao()) {
-            case TipoTransacao.CREDITO -> validarLimiteCredito(transacao);
-            case TipoTransacao.DEBITO -> validarSaldo(transacao);
+        log.info("Iniciando validação e reserva de fundos, transacao: {}", transacao.toString());
+        boolean isReservaSucesso = switch (transacao.getTipoTransacao()) {
+            case TipoTransacao.CREDITO -> executarTransacaoCredito(transacao);
+            case TipoTransacao.DEBITO -> executarTransacaoDebito(transacao);
             default -> throw new Exception("Tipo de transação inválida");
         };
 
-        return atualizarHistorico(transacao, FUNDOS_KEY, isFundosSuficientes);
+        return atualizarHistorico(transacao, FUNDOS_KEY, isReservaSucesso);
     }
 
     private boolean validarSaldo(Transacao transacao) {
@@ -57,26 +56,26 @@ public class TransacaoService {
     }
 
     @Transactional
-    public Transacao executarTransacao(Transacao transacao) throws Exception {
+    public Transacao executarTransacao(Transacao transacao) {
+        log.info("Confirmando execução de transação: {}", transacao);
+        transacaoOperatorsList.forEach(operator -> operator.confirmarTransacao(transacao));
+        return atualizarHistorico(transacao, EXECUCAO_KEY, true);
+    }
 
-        log.info("Iniciando execução de transação: {}", transacao);
-        boolean isTranscaoExecutadaComSucesso = switch (transacao.getTipoTransacao()) {
-            case TipoTransacao.CREDITO -> executarTransacaoCredito(transacao);
-            case TipoTransacao.DEBITO -> executarTransacaoDebito(transacao);
-            default -> throw new Exception("Tipo de transação inválida");
-        };
-
-        return atualizarHistorico(transacao, EXECUCAO_KEY, isTranscaoExecutadaComSucesso);
+    @Transactional
+    public void estornarTransacao(Transacao transacao) {
+        log.info("Estornando transação: {}", transacao);
+        transacaoOperatorsList.forEach(operator -> operator.estornarTransacao(transacao));
     }
 
     private boolean executarTransacaoDebito(Transacao transacao) {
-        log.info("Iniciando execução de transação: DEBITO");
+        log.info("Iniciando reserva de transação: DEBITO");
       return transacaoOperatorsList.stream()
               .allMatch(operator -> operator.updateSaldo(transacao));
     }
 
     private boolean executarTransacaoCredito(Transacao transacao) {
-        log.info("Iniciando execução de transação: CREDITO");
+        log.info("Iniciando reserva de transação: CREDITO");
         return transacaoOperatorsList.stream()
                 .allMatch(operator -> operator.updateLimiteCredito(transacao));
     }

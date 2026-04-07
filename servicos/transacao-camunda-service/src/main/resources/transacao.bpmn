@@ -29,6 +29,14 @@
     <bpmn:sequenceFlow id="Flow_1w25qwf" name="Sim" sourceRef="Gateway_1bha5wb" targetRef="Activity_14mpukm">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!isFraude}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
+    <bpmn:serviceTask id="Activity_Estorno" name="Estornar Transação" camunda:asyncBefore="true" camunda:delegateExpression="${estornarTransacaoDelegate}">
+      <bpmn:incoming>Flow_0ibr43n</bpmn:incoming>
+      <bpmn:outgoing>Flow_Estorno_To_Gateway</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0ibr43n" name="Não" sourceRef="Gateway_1bha5wb" targetRef="Activity_Estorno">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isFraude}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Estorno_To_Gateway" sourceRef="Activity_Estorno" targetRef="Gateway_1mtcmqc" />
     <bpmn:exclusiveGateway id="Gateway_0sdvu51" name="Sucesso?">
       <bpmn:incoming>Flow_1kd8xs8</bpmn:incoming>
       <bpmn:outgoing>Flow_0c5uz7j</bpmn:outgoing>
@@ -45,9 +53,6 @@
       <bpmn:outgoing>Flow_1pl05w0</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_090emzi" sourceRef="Activity_1ngtuka" targetRef="Gateway_1tx5ip1" />
-    <bpmn:sequenceFlow id="Flow_0ibr43n" name="Não" sourceRef="Gateway_1bha5wb" targetRef="Gateway_1mtcmqc">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isFraude}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_0c5uz7j" name="Não" sourceRef="Gateway_0sdvu51" targetRef="Gateway_1mtcmqc">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!execucaoSucesso}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>

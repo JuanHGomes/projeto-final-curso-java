@@ -25,6 +25,10 @@ public class TransacaoRepository {
         return client.executarTransacao(transacao);
     }
 
+    public void estornarTransacao(Transacao transacao) {
+        client.estornarTransacao(transacao);
+    }
+
     public boolean enviarTransacaoParaRegistro(Transacao transacao) {
         return producer.sendMessage(TOPICO_REGISTRO_TRANSACAO, transacao);
     }

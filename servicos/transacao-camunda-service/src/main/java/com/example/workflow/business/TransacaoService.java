@@ -33,6 +33,10 @@ public class TransacaoService {
         return transacaoRepository.executarTransacao(transacao);
     }
 
+    public void estornarTransacao(Transacao transacao) {
+        transacaoRepository.estornarTransacao(transacao);
+    }
+
     public void enviarNotificacao(Transacao transacao){
         AtualizacaoHistorico ultimaAtualizacaoHistorico = getUltimaAtualizacaoHistorico((LinkedHashMap<String, Boolean>)transacao.getHistorico());
         String numeroConta = transacao.getNumeroConta();
