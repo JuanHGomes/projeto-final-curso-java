@@ -12,7 +12,7 @@
     </bpmn:sequenceFlow>
     <bpmn:exclusiveGateway id="Gateway_1mtcmqc">
       <bpmn:incoming>Flow_1hr8jvl</bpmn:incoming>
-      <bpmn:incoming>Flow_0ibr43n</bpmn:incoming>
+      <bpmn:incoming>Flow_Estorno_To_Gateway</bpmn:incoming>
       <bpmn:incoming>Flow_0c5uz7j</bpmn:incoming>
       <bpmn:incoming>Flow_15ol60n</bpmn:incoming>
       <bpmn:outgoing>Flow_0pdv9fu</bpmn:outgoing>
@@ -147,6 +147,9 @@
       <bpmndi:BPMNShape id="Event_083xrhu_di" bpmnElement="Event_083xrhu">
         <dc:Bounds x="1442" y="162" width="36" height="36" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_Estorno_di" bpmnElement="Activity_Estorno">
+        <dc:Bounds x="660" y="270" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1plj3ol_di" bpmnElement="Flow_1plj3ol">
         <di:waypoint x="380" y="180" />
         <di:waypoint x="425" y="180" />
@@ -186,10 +189,9 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ibr43n_di" bpmnElement="Flow_0ibr43n">
         <di:waypoint x="710" y="205" />
-        <di:waypoint x="710" y="380" />
-        <di:waypoint x="475" y="380" />
+        <di:waypoint x="710" y="270" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="715" y="290" width="21" height="14" />
+          <dc:Bounds x="715" y="235" width="21" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0c5uz7j_di" bpmnElement="Flow_0c5uz7j">
@@ -235,6 +237,11 @@
       <bpmndi:BPMNEdge id="Flow_1pl05w0_di" bpmnElement="Flow_1pl05w0">
         <di:waypoint x="1375" y="180" />
         <di:waypoint x="1442" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Estorno_To_Gateway_di" bpmnElement="Flow_Estorno_To_Gateway">
+        <di:waypoint x="710" y="350" />
+        <di:waypoint x="710" y="380" />
+        <di:waypoint x="475" y="380" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
