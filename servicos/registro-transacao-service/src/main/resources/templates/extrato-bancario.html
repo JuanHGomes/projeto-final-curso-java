@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Extrato Bancário</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; color: #333; margin: 40px; }
+        .header { border-bottom: 2px solid #2563eb; padding-bottom: 10px; margin-bottom: 30px; }
+        .header h1 { color: #2563eb; margin: 0; font-size: 24px; }
+        .info { margin-bottom: 20px; font-size: 14px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background-color: #f3f4f6; text-align: left; padding: 12px; font-size: 12px; border-bottom: 1px solid #ddd; }
+        td { padding: 12px; font-size: 12px; border-bottom: 1px solid #eee; }
+        .valor { text-align: right; font-weight: bold; }
+        .debito { color: #dc2626; }
+        .credito { color: #16a34a; }
+        .footer { margin-top: 50px; text-align: center; font-size: 10px; color: #999; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Digital Bank - Extrato de Conta Corrente</h1>
+    </div>
+    
+    <div class="info">
+        <p><strong>Conta:</strong> <span th:text="${numeroConta}">12345-6</span></p>
+        <p><strong>Período:</strong> <span th:text="${#temporals.format(dataInicio, 'dd/MM/yyyy')}">01/01/2026</span> até <span th:text="${#temporals.format(dataFim, 'dd/MM/yyyy')}">31/01/2026</span></p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Lançamento</th>
+                <th style="text-align: right;">Valor (R$)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="transacao : ${transacoes}">
+                <td th:text="${#temporals.format(transacao.timeStamp, 'dd/MM/yyyy HH:mm')}">01/01/2026</td>
+                <td th:text="${transacao.estabelecimento}">Supermercado Central</td>
+                <td class="valor" 
+                    th:classappend="${transacao.tipoTransacao.name() == 'CREDITO' ? 'credito' : 'debito'}"
+                    th:text="${(transacao.tipoTransacao.name() == 'CREDITO' ? '+' : '-') + ' ' + #numbers.formatDecimal(transacao.valor/100.0, 1, 'POINT', 2, 'COMMA')}">
+                    - 100,00
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        <p>Este documento é um demonstrativo gerado automaticamente e não substitui o extrato oficial para fins legais.</p>
+        <p>Digital Bank S.A. - Gerado em <span th:text="${#temporals.format(#temporals.createNow(), 'dd/MM/yyyy HH:mm')}"></span></p>
+    </div>
+</body>
+</html>

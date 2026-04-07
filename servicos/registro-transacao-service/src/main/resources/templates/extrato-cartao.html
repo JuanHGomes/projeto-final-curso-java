@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Extrato de Cartão de Crédito</title>
+    <style>
+        body { font-family: 'Helvetica', sans-serif; color: #333; margin: 40px; }
+        .header { background-color: #111827; padding: 20px; margin-bottom: 30px; color: white; border-radius: 8px; }
+        .header h1 { margin: 0; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .summary-box { display: block; width: 100%; margin-bottom: 25px; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .summary-header { background-color: #f9fafb; padding: 10px 15px; border-bottom: 1px solid #e5e7eb; font-weight: bold; font-size: 13px; }
+        .summary-content { padding: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th { border-bottom: 2px solid #111827; text-align: left; padding: 10px; font-size: 11px; text-transform: uppercase; color: #6b7280; }
+        td { padding: 12px 10px; font-size: 12px; border-bottom: 1px solid #f3f4f6; }
+        .valor { text-align: right; font-weight: bold; }
+        .debito { color: #111827; }
+        .credito { color: #16a34a; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px dotted #ccc; text-align: right; font-size: 10px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Fatura Mensal - Cartão de Crédito</h1>
+    </div>
+
+    <div class="summary-box">
+        <div class="summary-header">Resumo da Fatura</div>
+        <div class="summary-content">
+            <table style="width: 50%;">
+                <tr><td><strong>Cartão Final:</strong></td><td th:text="${cartaoFinal}">**** 5678</td></tr>
+                <tr><td><strong>Vencimento:</strong></td><td th:text="${#temporals.format(vencimento, 'dd/MM/yyyy')}">10/02/2026</td></tr>
+                <tr><td><strong>Limite Total:</strong></td><td th:text="${'R$ ' + #numbers.formatDecimal(limiteTotal/100.0, 1, 'POINT', 2, 'COMMA')}">R$ 5.000,00</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Estabelecimento</th>
+                <th style="text-align: right;">Valor (R$)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="transacao : ${transacoes}">
+                <td th:text="${#temporals.format(transacao.timeStamp, 'dd/MM/yyyy')}">01/01/2026</td>
+                <td th:text="${transacao.estabelecimento}">Loja de Roupas XYZ</td>
+                <td class="valor" 
+                    th:classappend="${transacao.tipoTransacao.name() == 'CREDITO' ? 'credito' : 'debito'}"
+                    th:text="${(transacao.tipoTransacao.name() == 'CREDITO' ? '-' : '') + ' ' + #numbers.formatDecimal(transacao.valor/100.0, 1, 'POINT', 2, 'COMMA')}">
+                    100,00
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        <p>Pagamento total até o vencimento evita cobrança de encargos contratuais.</p>
+        <p>Central de Atendimento: 0800-XXX-XXXX</p>
+    </div>
+</body>
+</html>
