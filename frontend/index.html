@@ -25,6 +25,9 @@
     <script type="text/babel">
         const { useState, useEffect, useCallback } = React;
 
+        // CHANGE THIS TO THE IP OF THE MACHINE RUNNING THE SERVICES
+        const BACKEND_IP = "localhost"; 
+
         const App = () => {
             const [numeroConta, setNumeroConta] = useState('123');
             const [extrato, setExtrato] = useState([]);
@@ -35,7 +38,7 @@
             const fetchExtrato = useCallback(async (conta) => {
                 setLoading(true);
                 try {
-                    const res = await fetch(`http://localhost:8084/registro-transacao/extrato/${conta}`);
+                    const res = await fetch(`http://${BACKEND_IP}:8084/registro-transacao/extrato/${conta}`);
                     if (res.ok) {
                         const data = await res.json();
                         setExtrato(data.sort((a, b) => new Date(b.timeStamp) - new Date(a.timeStamp)));
@@ -53,7 +56,7 @@
                 fetchExtrato(numeroConta);
                 
                 setStatus('Conectando...');
-                const es = new EventSource(`http://localhost:8081/notificacao?numeroConta=${numeroConta}`);
+                const es = new EventSource(`http://${BACKEND_IP}:8081/notificacao?numeroConta=${numeroConta}`);
 
                 es.onopen = () => setStatus('Conectado');
                 
