@@ -6,12 +6,15 @@ import org.example.notificacaoservice.business.NotificacaoService;
 import org.example.notificacaoservice.business.model.Notificacao;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.http.MediaType;
+import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+
+import java.time.Duration;
 
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
@@ -26,19 +29,26 @@ public class NotificacaoController {
     }
 
     @GetMapping(value = "/notificacao", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<Notificacao> dispararNotificacoes(@RequestParam String numeroConta){
-        Flux<Notificacao> welcome = Flux.just(Notificacao.builder()
-                .numeroConta(numeroConta)
-                .mensagem("Conectado ao serviço de notificações.")
-                .build());
+    public Flux<ServerSentEvent<Notificacao>> dispararNotificacoes(@RequestParam String numeroConta){
         
-        Flux<Notificacao> heartbeat = Flux.interval(java.time.Duration.ofSeconds(20))
-                .map(i -> Notificacao.builder()
-                        .numeroConta(numeroConta)
-                        .mensagem("heartbeat")
+        Flux<ServerSentEvent<Notificacao>> welcome = Flux.just(
+                ServerSentEvent.<Notificacao>builder()
+                        .data(Notificacao.builder()
+                                .numeroConta(numeroConta)
+                                .mensagem("Conectado ao serviço de notificações.")
+                                .build())
+                        .build()
+        );
+
+        Flux<ServerSentEvent<Notificacao>> heartbeat = Flux.interval(Duration.ofSeconds(15))
+                .map(i -> ServerSentEvent.<Notificacao>builder()
+                        .comment("heartbeat")
                         .build());
 
-        return Flux.concat(welcome, Flux.merge(notificacaoService.receberNotificacao(numeroConta), heartbeat));
+        Flux<ServerSentEvent<Notificacao>> notifications = notificacaoService.receberNotificacao(numeroConta)
+                .map(n -> ServerSentEvent.builder(n).build());
+
+        return Flux.concat(welcome, Flux.merge(notifications, heartbeat));
     }
 
     @PostMapping

@@ -14,7 +14,7 @@ public class NotificacaoHub {
 
     public Flux<Notificacao> subscribe(String numeroConta){
         Sinks.Many<Notificacao> sink = sinks.computeIfAbsent(numeroConta,
-                it -> Sinks.many().multicast().onBackpressureBuffer());
+                it -> Sinks.many().multicast().onBackpressureBuffer(100, false));
 
         return sink.asFlux();
     }
