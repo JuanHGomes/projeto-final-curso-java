@@ -159,9 +159,29 @@
                             <div className="lg:col-span-8">
                                 <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
                                     <div className="px-6 py-5 border-b border-gray-100 flex items-center justify-between">
-                                        <h2 className="text-lg font-bold">Extrato Bancário</h2>
-                                        <span className="text-xs font-bold bg-gray-100 text-gray-500 px-3 py-1 rounded-full uppercase">Últimos 30 Dias</span>
+                                    <h2 className="text-lg font-bold">Extrato Bancário</h2>
+                                    <div className="flex space-x-2">
+                                        <button 
+                                            onClick={() => window.location.href = `http://${BACKEND_IP}:8084/registro-transacao/extratoPdf/${numeroConta}`}
+                                            className="text-xs font-bold bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-lg hover:bg-indigo-100 transition-colors flex items-center space-x-1"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                            <span>PDF</span>
+                                        </button>
+                                        <button 
+                                            onClick={async () => {
+                                                try {
+                                                    const res = await fetch(`http://${BACKEND_IP}:8084/registro-transacao/enviarExtratoEmail/${numeroConta}`, { method: 'POST' });
+                                                    if (res.ok) alert("Solicitação de e-mail enviada!");
+                                                } catch (e) { alert("Erro ao enviar e-mail"); }
+                                            }}
+                                            className="text-xs font-bold bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg hover:bg-gray-200 transition-colors flex items-center space-x-1"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                            <span>E-mail</span>
+                                        </button>
                                     </div>
+                                </div>
                                     <div className="overflow-x-auto">
                                         {extrato.length === 0 ? (
                                             <div className="flex flex-col items-center justify-center py-20 text-gray-400">
