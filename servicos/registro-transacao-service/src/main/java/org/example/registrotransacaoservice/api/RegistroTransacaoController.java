@@ -18,7 +18,7 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("registro-transacao/")
+@RequestMapping("registro-transacao")
 public class RegistroTransacaoController {
     private final RegistroTransacaoService registroTransacaoService;
 

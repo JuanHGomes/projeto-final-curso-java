@@ -38,7 +38,7 @@ public class RegistroTransacaoService {
             "dataFim", LocalDateTime.now()
         ));
 
-        String html = templateEngine.process("extrato-bancario", context);
+        String html = templateEngine.process("extrato-bancario.html", context);
         
         try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
             PdfRendererBuilder builder = new PdfRendererBuilder();
