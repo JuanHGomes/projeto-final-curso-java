@@ -8,3 +8,14 @@ servicos/transacao-service/mongodb_data/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Build and IDE artifacts
+.gradle/
+build/
+target/
+.idea/
+*.iml
+node_modules/
+.project
+.settings/
+.classpath
