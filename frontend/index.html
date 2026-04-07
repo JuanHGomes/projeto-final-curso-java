@@ -9,59 +9,14 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            background-color: #f3f4f6;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .input-field {
-            border: 1px solid #d1d5db;
-            border-radius: 4px;
-            padding: 0.5rem;
-            width: 100%;
-            margin-top: 0.25rem;
-        }
-        .btn {
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-        .btn-primary {
-            background-color: #2563eb;
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: #1d4ed8;
-        }
-        .notification-badge {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            padding: 1rem;
-            border-radius: 8px;
-            color: white;
-            animation: slideIn 0.3s ease-out;
-            z-index: 50;
-        }
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
+        body { background-color: #f3f4f6; font-family: sans-serif; }
+        .card { background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
+        .input-field { border: 1px solid #d1d5db; border-radius: 4px; padding: 0.5rem; width: 100%; }
+        .notification-badge { position: fixed; top: 1rem; right: 1rem; padding: 1rem; border-radius: 8px; color: white; background: #2563eb; z-index: 50; }
     </style>
 </head>
 <body>
     <div id="root"></div>
-
     <script type="text/babel">
         const { useState, useEffect } = React;
 
@@ -69,162 +24,89 @@
             const [numeroConta, setNumeroConta] = useState('123');
             const [extrato, setExtrato] = useState([]);
             const [notificacoes, setNotificacoes] = useState([]);
-            const [loading, setLoading] = useState(false);
-            const [status, setStatus] = useState("Desconectado");
-            const [retryCount, setRetryCount] = useState(0);
+            const [status, setStatus] = useState("Iniciando...");
 
             const fetchExtrato = async (conta) => {
-                setLoading(true);
                 try {
                     const response = await fetch(`http://localhost:8084/registro-transacao/extrato/${conta}`);
-                    if (response.ok) {
-                        const data = await response.json();
-                        setExtrato(data);
-                    }
-                } catch (error) {
-                    console.error("Erro ao buscar extrato:", error);
-                } finally {
-                    setLoading(false);
-                }
+                    if (response.ok) setExtrato(await response.json());
+                } catch (e) { console.error(e); }
             };
 
             useEffect(() => {
-                if (numeroConta) {
+                if (!numeroConta) return;
+                fetchExtrato(numeroConta);
+
+                console.log("Tentando conectar SSE...");
+                const es = new EventSource(`http://localhost:8081/notificacao?numeroConta=${numeroConta}`);
+                
+                es.onopen = () => {
+                    console.log("SSE Conectado!");
+                    setStatus("Conectado");
+                };
+
+                es.onmessage = (event) => {
+                    console.log("Mensagem SSE:", event.data);
+                    const data = JSON.parse(event.data);
+                    if (data.mensagem === "heartbeat") return;
+                    
+                    setNotificacoes(prev => [...prev, data.mensagem]);
                     fetchExtrato(numeroConta);
-                    setStatus("Conectando...");
-                    
-                    const eventSource = new EventSource(`http://localhost:8081/notificacao?numeroConta=${numeroConta}`);
-                    
-                    eventSource.onopen = (event) => {
-                        console.log("SSE Connection opened for account:", numeroConta);
-                        setStatus("Conectado");
-                    };
+                    setTimeout(() => setNotificacoes(prev => prev.filter(n => n !== data.mensagem)), 5000);
+                };
 
-                    eventSource.onmessage = (event) => {
-                        console.log("New message received:", event.data);
-                        const data = JSON.parse(event.data);
-                        
-                        if (data.mensagem === "heartbeat") return;
+                es.onerror = (e) => {
+                    console.error("Erro SSE:", e);
+                    setStatus("Erro (ReadyState: " + es.readyState + ")");
+                };
 
-                        const msg = data.mensagem;
-                        setNotificacoes(prev => [...prev, msg]);
-                        fetchExtrato(numeroConta);
-                        
-                        setTimeout(() => {
-                            setNotificacoes(prev => prev.filter(n => n !== msg));
-                        }, 5000);
-                    };
-
-                    eventSource.onerror = (err) => {
-                        console.error("SSE Error occurred. ReadyState:", eventSource.readyState);
-                        setStatus("Erro de Conexão");
-                        eventSource.close();
-                    };
-
-                    return () => {
-                        eventSource.close();
-                    };
-                }
-            }, [numeroConta, retryCount]);
+                return () => es.close();
+            }, [numeroConta]);
 
             return (
-                <div className="container mx-auto p-4 max-w-4xl">
-                    <header className="mb-8 text-center">
-                        <h1 className="text-3xl font-bold text-gray-800">Bank Simulation Dashboard</h1>
-                        <p className="text-gray-600">Real-time Transaction Monitoring</p>
-                    </header>
-
-                    {notificacoes.map((msg, idx) => (
-                        <div key={idx} className="notification-badge bg-blue-600 shadow-lg border border-blue-400">
-                            <p className="font-bold">Nova Notificação!</p>
-                            <p>{msg}</p>
-                        </div>
+                <div className="p-4 max-w-4xl mx-auto">
+                    <h1 className="text-2xl font-bold mb-4">Bank Simulation</h1>
+                    
+                    {notificacoes.map((msg, i) => (
+                        <div key={i} className="notification-badge">{msg}</div>
                     ))}
 
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <div className="md:col-span-1">
-                            <section className="card">
-                                <h2 className="text-xl font-semibold mb-4">Configurações</h2>
-                                <label className="block text-sm font-medium text-gray-700">Número da Conta</label>
-                                <input 
-                                    type="text" 
-                                    className="input-field" 
-                                    value={numeroConta} 
-                                    onChange={(e) => setNumeroConta(e.target.value)}
-                                />
-                                <div className="mt-2 text-sm flex justify-between items-center">
-                                    <div>
-                                        <span className="text-gray-600">Status: </span>
-                                        <span className={status === "Conectado" ? "text-green-600 font-bold" : "text-red-600 font-bold"}>
-                                            {status}
-                                        </span>
-                                    </div>
-                                    <button 
-                                        className="text-blue-600 hover:underline text-xs"
-                                        onClick={() => setRetryCount(prev => prev + 1)}
-                                    >
-                                        Reconectar
-                                    </button>
-                                </div>
-                                <button 
-                                    className="btn btn-primary w-full mt-4"
-                                    onClick={() => fetchExtrato(numeroConta)}
-                                >
-                                    Atualizar Extrato
-                                </button>
-                            </section>
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div className="col-span-1">
+                            <div className="card">
+                                <label className="block text-sm font-medium">Conta</label>
+                                <input type="text" className="input-field" value={numeroConta} onChange={e => setNumeroConta(e.target.value)} />
+                                <div className="mt-2 text-sm">Status: <b>{status}</b></div>
+                            </div>
                         </div>
-
-                        <div className="md:col-span-3">
-                            <section className="card">
-                                <h2 className="text-xl font-semibold mb-4">Extrato Bancário</h2>
-                                {loading ? (
-                                    <p className="text-center py-4">Carregando...</p>
-                                ) : extrato.length === 0 ? (
-                                    <p className="text-center py-4 text-gray-500">Nenhuma transação encontrada.</p>
-                                ) : (
-                                    <div className="overflow-x-auto">
-                                        <table className="min-w-full divide-y divide-gray-200">
-                                            <thead>
-                                                <tr>
-                                                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Data</th>
-                                                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estabelecimento</th>
-                                                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tipo</th>
-                                                    <th className="px-4 py-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Valor</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody className="bg-white divide-y divide-gray-200">
-                                                {extrato.map((t, i) => (
-                                                    <tr key={i}>
-                                                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-500">
-                                                            {new Date(t.timeStamp).toLocaleString()}
-                                                        </td>
-                                                        <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-900 font-medium">
-                                                            {t.estabelecimento}
-                                                        </td>
-                                                        <td className="px-4 py-2 whitespace-nowrap text-sm">
-                                                            <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${t.tipoTransacao === 'CREDITO' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                                                                {t.tipoTransacao}
-                                                            </span>
-                                                        </td>
-                                                        <td className={`px-4 py-2 whitespace-nowrap text-sm text-right font-mono ${t.tipoTransacao === 'CREDITO' ? 'text-green-600' : 'text-red-600'}`}>
-                                                            {t.tipoTransacao === 'CREDITO' ? '+' : '-'} R$ {(t.valor / 100).toFixed(2)}
-                                                        </td>
-                                                    </tr>
-                                                ))}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                )}
-                            </section>
+                        <div className="col-span-3">
+                            <div className="card">
+                                <h2 className="font-bold mb-2">Extrato</h2>
+                                <table className="w-full text-sm">
+                                    <thead><tr className="border-b">
+                                        <th className="text-left p-2">Data</th>
+                                        <th className="text-left p-2">Local</th>
+                                        <th className="text-right p-2">Valor</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        {extrato.map((t, i) => (
+                                            <tr key={i} className="border-b">
+                                                <td className="p-2">{new Date(t.timeStamp).toLocaleString()}</td>
+                                                <td className="p-2">{t.estabelecimento}</td>
+                                                <td className={`p-2 text-right ${t.tipoTransacao === 'CREDITO' ? 'text-green-600' : 'text-red-600'}`}>
+                                                    R$ {(t.valor / 100).toFixed(2)}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             );
         };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
     </script>
 </body>
 </html>
