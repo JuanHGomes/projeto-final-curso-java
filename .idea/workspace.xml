@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e2462e-52b3-4f92-a8c2-d4728cd0aaa4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/252e78b6-dc79-436e-b97b-277a15caca03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/252e78b6-dc79-436e-b97b-277a15caca03.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/camunda-h2-database.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camunda-h2-database.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/business/NotificacaoHub.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/business/NotificacaoHub.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/transacao/TransacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/transacao/TransacaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/transacao/operators/TransacaoOperators.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/transacao/operators/TransacaoOperators.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepositoryRedisImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepositoryRedisImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryMongoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryMongoImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +91,7 @@
     "Gradle.Download Sources.executor": "Run",
     "Gradle.notificacao-service [:org.example.notificacaoservice.NotificacaoServiceApplication.main()].executor": "Run",
     "Gradle.registro-transacao-service [:org.example.registrotransacaoservice.RegistroTransacaoServiceApplication.main()].executor": "Run",
-    "Gradle.transacao-service [:org.example.transacaoservice.TransacaoServiceApplication.main()].executor": "Debug",
+    "Gradle.transacao-service [:org.example.transacaoservice.TransacaoServiceApplication.main()].executor": "Run",
     "HTTP Request.generated-requests | #1.executor": "Run",
     "HTTP Request.generated-requests | #2.executor": "Run",
     "HTTP Request.generated-requests | #3.executor": "Run",
@@ -148,23 +144,13 @@
           <value>
             <map>
               <entry key="generated-requests | #1" value="STOPPED" />
-              <entry key="generated-requests | #2" value="STOPPED" />
-              <entry key="generated-requests | #3" value="STOPPED" />
-              <entry key="generated-requests | #4" value="STOPPED" />
-            </map>
-          </value>
-        </entry>
-        <entry key="SpringBootApplicationConfigurationType">
-          <value>
-            <map>
-              <entry key="NotificacaoServiceApplication (1)" value="STOPPED" />
             </map>
           </value>
         </entry>
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Application.transacao-service">
+  <component name="RunManager" selected="Compound.Projeto-final">
     <configuration name="notificao-service" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="ms-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -324,39 +310,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
-          <line>19</line>
-          <properties>
-            <option name="lambda-ordinal" value="0" />
-          </properties>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryRedisImpl.java</url>
           <line>46</line>
           <option name="timeStamp" value="27" />
@@ -376,7 +329,54 @@
           <line>53</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/transacao/TransacaoService.java</url>
+          <line>42</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/business/NotificacaoHub.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/business/NotificacaoHub.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
+          <line>30</line>
+          <properties class="org.example.transacaoservice.business.validators.TransacaoRepeditaValidator" method="isValorEhEstabelecimentoIdenticos">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="out.println(&quot;Novo subscriber para conta: &quot; + numeroConta);" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

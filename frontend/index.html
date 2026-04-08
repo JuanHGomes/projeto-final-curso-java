@@ -29,7 +29,7 @@
         const BACKEND_IP = "localhost"; 
 
         const App = () => {
-            const [numeroConta, setNumeroConta] = useState('123');
+            const [numeroConta, setNumeroConta] = useState('');
             const [extrato, setExtrato] = useState([]);
             const [notifications, setNotifications] = useState([]);
             const [status, setStatus] = useState('Desconectado');
@@ -155,18 +155,6 @@
                                                 />
                                             </div>
                                         </div>
-                                        <button 
-                                            onClick={() => fetchExtrato(numeroConta)}
-                                            className="w-full bg-gray-900 text-white py-3 rounded-xl font-bold hover:bg-black transition-all flex items-center justify-center space-x-2"
-                                        >
-                                            {loading && <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}
-                                            <span>Sincronizar Agora</span>
-                                        </button>
-                                    </div>
-                                    <div className="mt-8 p-4 bg-indigo-50 rounded-xl border border-indigo-100">
-                                        <p className="text-xs text-indigo-700 leading-relaxed font-medium">
-                                            Suas notificações chegam em tempo real assim que uma transação é processada pelo sistema.
-                                        </p>
                                     </div>
                                 </div>
                             </div>

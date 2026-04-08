@@ -9,12 +9,52 @@ Accept: */*
 "numeroConta": "1234",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:42:00",
+"timeStamp": "2026-04-07T15:49:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T090841.200.json
+<> 2026-04-08T115633.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T115600.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T115556.200.json
 
 ###
 
@@ -29,12 +69,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:42:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T082806.200.json
+<> 2026-04-08T115553.200.json
 
 ###
 
@@ -49,12 +89,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:41:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T082434.200.json
+<> 2026-04-08T115546.200.json
 
 ###
 
@@ -69,12 +109,32 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:41:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T082232.200.json
+<> 2026-04-08T115451.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T115445.200.json
 
 ###
 
@@ -89,12 +149,52 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:40:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T082148.200.json
+<> 2026-04-08T115423.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T114550.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T114544.200.json
 
 ###
 
@@ -109,12 +209,72 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:40:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T082128.200.json
+<> 2026-04-08T114538.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T114532.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T114528.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T114524.200.json
 
 ###
 
@@ -129,12 +289,72 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:39:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081837.200.json
+<> 2026-04-08T114516.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T114508.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "123 ",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T114503.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T114458.200.json
 
 ###
 
@@ -149,12 +369,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:39:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081826.200.json
+<> 2026-04-08T114450.200.json
 
 ###
 
@@ -169,12 +389,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:38:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081754.200.json
+<> 2026-04-08T113819.200.json
 
 ###
 
@@ -189,12 +409,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:37:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081746.200.json
+<> 2026-04-08T113803.200.json
 
 ###
 
@@ -209,12 +429,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:37:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081721.200.json
+<> 2026-04-08T113757.200.json
 
 ###
 
@@ -229,12 +449,32 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:37:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081602.200.json
+<> 2026-04-08T113746.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T113739.200.json
 
 ###
 
@@ -249,12 +489,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:36:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081539.200.json
+<> 2026-04-08T113735.200.json
 
 ###
 
@@ -269,12 +509,32 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:34:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081515.200.json
+<> 2026-04-08T113730.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T113723.200.json
 
 ###
 
@@ -289,12 +549,32 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:34:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081311.200.json
+<> 2026-04-08T113711.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T113341.200.json
 
 ###
 
@@ -309,12 +589,132 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:33:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081303.200.json
+<> 2026-04-08T113235.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T113118.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T112842.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T112812.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T112644.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T112532.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T112515.200.json
 
 ###
 
@@ -329,12 +729,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:33:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081256.200.json
+<> 2026-04-08T112509.200.json
 
 ###
 
@@ -349,12 +749,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:32:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081250.200.json
+<> 2026-04-08T112449.200.json
 
 ###
 
@@ -369,12 +769,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:32:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081245.200.json
+<> 2026-04-08T112432.200.json
 
 ###
 
@@ -389,12 +789,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:30:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081221.200.json
+<> 2026-04-08T112411.200.json
 
 ###
 
@@ -409,12 +809,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:30:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T081211.200.json
+<> 2026-04-08T112336.200.json
 
 ###
 
@@ -429,12 +829,112 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:30:00",
+"timeStamp": "2026-04-07T15:47:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T074808.200.json
+<> 2026-04-08T112326.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:47:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T112124.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:46:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T112104.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:46:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T112047.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:46:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T112038.200.json
+
+###
+
+POST http://localhost:8083/camundaTeste/
+Content-Type: application/json
+Content-Length: 163
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+"numeroConta": "1234",
+"valor": 1500,
+"tipoTransacao": "DEBITO",
+"timeStamp": "2026-04-07T15:46:00",
+"estabelecimento": "Quiosque do Pedrinho",
+"historico": {}
+}
+
+<> 2026-04-08T112001.200.json
 
 ###
 
@@ -449,12 +949,12 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:30:00",
+"timeStamp": "2026-04-07T15:46:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T074804.200.json
+<> 2026-04-08T111953.200.json
 
 ###
 
@@ -469,455 +969,32 @@ Accept: */*
 "numeroConta": "123",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:30:00",
+"timeStamp": "2026-04-07T15:46:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T074722.200.json
+<> 2026-04-08T111807.200.json
 
 ###
 
 POST http://localhost:8083/camundaTeste/
 Content-Type: application/json
-Content-Length: 162
+Content-Length: 163
 User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
 Accept-Encoding: br, deflate, gzip, x-gzip
 Accept: */*
 
 {
-"numeroConta": "123",
+"numeroConta": "1234",
 "valor": 1500,
 "tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:30:00",
+"timeStamp": "2026-04-07T15:46:00",
 "estabelecimento": "Quiosque do Pedrinho",
 "historico": {}
 }
 
-<> 2026-04-08T074630.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 162
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-"numeroConta": "123",
-"valor": 1500,
-"tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:30:00",
-"estabelecimento": "Quiosque do Pedrinho",
-"historico": {}
-}
-
-<> 2026-04-08T074615.200.json
-
-###
-
-GET http://localhost:8084/registro-transacao/extrato/123
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-<> 2026-04-08T074605.200.json
-
-###
-
-GET http://localhost:8084/registro-transacao/extrato/123
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-<> 2026-04-08T074457.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 162
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-"numeroConta": "123",
-"valor": 1500,
-"tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:30:00",
-"estabelecimento": "Quiosque do Pedrinho",
-"historico": {}
-}
-
-<> 2026-04-08T073854.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-06T23:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T220652.200.json
-
-###
-
-GET http://localhost:8084/registro-transacao/extrato/123
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-<> 2026-04-07T220126.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-06T23:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T220117.200.json
-
-###
-
-GET http://localhost:8084/registro-transacao/extrato/123
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-<> 2026-04-07T215850.200.json
-
-###
-
-GET http://localhost:8084/registro-transacao/extrato/123
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-<> 2026-04-07T215545.200.json
-
-###
-
-GET http://localhost:8084/registro-transacao/extrato/123
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-<> 2026-04-07T215342.200.json
-
-###
-
-GET http://localhost:8084/registro-transacao/extrato/123
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-<> 2026-04-07T215117.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T23:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T214046.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T22:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T214008.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T22:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T213952.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T22:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T213857.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T20:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T213806.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T20:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T213714.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T20:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T213603.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T20:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T213349.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T20:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T213214.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T20:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T213110.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T20:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T212908.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T20:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T212304.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T20:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T212220.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 173
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2026.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-  "numeroConta": "123",
-  "valor": 100,
-  "tipoTransacao": "DEBITO",
-  "timeStamp": "2025-04-07T20:00:00",
-  "estabelecimento": "Quiosque do Juquinha",
-  "historico": {}
-}
-
-<> 2026-04-07T212205.200.json
+<> 2026-04-08T111744.200.json
 
 ###
 

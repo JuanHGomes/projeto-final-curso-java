@@ -93,7 +93,6 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
     @Override
     public void estornarTransacao(Transacao transacao) {
         String contaKey = CONTA_PREFIX + transacao.getNumeroConta();
-        String transacaoKey = TRANSACAO_PREFIX + transacao.getNumeroConta();
 
         log.info("Estornando transação no Redis para a conta: {}", transacao.getNumeroConta());
 
@@ -102,7 +101,5 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
         } else {
             redisTemplate.opsForHash().increment(contaKey, "limiteCredito", transacao.getValor());
         }
-
-        redisTemplate.delete(transacaoKey);
     }
 }

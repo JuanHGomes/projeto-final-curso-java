@@ -25,7 +25,6 @@ public class TransacaoService {
     private final ContaRepository contaRepository;
     private final List<FraudeValidators> fraudeValidatorsList;
     private final List<TransacaoOperators> transacaoOperatorsList;
-    private final TransacaoRepository transacaoRepository;
 
     @Transactional
     public Transacao validarFundos(Transacao transacao) throws Exception {
