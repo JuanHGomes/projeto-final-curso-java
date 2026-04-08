@@ -8,141 +8,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/252e78b6-dc79-436e-b97b-277a15caca03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/252e78b6-dc79-436e-b97b-277a15caca03.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/69be2dbb-fc62-4a07-9be4-7d84899aa657.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T104908.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T105100.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T105207.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T105233.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T105515.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T105524.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T105911.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T105946.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T110053.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T110430.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T141812.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T142411.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T144805.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T144916.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T155100.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T155505.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T155738.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T160300.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T160919.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T160926.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T161011.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T162722.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T162754.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T162758.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T162839.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2026-04-06T162845.200.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/camunda-h2-database.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/camunda-h2-database.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.gradle/9.4.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.gradle/9.4.1/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.gradle/9.4.1/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.gradle/9.4.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.gradle/9.4.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.gradle/9.4.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.gradle/9.4.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.gradle/9.4.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notificacao-service/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro-transacao-service/.gradle/9.4.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro-transacao-service/.gradle/9.4.1/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro-transacao-service/.gradle/9.4.1/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro-transacao-service/.gradle/9.4.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro-transacao-service/.gradle/9.4.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro-transacao-service/.gradle/9.4.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro-transacao-service/.gradle/9.4.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro-transacao-service/.gradle/9.4.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro-transacao-service/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro-transacao-service/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registro-transacao-service/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/api/NotificacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/api/NotificacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/business/NotificacaoHub.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/business/NotificacaoHub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/messaging/NotificacaoConsumerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/messaging/NotificacaoConsumerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/data/RegistroTransacaoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/data/RegistroTransacaoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/data/RegistroTransacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/data/RegistroTransacaoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/transacao/TransacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/transacao/TransacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/transacao/operators/TransacaoOperators.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/transacao/operators/TransacaoOperators.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepositoryRedisImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepositoryRedisImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryMongoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryMongoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/9.4.0/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/9.4.0/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/9.4.0/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/9.4.0/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/9.4.0/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/9.4.0/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/9.4.0/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/9.4.0/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/9.4.0/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/9.4.0/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/TransacaoServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/api/TransacaoApiMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/api/TransacaoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/api/model/TransacaoRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/api/model/TransacaoResponse$TransacaoResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/api/model/TransacaoResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/business/conta/model/Conta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/business/transacao/TransacaoService$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/business/transacao/TransacaoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/business/transacao/model/Transacao$TransacaoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/business/transacao/model/Transacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/business/transacao/operators/TransacaoOperators.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/business/validators/FraudeValidators.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/business/validators/TempoEntreTransacoesValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/config/RedisTemplateConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/data/conta/ContaRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/data/conta/ContaRepositoryRedisImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/data/transacao/TranascaoRepositoryMongoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/data/transacao/TransacaoMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/data/transacao/TransacaoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/data/transacao/TransacaoRepositoryRedisImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/data/transacao/model/TransacaoDocument$TransacaoDocumentBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/data/transacao/model/TransacaoDocument.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/classes/java/main/org/example/transacaoservice/enums/TipoTransacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/reports/problems/problems-report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/resources/main/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/ContaRepositoryRedisImpl.class.uniqueId9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/FraudeValidators.class.uniqueId12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TempoEntreTransacoesValidator.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TranascaoRepositoryMongoImpl.class.uniqueId5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/Transacao$TransacaoBuilder.class.uniqueId4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/Transacao.class.uniqueId8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TransacaoApiMapper.class.uniqueId14" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TransacaoController.class.uniqueId11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TransacaoMapper.class.uniqueId10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TransacaoOperators.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TransacaoRepeditaValidator.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TransacaoRepository.class.uniqueId15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TransacaoRepositoryRedisImpl.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TransacaoRequest.class.uniqueId6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TransacaoService$1.class.uniqueId13" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/compileTransaction/stash-dir/TransacaoService.class.uniqueId7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao-service/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/transacao.bpmn" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,8 +95,9 @@
     "Gradle.Download Sources.executor": "Run",
     "Gradle.notificacao-service [:org.example.notificacaoservice.NotificacaoServiceApplication.main()].executor": "Run",
     "Gradle.registro-transacao-service [:org.example.registrotransacaoservice.RegistroTransacaoServiceApplication.main()].executor": "Run",
-    "Gradle.transacao-service [:org.example.transacaoservice.TransacaoServiceApplication.main()].executor": "Run",
+    "Gradle.transacao-service [:org.example.transacaoservice.TransacaoServiceApplication.main()].executor": "Debug",
     "HTTP Request.generated-requests | #1.executor": "Run",
+    "HTTP Request.generated-requests | #2.executor": "Run",
     "HTTP Request.generated-requests | #3.executor": "Run",
     "HTTP Request.generated-requests | #4.executor": "Run",
     "HTTP Request.generated-requests | #8.executor": "Run",
@@ -273,6 +148,7 @@
           <value>
             <map>
               <entry key="generated-requests | #1" value="STOPPED" />
+              <entry key="generated-requests | #2" value="STOPPED" />
               <entry key="generated-requests | #3" value="STOPPED" />
               <entry key="generated-requests | #4" value="STOPPED" />
             </map>
@@ -288,12 +164,12 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Application.registro-transacao">
+  <component name="RunManager" selected="Application.transacao-service">
     <configuration name="notificao-service" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="ms-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.example.notificacaoservice.NotificacaoServiceApplication" />
-      <module name="org.example.notificacao-service.main" />
+      <module name="notificacao-service.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -302,7 +178,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="ms-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.example.registrotransacaoservice.RegistroTransacaoServiceApplication" />
-      <module name="org.example.registro-transacao-service.main" />
+      <module name="registro-transacao-service.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -320,7 +196,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="ms-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.example.transacaoservice.TransacaoServiceApplication" />
-      <module name="org.example.transacao-service.main" />
+      <module name="transacao-service.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -336,13 +212,13 @@
     <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#2" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#3" index="3" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#4" index="4" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests | #8" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#8" index="8" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -373,14 +249,14 @@
       </method>
     </configuration>
     <configuration name="RegistroTransacaoServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="org.example.registro-transacao-service.main" />
+      <module name="registro-transacao-service.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.registrotransacaoservice.RegistroTransacaoServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="TransacaoServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="org.example.transacao-service.main" />
+      <module name="transacao-service.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.transacaoservice.TransacaoServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -401,10 +277,10 @@
       <item itemvalue="Application.registro-transacao" />
       <item itemvalue="Compound.Projeto-final" />
       <item itemvalue="Docker.Compose-projeto-final" />
+      <item itemvalue="HTTP Request.generated-requests | #2" />
       <item itemvalue="HTTP Request.generated-requests | #3" />
       <item itemvalue="HTTP Request.generated-requests | #4" />
       <item itemvalue="HTTP Request.generated-requests | #1" />
-      <item itemvalue="HTTP Request.generated-requests | #8" />
       <item itemvalue="Spring Boot.NotificacaoServiceApplication" />
       <item itemvalue="Spring Boot.RegistroTransacaoServiceApplication" />
       <item itemvalue="Spring Boot.TransacaoServiceApplication" />
@@ -413,11 +289,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="HTTP Request.generated-requests | #2" />
         <item itemvalue="HTTP Request.generated-requests | #4" />
         <item itemvalue="HTTP Request.generated-requests | #3" />
-        <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="Spring Boot.NotificacaoServiceApplication (1)" />
-        <item itemvalue="HTTP Request.generated-requests | #8" />
       </list>
     </recent_temporary>
   </component>
@@ -448,9 +324,57 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryMongoImpl.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
+          <line>19</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryRedisImpl.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryRedisImpl.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryRedisImpl.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryRedisImpl.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

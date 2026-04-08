@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="0@localhost">
-  <database-model serializer="dbm" dbms="REDIS" family-id="REDIS" format-version="4.55">
+  <database-model serializer="dbm" dbms="REDIS" family-id="REDIS" format-version="4.54">
     <root id="1">
       <ServerVersion>8.6.2</ServerVersion>
     </root>
@@ -24,6 +24,9 @@
     <schema id="17" parent="1" name="9"/>
     <redis-key id="18" parent="2" name="numeroConta:123">
       <Type>hash-table</Type>
+    </redis-key>
+    <redis-key id="19" parent="2" name="transacao:123">
+      <Type>string</Type>
     </redis-key>
   </database-model>
 </dataSource>

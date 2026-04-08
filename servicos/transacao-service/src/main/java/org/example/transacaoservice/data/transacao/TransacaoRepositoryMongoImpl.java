@@ -35,19 +35,8 @@ public class TransacaoRepositoryMongoImpl implements TransacaoRepository, Transa
     }
 
     @Override
-    public boolean updateSaldo(Transacao transacao) {
-        log.info("Iniciando save da tansação no mongo");
-        return save(transacao) != null;
-    }
-
-    @Override
-    public boolean updateLimiteCredito(Transacao transacao) {
-        log.info("Iniciando save da tansação no mongo");
-        return save(transacao) != null;
-    }
-
-    @Override
     public void confirmarTransacao(Transacao transacao) {
+        save(transacao);
     }
 
     @Override

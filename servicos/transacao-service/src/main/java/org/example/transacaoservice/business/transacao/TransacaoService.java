@@ -6,6 +6,7 @@ import org.example.transacaoservice.business.transacao.operators.TransacaoOperat
 import org.example.transacaoservice.business.transacao.model.Transacao;
 import org.example.transacaoservice.business.validators.FraudeValidators;
 import org.example.transacaoservice.data.conta.ContaRepository;
+import org.example.transacaoservice.data.transacao.TransacaoRepository;
 import org.example.transacaoservice.enums.TipoTransacao;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,12 +25,13 @@ public class TransacaoService {
     private final ContaRepository contaRepository;
     private final List<FraudeValidators> fraudeValidatorsList;
     private final List<TransacaoOperators> transacaoOperatorsList;
+    private final TransacaoRepository transacaoRepository;
 
     @Transactional
     public Transacao validarFundos(Transacao transacao) throws Exception {
         log.info("Iniciando validação e reserva de fundos, transacao: {}", transacao.toString());
         boolean isReservaSucesso = switch (transacao.getTipoTransacao()) {
-            case TipoTransacao.CREDITO -> alorValorTransacaoCredito(transacao);
+            case TipoTransacao.CREDITO -> alocarValorTransacaoCredito(transacao);
             case TipoTransacao.DEBITO -> alocarValorTransacaoDebito(transacao);
             default -> throw new Exception("Tipo de transação inválida");
         };
@@ -59,14 +61,20 @@ public class TransacaoService {
 
     private boolean alocarValorTransacaoDebito(Transacao transacao) {
         log.info("Iniciando reserva de transação: DEBITO");
-      return transacaoOperatorsList.stream()
-              .allMatch(operator -> operator.updateSaldo(transacao));
+        boolean isSaldoAtualizado = contaRepository.updateSaldo(transacao);
+
+        contaRepository.setTransacaoToAguardanddoConfirmacao(transacao);
+
+        return isSaldoAtualizado;
     }
 
-    private boolean alorValorTransacaoCredito(Transacao transacao) {
+    private boolean alocarValorTransacaoCredito(Transacao transacao) {
         log.info("Iniciando reserva de transação: CREDITO");
-        return transacaoOperatorsList.stream()
-                .allMatch(operator -> operator.updateLimiteCredito(transacao));
+        boolean isSaldoAtualizado = contaRepository.updateLimiteCredito(transacao);
+
+        contaRepository.setTransacaoToAguardanddoConfirmacao(transacao);
+
+        return isSaldoAtualizado;
     }
 
     private Transacao atualizarHistorico(Transacao transacao, String key, boolean valor) {

@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOperators {
     private static final String CONTA_PREFIX = "numeroConta:";
     private static final String TRANSACAO_PREFIX = "transacao:";
+    private static final String AGUARDANDO_CONFIRMACAO_PREFIX = "confirmacao:";
 
     private final RedisTemplate<String, Object> redisTemplate;
     private final ObjectMapper objectMapper;
@@ -57,6 +58,12 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
     }
 
     @Override
+    public void setTransacaoToAguardanddoConfirmacao(Transacao transacao) {
+        String numeroConta = transacao.getNumeroConta();
+        redisTemplate.opsForValue().set(AGUARDANDO_CONFIRMACAO_PREFIX + numeroConta, objectMapper.writeValueAsString(transacao));
+    }
+
+    @Override
     public boolean updateLimiteCredito(Transacao transacao) {
         String contaKey = CONTA_PREFIX + transacao.getNumeroConta();
 
@@ -73,8 +80,13 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
     @Override
     public void confirmarTransacao(Transacao transacao) {
         String transacaoKey = TRANSACAO_PREFIX + transacao.getNumeroConta();
+        String aguardandoConfirmacaoKey = AGUARDANDO_CONFIRMACAO_PREFIX + transacao.getNumeroConta();
+
         redisTemplate.opsForValue()
                 .set(transacaoKey, objectMapper.writeValueAsString(transacao), 10, TimeUnit.MINUTES);
+
+        redisTemplate.delete(aguardandoConfirmacaoKey);
+
         log.info("Confirmação de transação no Redis para a conta: {}", transacao.getNumeroConta());
     }
 
