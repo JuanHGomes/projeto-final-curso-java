@@ -6,6 +6,7 @@ import org.example.registrotransacaoservice.business.model.Transacao;
 import org.example.registrotransacaoservice.data.model.TransacaoDocument;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -37,7 +38,7 @@ public class RegistroTransacaoRepository {
     }
 
     public List<Transacao> findAllOverLastThirtyDaysByNumeroConta(String numeroConta) {
-        LocalDateTime hoje = LocalDateTime.now();
+        LocalDateTime hoje = LocalDate.now().atTime(23, 59);
         LocalDateTime trintaDiasAtras = hoje.minusDays(30);
         return dao.findByNumeroContaAndTimeStampBetween(numeroConta, trintaDiasAtras, hoje)
                 .stream()

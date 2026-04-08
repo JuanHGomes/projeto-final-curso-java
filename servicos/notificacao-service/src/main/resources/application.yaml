@@ -17,4 +17,4 @@ spring:
         binder:
           brokers: localhost:9092
 server:
-  port: 8081
+  port: 8085

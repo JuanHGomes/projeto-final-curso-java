@@ -45,7 +45,7 @@
             const fetchExtrato = useCallback(async (conta) => {
                 setLoading(true);
                 try {
-                    const res = await fetch(`http://${BACKEND_IP}:8084/registro-transacao/extrato/${conta}`);
+                    const res = await fetch(`http://${BACKEND_IP}:8087/registro-transacao/extrato/${conta}`);
                     if (res.ok) {
                         const data = await res.json();
                         setExtrato(data.sort((a, b) => new Date(b.timeStamp) - new Date(a.timeStamp)));
@@ -60,7 +60,7 @@
 
             const getSaldo = async (conta) => {
                 try {
-                    const res = await fetch(`http://${BACKEND_IP}:8084/registro-transacao/saldo/${conta}`);
+                    const res = await fetch(`http://${BACKEND_IP}:8087/registro-transacao/saldo/${conta}`);
                     if (res.ok) {
                         const data = await res.json();
                         setSaldo(data.saldo || data);
@@ -111,7 +111,7 @@
                 
                 console.log(`Iniciando SSE para conta: ${numeroConta}`);
                 setStatus('Conectando...');
-                const es = new EventSource(`http://${BACKEND_IP}:8081/notificacao?numeroConta=${numeroConta}`);
+                const es = new EventSource(`http://${BACKEND_IP}:8085/notificacao?numeroConta=${numeroConta}`);
 
                 es.onopen = () => {
                     console.log("Conexão SSE estabelecida");

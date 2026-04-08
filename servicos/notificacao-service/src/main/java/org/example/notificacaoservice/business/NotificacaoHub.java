@@ -16,16 +16,14 @@ public class NotificacaoHub {
     public Flux<Notificacao> subscribe(String numeroConta){
         System.out.println("Novo subscriber para conta: " + numeroConta);
 
-        // Remove sink antigo se não tiver subscribers ativos
         sinks.computeIfPresent(numeroConta, (key, oldSink) -> {
             if (oldSink.currentSubscriberCount() == 0) {
                 System.out.println("Removendo sink inativo para conta: " + numeroConta);
-                return null; // Remove o sink antigo
+                return null;
             }
             return oldSink;
         });
 
-        // Cria ou reutiliza o sink
         Sinks.Many<Notificacao> sink = sinks.computeIfAbsent(numeroConta,
                 it -> Sinks.many().multicast().onBackpressureBuffer(256, false));
 
@@ -42,7 +40,7 @@ public class NotificacaoHub {
                     System.err.println("Erro no subscriber da conta " + numeroConta + ": " + error.getMessage());
                     cleanupSinkIfNeeded(numeroConta);
                 })
-                .timeout(Duration.ofMinutes(30)) // Timeout de segurança
+                .timeout(Duration.ofMinutes(30))
                 .onErrorResume(e -> {
                     System.err.println("Erro recuperado para conta " + numeroConta);
                     return Flux.empty();
@@ -66,7 +64,6 @@ public class NotificacaoHub {
             Sinks.EmitResult result = sink.tryEmitNext(notificacao);
             System.out.println("Resultado da emissão: " + result);
 
-            // Se falhar, tenta reemitir ou limpa o sink
             if (result.isFailure()) {
                 System.err.println("Falha ao emitir: " + result);
                 if (result == Sinks.EmitResult.FAIL_ZERO_SUBSCRIBER) {
@@ -82,18 +79,10 @@ public class NotificacaoHub {
         sinks.computeIfPresent(numeroConta, (key, sink) -> {
             if (sink.currentSubscriberCount() == 0) {
                 System.out.println("Limpando sink sem subscribers para conta: " + numeroConta);
-                sink.tryEmitComplete(); // Completa o sink antes de remover
-                return null; // Remove do map
+                sink.tryEmitComplete();
+                return null;
             }
             return sink;
-        });
-    }
-
-    // Método útil para debug
-    public void printStatus() {
-        System.out.println("=== Status dos Sinks ===");
-        sinks.forEach((conta, sink) -> {
-            System.out.println("Conta: " + conta + " - Subscribers: " + sink.currentSubscriberCount());
         });
     }
 }

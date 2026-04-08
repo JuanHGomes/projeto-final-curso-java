@@ -73,7 +73,6 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
             redisTemplate.opsForHash().increment(contaKey, "limiteCredito", transacao.getValor());
             return false;
         }
-
         return true;
     }
 
@@ -83,9 +82,11 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
         String aguardandoConfirmacaoKey = AGUARDANDO_CONFIRMACAO_PREFIX + transacao.getNumeroConta();
 
         redisTemplate.opsForValue()
-                .set(transacaoKey, objectMapper.writeValueAsString(transacao), 10, TimeUnit.MINUTES);
+                .set(transacaoKey, objectMapper.writeValueAsString(transacao), 5, TimeUnit.MINUTES);
 
-        redisTemplate.delete(aguardandoConfirmacaoKey);
+        log.info("Transação confirmada, deletando chave de aguardando confirmacao {}", aguardandoConfirmacaoKey);
+        boolean chaveDeletada = redisTemplate.delete(aguardandoConfirmacaoKey);
+        log.info("Chava deletada com sucesso: {}", chaveDeletada);
 
         log.info("Confirmação de transação no Redis para a conta: {}", transacao.getNumeroConta());
     }
@@ -93,6 +94,7 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
     @Override
     public void estornarTransacao(Transacao transacao) {
         String contaKey = CONTA_PREFIX + transacao.getNumeroConta();
+        String aguardandoConfirmacaoKey = AGUARDANDO_CONFIRMACAO_PREFIX + transacao.getNumeroConta();
 
         log.info("Estornando transação no Redis para a conta: {}", transacao.getNumeroConta());
 
@@ -101,5 +103,7 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
         } else {
             redisTemplate.opsForHash().increment(contaKey, "limiteCredito", transacao.getValor());
         }
+
+        redisTemplate.delete(aguardandoConfirmacaoKey);
     }
 }
