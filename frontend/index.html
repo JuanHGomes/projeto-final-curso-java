@@ -343,8 +343,8 @@
                                                                     <span className="text-[10px] font-bold text-gray-400 uppercase tracking-tighter">{t.tipoTransacao}</span>
                                                                 </div>
                                                             </td>
-                                                            <td className={`px-6 py-5 whitespace-nowrap text-right font-mono font-bold text-sm ${t.tipoTransacao === 'CREDITO' ? 'text-green-600' : 'text-red-600'}`}>
-                                                                {t.tipoTransacao === 'CREDITO' ? '+' : '-'} R$ {(t.valor / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                                                            <td className={`px-6 py-5 whitespace-nowrap text-right font-mono font-bold text-sm ${t.tipoTransacao === 'CREDITO' ? 'text-orange-600' : 'text-red-600'}`}>
+                                                                {t.tipoTransacao === 'CREDITO' ? 'CRÉD ' : '-'} R$ {(t.valor / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                                                             </td>
                                                         </tr>
                                                     ))}
