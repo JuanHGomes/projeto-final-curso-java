@@ -3,7 +3,9 @@ package org.example.registrotransacaoservice.api;
 import lombok.RequiredArgsConstructor;
 import org.example.registrotransacaoservice.business.RegistroTransacaoService;
 import org.example.registrotransacaoservice.business.model.Transacao;
-import org.springframework.cloud.stream.function.StreamBridge;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
@@ -25,8 +26,14 @@ public class RegistroTransacaoController {
     private final RegistroTransacaoService registroTransacaoService;
 
     @GetMapping("extrato/{numeroConta}")
-    public ResponseEntity<List<Transacao>> exibirExtrato(@PathVariable String numeroConta){
-        List<Transacao> extrato = registroTransacaoService.getExtratoUltimosTrintaDias(numeroConta);
+    public ResponseEntity<Page<Transacao>> exibirExtrato(
+            @PathVariable String numeroConta,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "15") int size){
+        Page<Transacao> extrato = registroTransacaoService.getExtratoUltimosTrintaDias(
+                numeroConta,
+                PageRequest.of(page, size, Sort.by("timeStamp").descending())
+        );
 
         return ResponseEntity.ok(extrato);
     }

@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.registrotransacaoservice.business.model.Transacao;
 import org.example.registrotransacaoservice.data.model.TransacaoDocument;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -35,6 +37,13 @@ public class RegistroTransacaoRepository {
                   log.info("Transacao localizada, foi registrada corretamente");
                   return mapper.toTransacao(document);
               });
+    }
+
+    public Page<Transacao> findAllOverLastThirtyDaysByNumeroConta(String numeroConta, Pageable pageable) {
+        LocalDateTime hoje = LocalDate.now().atTime(23, 59);
+        LocalDateTime trintaDiasAtras = hoje.minusDays(30);
+        return dao.findByNumeroContaAndTimeStampBetween(numeroConta, trintaDiasAtras, hoje, pageable)
+                .map(mapper::toTransacao);
     }
 
     public List<Transacao> findAllOverLastThirtyDaysByNumeroConta(String numeroConta) {

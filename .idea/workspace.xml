@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1e2462e-52b3-4f92-a8c2-d4728cd0aaa4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/camunda-h2-database.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/business/NotificacaoHub.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/business/NotificacaoHub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/notificacao-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/notificacao-service/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/api/RegistroTransacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/api/RegistroTransacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/data/RegistroTransacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/data/RegistroTransacaoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/registro-transacao-service/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/api/CamundaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/api/CamundaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/jobs/ReconciliacaoJob.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepositoryRedisImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/conta/ContaRepositoryRedisImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/resources/application.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="f1e2462e-52b3-4f92-a8c2-d4728cd0aaa4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,53 +76,53 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.transacao-camunda.executor": "Run",
-    "Application.transacao-service.executor": "Run",
-    "Docker.Compose-projeto-final.executor": "Run",
-    "Gradle.Build notificacao-service.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.Load Gradle Dependencies.executor": "Run",
-    "Gradle.notificacao-service [:org.example.notificacaoservice.NotificacaoServiceApplication.main()].executor": "Run",
-    "Gradle.registro-transacao-service [:org.example.registrotransacaoservice.RegistroTransacaoServiceApplication.main()].executor": "Run",
-    "Gradle.testes-service [:org.example.testesservice.TestesServiceApplication.main()].executor": "Run",
-    "Gradle.transacao-service [:org.example.transacaoservice.TransacaoServiceApplication.main()].executor": "Run",
-    "HTTP Request.generated-requests | #1.executor": "Run",
-    "HTTP Request.generated-requests | #2.executor": "Run",
-    "HTTP Request.generated-requests | #3.executor": "Run",
-    "HTTP Request.generated-requests | #4.executor": "Run",
-    "HTTP Request.generated-requests | #8.executor": "Run",
-    "HTTP Request.generated-requests | #9.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.NotificacaoServiceApplication (1).executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.transacao-camunda.executor&quot;: &quot;Run&quot;,
+    &quot;Application.transacao-service.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.Compose-projeto-final.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build notificacao-service.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Load Gradle Dependencies.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.notificacao-service [:org.example.notificacaoservice.NotificacaoServiceApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.registro-transacao-service [:org.example.registrotransacaoservice.RegistroTransacaoServiceApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.testes-service [:org.example.testesservice.TestesServiceApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.transacao-service [:org.example.transacaoservice.TransacaoServiceApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #8.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #9.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.NotificacaoServiceApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "redis"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;redis&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/servicos/transacao-service/src/main/resources" />
