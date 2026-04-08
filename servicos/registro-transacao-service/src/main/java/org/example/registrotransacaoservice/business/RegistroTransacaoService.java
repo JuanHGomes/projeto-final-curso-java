@@ -27,6 +27,12 @@ public class RegistroTransacaoService {
       return registroTransacaoRepository.findAllOverLastThirtyDaysByNumeroConta(numeroConta);
     }
 
+    public Long getSaldo(String numeroConta) {
+        return getExtratoUltimosTrintaDias(numeroConta).stream()
+                .mapToLong(t -> t.getTipoTransacao() == Transacao.TipoTransacao.CREDITO ? t.getValor() : -t.getValor())
+                .sum();
+    }
+
     public byte[] getExtratoPdf(String numeroConta) {
         List<Transacao> transacoes = getExtratoUltimosTrintaDias(numeroConta);
         
