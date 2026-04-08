@@ -36,26 +36,19 @@
             const [loading, setLoading] = useState(false);
             const [saldo, setSaldo] = useState(0);
 
-            // Pagination State
-            const [currentPage, setCurrentPage] = useState(0);
-            const [totalPages, setTotalPages] = useState(0);
-            const [pageSize] = useState(15);
-
             // Simulation Form State
             const [formNumeroConta, setFormNumeroConta] = useState('');
             const [formValor, setFormValor] = useState('');
             const [formEstabelecimento, setFormEstabelecimento] = useState('');
             const [formTipo, setFormTipo] = useState('DEBITO');
 
-            const fetchExtrato = useCallback(async (conta, page = 0) => {
+            const fetchExtrato = useCallback(async (conta) => {
                 setLoading(true);
                 try {
-                    const res = await fetch(`http://${BACKEND_IP}:8087/registro-transacao/extrato/${conta}?page=${page}&size=${pageSize}`);
+                    const res = await fetch(`http://${BACKEND_IP}:8087/registro-transacao/extrato/${conta}`);
                     if (res.ok) {
                         const data = await res.json();
-                        setExtrato(data.content || []);
-                        setTotalPages(data.totalPages || 0);
-                        setCurrentPage(data.number || 0);
+                        setExtrato(data.sort((a, b) => new Date(b.timeStamp) - new Date(a.timeStamp)));
                     }
                     getSaldo(conta);
                 } catch (e) {
@@ -63,7 +56,7 @@
                 } finally {
                     setLoading(false);
                 }
-            }, [pageSize]);
+            }, []);
 
             const getSaldo = async (conta) => {
                 try {
@@ -111,25 +104,10 @@
                 }
             };
 
-            // Separate state for full credit list (for the bill section)
-            const [fullCreditList, setFullCreditList] = useState([]);
-
-            const fetchFullCreditList = useCallback(async (conta) => {
-                try {
-                    // Fetch all transactions to filter for credit bill (simple approach)
-                    const res = await fetch(`http://${BACKEND_IP}:8087/registro-transacao/extrato/${conta}?page=0&size=1000`);
-                    if (res.ok) {
-                        const data = await res.json();
-                        setFullCreditList((data.content || []).filter(t => t.tipoTransacao === 'CREDITO'));
-                    }
-                } catch (e) { console.error("Erro ao carregar lista de credito:", e); }
-            }, []);
-
             useEffect(() => {
                 if (!numeroConta) return;
 
-                fetchExtrato(numeroConta, currentPage);
-                fetchFullCreditList(numeroConta);
+                fetchExtrato(numeroConta);
                 
                 console.log(`Iniciando SSE para conta: ${numeroConta}`);
                 setStatus('Conectando...');
@@ -154,10 +132,7 @@
 
                         const newNotif = { id: Date.now(), msg: data.mensagem };
                         setNotifications(prev => [newNotif, ...prev]);
-                        
-                        // Refresh current page and credit list
-                        fetchExtrato(numeroConta, currentPage);
-                        fetchFullCreditList(numeroConta);
+                        fetchExtrato(numeroConta);
 
                         setTimeout(() => {
                             setNotifications(prev => prev.filter(n => n.id !== newNotif.id));
@@ -176,7 +151,7 @@
                     console.log("Fechando conexão SSE");
                     es.close();
                 };
-            }, [numeroConta, currentPage, fetchExtrato, fetchFullCreditList]);
+            }, [numeroConta, fetchExtrato]);
 
             return (
                 <div className="min-h-screen">
@@ -377,31 +352,6 @@
                                             </table>
                                         )}
                                     </div>
-
-                                    {/* Pagination Controls */}
-                                    {totalPages > 1 && (
-                                        <div className="px-6 py-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
-                                            <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-                                                Página {currentPage + 1} de {totalPages}
-                                            </div>
-                                            <div className="flex space-x-2">
-                                                <button 
-                                                    disabled={currentPage === 0 || loading}
-                                                    onClick={() => fetchExtrato(numeroConta, currentPage - 1)}
-                                                    className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-xs font-bold text-gray-600 hover:bg-gray-50 disabled:opacity-50 transition-all active:scale-[0.98]"
-                                                >
-                                                    Anterior
-                                                </button>
-                                                <button 
-                                                    disabled={currentPage === totalPages - 1 || loading}
-                                                    onClick={() => fetchExtrato(numeroConta, currentPage + 1)}
-                                                    className="px-4 py-2 bg-indigo-600 border border-indigo-700 rounded-lg text-xs font-bold text-white hover:bg-indigo-700 disabled:opacity-50 transition-all active:scale-[0.98]"
-                                                >
-                                                    Próxima
-                                                </button>
-                                            </div>
-                                        </div>
-                                    )}
                                 </div>
 
                                 {/* Credit Card Bill Section */}
@@ -414,12 +364,12 @@
                                         <div className="text-right">
                                             <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest block">Total em Aberto</span>
                                             <span className="text-xl font-mono font-bold text-indigo-200">
-                                                R$ {(fullCreditList.reduce((acc, t) => acc + t.valor, 0) / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                                                R$ {(extrato.filter(t => t.tipoTransacao === 'CREDITO').reduce((acc, t) => acc + t.valor, 0) / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                                             </span>
                                         </div>
                                     </div>
                                     <div className="overflow-x-auto">
-                                        {fullCreditList.length === 0 ? (
+                                        {extrato.filter(t => t.tipoTransacao === 'CREDITO').length === 0 ? (
                                             <div className="flex flex-col items-center justify-center py-12 text-indigo-400/50">
                                                 <p className="font-medium">Nenhuma compra no crédito.</p>
                                             </div>
@@ -433,7 +383,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody className="divide-y divide-indigo-800/50">
-                                                    {fullCreditList.map((t, i) => (
+                                                    {extrato.filter(t => t.tipoTransacao === 'CREDITO').map((t, i) => (
                                                         <tr key={i} className="hover:bg-indigo-800/20 transition-colors">
                                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-indigo-300">
                                                                 {new Date(t.timeStamp).toLocaleDateString('pt-BR')}

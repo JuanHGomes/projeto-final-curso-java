@@ -4,8 +4,6 @@ import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 import lombok.RequiredArgsConstructor;
 import org.example.registrotransacaoservice.business.model.Transacao;
 import org.example.registrotransacaoservice.data.RegistroTransacaoRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
@@ -23,10 +21,6 @@ public class RegistroTransacaoService {
 
     public void garantirRegistroTransacao(Transacao transacao) {
         registroTransacaoRepository.registrarSeNaoPresente(transacao);
-    }
-
-    public Page<Transacao> getExtratoUltimosTrintaDias(String numeroConta, Pageable pageable) {
-        return registroTransacaoRepository.findAllOverLastThirtyDaysByNumeroConta(numeroConta, pageable);
     }
 
     public List<Transacao> getExtratoUltimosTrintaDias(String numeroConta) {
