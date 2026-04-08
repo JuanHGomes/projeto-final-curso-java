@@ -29,8 +29,8 @@ public class TransacaoService {
     public Transacao validarFundos(Transacao transacao) throws Exception {
         log.info("Iniciando validação e reserva de fundos, transacao: {}", transacao.toString());
         boolean isReservaSucesso = switch (transacao.getTipoTransacao()) {
-            case TipoTransacao.CREDITO -> executarTransacaoCredito(transacao);
-            case TipoTransacao.DEBITO -> executarTransacaoDebito(transacao);
+            case TipoTransacao.CREDITO -> alorValorTransacaoCredito(transacao);
+            case TipoTransacao.DEBITO -> alocarValorTransacaoDebito(transacao);
             default -> throw new Exception("Tipo de transação inválida");
         };
 
@@ -57,13 +57,13 @@ public class TransacaoService {
         transacaoOperatorsList.forEach(operator -> operator.estornarTransacao(transacao));
     }
 
-    private boolean executarTransacaoDebito(Transacao transacao) {
+    private boolean alocarValorTransacaoDebito(Transacao transacao) {
         log.info("Iniciando reserva de transação: DEBITO");
       return transacaoOperatorsList.stream()
               .allMatch(operator -> operator.updateSaldo(transacao));
     }
 
-    private boolean executarTransacaoCredito(Transacao transacao) {
+    private boolean alorValorTransacaoCredito(Transacao transacao) {
         log.info("Iniciando reserva de transação: CREDITO");
         return transacaoOperatorsList.stream()
                 .allMatch(operator -> operator.updateLimiteCredito(transacao));

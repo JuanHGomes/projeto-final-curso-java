@@ -55,32 +55,48 @@
 
                 fetchExtrato(numeroConta);
                 
+                console.log(`Iniciando SSE para conta: ${numeroConta}`);
                 setStatus('Conectando...');
                 const es = new EventSource(`http://${BACKEND_IP}:8081/notificacao?numeroConta=${numeroConta}`);
 
-                es.onopen = () => setStatus('Conectado');
+                es.onopen = () => {
+                    console.log("Conexão SSE estabelecida");
+                    setStatus('Conectado');
+                };
                 
                 es.onmessage = (event) => {
-                    const data = JSON.parse(event.data);
-                    
-                    // Filter out heartbeats or connection messages from UI
-                    if (data.mensagem.includes("heartbeat") || data.mensagem.includes("Conectado")) return;
+                    if (!event.data) {
+                        console.debug("Recebido heartbeat/comentário");
+                        return;
+                    }
 
-                    const newNotif = { id: Date.now(), msg: data.mensagem };
-                    setNotifications(prev => [newNotif, ...prev]);
-                    fetchExtrato(numeroConta);
+                    try {
+                        const data = JSON.parse(event.data);
+                        console.log("Notificação recebida:", data);
+                        
+                        if (data.mensagem.includes("Conectado")) return;
 
-                    setTimeout(() => {
-                        setNotifications(prev => prev.filter(n => n.id !== newNotif.id));
-                    }, 6000);
+                        const newNotif = { id: Date.now(), msg: data.mensagem };
+                        setNotifications(prev => [newNotif, ...prev]);
+                        fetchExtrato(numeroConta);
+
+                        setTimeout(() => {
+                            setNotifications(prev => prev.filter(n => n.id !== newNotif.id));
+                        }, 6000);
+                    } catch (e) {
+                        console.error("Erro ao processar mensagem SSE:", e);
+                    }
                 };
 
-                es.onerror = () => {
+                es.onerror = (e) => {
+                    console.error("Erro SSE (Reconectando):", e);
                     setStatus('Erro (Reconectando...)');
-                    // Browser automatically retries EventSource
                 };
 
-                return () => es.close();
+                return () => {
+                    console.log("Fechando conexão SSE");
+                    es.close();
+                };
             }, [numeroConta, fetchExtrato]);
 
             return (

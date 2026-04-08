@@ -19,8 +19,8 @@ public class NotificacaoConsumerConfig {
     @Bean
     public Consumer<Message<Notificacao>> notificacaoConsumer(){
         return mensagem -> {
-            log.info("Iniciando consumo de mensagem: {}", mensagem.getPayload().toString());
             Notificacao notificacao = mensagem.getPayload();
+            log.info("Mensagem Kafka recebida para conta {}: {}", notificacao.numeroConta(), notificacao.mensagem());
             notificacaoService.dispararNotificacao(notificacao);
         };
     }

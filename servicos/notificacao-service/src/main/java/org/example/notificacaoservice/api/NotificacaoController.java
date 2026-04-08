@@ -31,14 +31,12 @@ public class NotificacaoController {
     @GetMapping(value = "/notificacao", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<ServerSentEvent<Notificacao>> dispararNotificacoes(@RequestParam String numeroConta){
         
-        Flux<ServerSentEvent<Notificacao>> welcome = Flux.just(
-                ServerSentEvent.<Notificacao>builder()
-                        .data(Notificacao.builder()
-                                .numeroConta(numeroConta)
-                                .mensagem("Conectado ao serviço de notificações.")
-                                .build())
-                        .build()
-        );
+        ServerSentEvent<Notificacao> welcome = ServerSentEvent.<Notificacao>builder()
+                .data(Notificacao.builder()
+                        .numeroConta(numeroConta)
+                        .mensagem("Conectado ao serviço de notificações.")
+                        .build())
+                .build();
 
         Flux<ServerSentEvent<Notificacao>> heartbeat = Flux.interval(Duration.ofSeconds(15))
                 .map(i -> ServerSentEvent.<Notificacao>builder()
@@ -48,15 +46,17 @@ public class NotificacaoController {
         Flux<ServerSentEvent<Notificacao>> notifications = notificacaoService.receberNotificacao(numeroConta)
                 .map(n -> ServerSentEvent.builder(n).build());
 
-        return Flux.concat(welcome, Flux.merge(notifications, heartbeat));
+        return Flux.just(welcome)
+                .concatWith(Flux.merge(notifications, heartbeat))
+                .onTerminateDetach();
     }
 
-    @PostMapping
-    public void testarMensagem(){
+    @PostMapping("/test")
+    public void testarMensagem(@RequestParam(defaultValue = "123") String numeroConta){
         Notificacao notificacaoTeste = Notificacao.builder()
-                .numeroConta("123")
-                .mensagem("teste")
+                .numeroConta(numeroConta)
+                .mensagem("Mensagem de teste SSE às " + java.time.LocalTime.now())
                 .build();
-        streamBridge.send("notificacaoProducer-out-0", notificacaoTeste);
+        notificacaoService.dispararNotificacao(notificacaoTeste);
     }
 }

@@ -4,13 +4,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.registrotransacaoservice.business.model.Transacao;
 import org.example.registrotransacaoservice.data.model.TransacaoDocument;
-import org.joda.time.Days;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -44,6 +39,9 @@ public class RegistroTransacaoRepository {
     public List<Transacao> findAllOverLastThirtyDaysByNumeroConta(String numeroConta) {
         LocalDateTime hoje = LocalDateTime.now();
         LocalDateTime trintaDiasAtras = hoje.minusDays(30);
-        return dao.findByNumeroContaAndTimeStampBetween(numeroConta, trintaDiasAtras, hoje);
+        return dao.findByNumeroContaAndTimeStampBetween(numeroConta, trintaDiasAtras, hoje)
+                .stream()
+                .map(mapper::toTransacao)
+                .toList();
     }
 }

@@ -48,11 +48,9 @@ public class TransacaoRepositoryMongoImpl implements TransacaoRepository, Transa
 
     @Override
     public void confirmarTransacao(Transacao transacao) {
-        log.info("Confirmação de transação no Mongo (No-op)");
     }
 
     @Override
     public void estornarTransacao(Transacao transacao) {
-        log.info("Estorno de transação no Mongo (No-op)");
     }
 }
