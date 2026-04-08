@@ -11,7 +11,7 @@ public class TransacaoRestClient {
     private static final String ENDPOINT_EXECUTAR_TRANSACAO = "executarTransacao";
     private static final String ENDPOINT_ESTORNAR_TRANSACAO = "estornarTransacao";
 
-    private static final String BASE_URL_TRANSACAO = "http://localhost:8082/transacao/";
+    private static final String BASE_URL_TRANSACAO = "http://localhost:8086/transacao/";
     private final RestTemplate restTemplate;
 
     public TransacaoRestClient(RestTemplate restTemplate) {

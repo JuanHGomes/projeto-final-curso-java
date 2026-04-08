@@ -45,6 +45,7 @@ public class TransacaoService {
 
         Notificacao notificacao = buildNotificacao(etapa, resultado, numeroConta);
 
+        log.info("Enviando notificaocao: {}", notificacao.toString());
         kafkaProducer.sendMessage(TOPICO_NOTIFICACAO, notificacao);
     }
 
