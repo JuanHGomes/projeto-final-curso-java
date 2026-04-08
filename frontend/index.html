@@ -34,6 +34,7 @@
             const [notifications, setNotifications] = useState([]);
             const [status, setStatus] = useState('Desconectado');
             const [loading, setLoading] = useState(false);
+            const [saldo, setSaldo] = useState(0);
 
             // Simulation Form State
             const [formNumeroConta, setFormNumeroConta] = useState('');
@@ -49,12 +50,25 @@
                         const data = await res.json();
                         setExtrato(data.sort((a, b) => new Date(b.timeStamp) - new Date(a.timeStamp)));
                     }
+                    getSaldo(conta);
                 } catch (e) {
                     console.error("Erro ao carregar extrato:", e);
                 } finally {
                     setLoading(false);
                 }
             }, []);
+
+            const getSaldo = async (conta) => {
+                try {
+                    const res = await fetch(`http://${BACKEND_IP}:8084/registro-transacao/saldo/${conta}`);
+                    if (res.ok) {
+                        const data = await res.json();
+                        setSaldo(data.saldo || data);
+                    }
+                } catch (e) {
+                    console.error("Erro ao buscar saldo:", e);
+                }
+            };
 
             const simulateTransaction = async () => {
                 if (!formNumeroConta || !formValor || !formEstabelecimento) {
@@ -88,12 +102,6 @@
                     console.error("Erro na simulação:", e);
                     alert("Erro ao conectar com o servidor.");
                 }
-            };
-
-            const calcularSaldo = () => {
-                return extrato.reduce((acc, t) => {
-                    return t.tipoTransacao === 'CREDITO' ? acc + t.valor : acc - t.valor;
-                }, 0) / 100;
             };
 
             useEffect(() => {
@@ -214,8 +222,8 @@
                                         <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Saldo em Conta</h2>
                                         <div className="flex items-baseline space-x-2">
                                             <span className="text-sm font-bold text-gray-500">R$</span>
-                                            <span className={`text-3xl font-mono font-bold tracking-tighter ${calcularSaldo() >= 0 ? 'text-gray-900' : 'text-red-600'}`}>
-                                                {calcularSaldo().toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                            <span className={`text-3xl font-mono font-bold tracking-tighter ${saldo >= 0 ? 'text-gray-900' : 'text-red-600'}`}>
+                                                {(saldo / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                             </span>
                                         </div>
                                     </div>
