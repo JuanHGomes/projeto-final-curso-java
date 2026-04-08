@@ -45,7 +45,28 @@ public class RegistroTransacaoService {
         ));
 
         String html = templateEngine.process("extrato-bancario.html", context);
-        
+        return generatePdfFromHtml(html);
+    }
+
+    public byte[] getFaturaPdf(String numeroConta) {
+        List<Transacao> transacoesCredito = getExtratoUltimosTrintaDias(numeroConta).stream()
+                .filter(t -> t.getTipoTransacao() == Transacao.TipoTransacao.CREDITO)
+                .toList();
+
+        Context context = new Context();
+        context.setVariables(Map.of(
+                "numeroConta", numeroConta,
+                "transacoes", transacoesCredito,
+                "cartaoFinal", "**** 1234",
+                "vencimento", LocalDateTime.now().plusDays(10),
+                "limiteTotal", 500000L
+        ));
+
+        String html = templateEngine.process("extrato-cartao.html", context);
+        return generatePdfFromHtml(html);
+    }
+
+    private byte[] generatePdfFromHtml(String html) {
         try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
             PdfRendererBuilder builder = new PdfRendererBuilder();
             builder.useFastMode();

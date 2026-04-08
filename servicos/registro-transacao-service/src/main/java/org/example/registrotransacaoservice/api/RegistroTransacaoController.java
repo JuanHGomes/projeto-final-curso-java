@@ -46,6 +46,16 @@ public class RegistroTransacaoController {
                .body(pdf);
     }
 
+    @GetMapping("faturaPdf/{numeroConta}")
+    public ResponseEntity<byte[]> downloadFaturaPdf(@PathVariable String numeroConta){
+        byte[] pdf = registroTransacaoService.getFaturaPdf(numeroConta);
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=fatura-" + numeroConta + ".pdf")
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(pdf);
+    }
+
     @PostMapping("enviarExtratoEmail/{numeroConta}")
     public ResponseEntity<String> enviarExtratoEmail(@PathVariable String numeroConta){
         // Mock email sending
