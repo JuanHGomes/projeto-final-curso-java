@@ -5,9 +5,11 @@ import org.example.transacaoservice.api.model.TransacaoRequest;
 import org.example.transacaoservice.api.model.TransacaoResponse;
 import org.example.transacaoservice.business.transacao.TransacaoService;
 import org.example.transacaoservice.business.transacao.model.Transacao;
+import org.example.transacaoservice.data.conta.ContaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TransacaoController {
     private final TransacaoService transacaoService;
     private final TransacaoApiMapper mapper;
+    private final ContaRepository contaRepository;
 
     @PostMapping("validarFundos")
     public ResponseEntity<TransacaoResponse> validarFundos(@RequestBody TransacaoRequest transacaoRequest) throws Exception {
@@ -53,5 +56,11 @@ public class TransacaoController {
         Transacao transacao = mapper.toTransacao(transacaoRequest);
         transacaoService.estornarTransacao(transacao);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("saldo/{numeroConta}")
+    public ResponseEntity<Long> getSaldo(@PathVariable String numeroConta) {
+        Long saldo = contaRepository.getSaldoByNumeroConta(numeroConta);
+        return ResponseEntity.ok(saldo);
     }
 }

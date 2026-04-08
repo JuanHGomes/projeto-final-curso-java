@@ -2,6 +2,7 @@ package org.example.registrotransacaoservice.business;
 
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 import lombok.RequiredArgsConstructor;
+import org.example.registrotransacaoservice.client.TransacaoServiceClient;
 import org.example.registrotransacaoservice.business.model.Transacao;
 import org.example.registrotransacaoservice.data.RegistroTransacaoRepository;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import java.util.Map;
 public class RegistroTransacaoService {
     private final RegistroTransacaoRepository registroTransacaoRepository;
     private final TemplateEngine templateEngine;
+    private final TransacaoServiceClient transacaoServiceClient;
 
     public void garantirRegistroTransacao(Transacao transacao) {
         registroTransacaoRepository.registrarSeNaoPresente(transacao);
@@ -28,9 +30,7 @@ public class RegistroTransacaoService {
     }
 
     public Long getSaldo(String numeroConta) {
-        return getExtratoUltimosTrintaDias(numeroConta).stream()
-                .mapToLong(t -> t.getTipoTransacao() == Transacao.TipoTransacao.CREDITO ? t.getValor() : -t.getValor())
-                .sum();
+        return transacaoServiceClient.getSaldo(numeroConta);
     }
 
     public byte[] getExtratoPdf(String numeroConta) {
