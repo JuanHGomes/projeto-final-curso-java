@@ -15,7 +15,6 @@ import java.util.LinkedHashMap;
 @RequiredArgsConstructor
 @Service
 public class TransacaoService {
-    private static final String BASE_NOTIFICACAO_TRANSACAO_NAO_CONCLUIDA = "Transação não concluída! Veja abaixo o motivo\n";
     private static final String TOPICO_NOTIFICACAO = "notificacaoProducer-out-0";
 
     private final TransacaoRepository transacaoRepository;
@@ -41,35 +40,22 @@ public class TransacaoService {
         AtualizacaoHistorico ultimaAtualizacaoHistorico = getUltimaAtualizacaoHistorico((LinkedHashMap<String, Boolean>)transacao.getHistorico());
         String numeroConta = transacao.getNumeroConta();
         String etapa = ultimaAtualizacaoHistorico.etapa();
-        boolean resultado = ultimaAtualizacaoHistorico.resultado();
 
-        Notificacao notificacao = buildNotificacao(etapa, resultado, numeroConta, transacao);
+        Notificacao notificacao = buildNotificacao(etapa, numeroConta, transacao);
 
         log.info("Enviando notificaocao: {}", notificacao.toString());
         kafkaProducer.sendMessage(TOPICO_NOTIFICACAO, notificacao);
     }
 
-    private Notificacao buildNotificacao(String etapa, boolean resultado, String numeroConta, Transacao transacao) {
+    private Notificacao buildNotificacao(String etapa, String numeroConta, Transacao transacao) {
        StringBuilder mensagem = new StringBuilder();
 
        String estabelecimento = transacao.getEstabelecimento() != null ? transacao.getEstabelecimento() : "";
        String contexto = !estabelecimento.isEmpty() ? " em " + estabelecimento : "";
 
        switch (etapa){
-           case "FUNDOS_SUFICIENTES" -> {
-               if (resultado) {
-                   mensagem.append("Pagamento").append(contexto).append(" realizado com sucesso!");
-               } else {
-                   mensagem.append("Pagamento").append(contexto).append(" recusado: fundos insuficientes.");
-               }
-           }
-           case "FRAUDE" -> {
-               if (resultado) {
-                   mensagem.append("Pagamento").append(contexto).append(" aprovado após verificação.");
-               } else {
-                   mensagem.append("Pagamento").append(contexto).append(" bloqueado: possível fraude detectada.");
-               }
-           }
+           case "FUNDOS_SUFICIENTES" -> mensagem.append("Pagamento").append(contexto).append(" recusado: fundos insuficientes.");
+           case "FRAUDE" -> mensagem.append("Pagamento").append(contexto).append(" bloqueado: possível fraude detectada.");
            case "EXECUCAO_SUCESSO" -> mensagem.append("Transação").append(contexto).append(" concluída com sucesso!");
            default -> throw  new RuntimeException("Etapa não encontrada");
 

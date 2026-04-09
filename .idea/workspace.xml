@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1e2462e-52b3-4f92-a8c2-d4728cd0aaa4" name="Changes" comment="" />
+    <list default="true" id="f1e2462e-52b3-4f92-a8c2-d4728cd0aaa4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camunda-h2-database.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/business/TransacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/business/TransacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/business/TransacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/business/TransacaoService.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +32,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/servicos/transacao-service">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -144,17 +152,6 @@
         <option value="QuarkusRunConfigurationType" />
         <option value="SpringBootApplicationConfigurationType" />
       </set>
-    </option>
-    <option name="configurationStatuses">
-      <map>
-        <entry key="HttpClient.HttpRequestRunConfigurationType">
-          <value>
-            <map>
-              <entry key="generated-requests | #3" value="STOPPED" />
-            </map>
-          </value>
-        </entry>
-      </map>
     </option>
   </component>
   <component name="RunManager" selected="Application.transacao-camunda">
@@ -350,24 +347,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/business/NotificacaoHub.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/servicos/registro-transacao-service/src/main/java/org/example/registrotransacaoservice/client/TransacaoServiceClient.java</url>
           <line>37</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ExecutarTransacaoDelegate.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ExecutarTransacaoDelegate.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="53" />
+          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/business/TransacaoService.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
