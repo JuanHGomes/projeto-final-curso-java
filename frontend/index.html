@@ -111,42 +111,54 @@
 
             const fetchExtrato = useCallback(async (conta) => {
                 setLoading(true);
+                console.log(`[Extrato] Buscando extrato para conta ${conta}...`);
                 try {
                     const res = await fetch(`http://${BACKEND_IP}:8087/registro-transacao/extrato/${conta}`);
                     if (res.ok) {
                         const data = await res.json();
+                        console.log(`[Extrato] ${data.length} transações encontradas.`);
                         setExtrato(data.sort((a, b) => new Date(b.timeStamp) - new Date(a.timeStamp)));
+                    } else {
+                        console.warn(`[Extrato] Resposta não OK: ${res.status}`);
                     }
                     getSaldo(conta);
                     getLimiteCredito(conta);
                 } catch (e) {
-                    console.error("Erro ao carregar extrato:", e);
+                    console.error("[Extrato] Erro ao carregar extrato:", e);
                 } finally {
                     setLoading(false);
                 }
             }, []);
 
             const getSaldo = async (conta) => {
+                console.log(`[Saldo] Buscando saldo para conta ${conta}...`);
                 try {
                     const res = await fetch(`http://${BACKEND_IP}:8087/registro-transacao/saldo/${conta}`);
                     if (res.ok) {
                         const data = await res.json();
+                        console.log(`[Saldo] Saldo: R$ ${((data.saldo || data) / 100).toFixed(2)}`);
                         setSaldo(data.saldo || data);
+                    } else {
+                        console.warn(`[Saldo] Resposta não OK: ${res.status}`);
                     }
                 } catch (e) {
-                    console.error("Erro ao buscar saldo:", e);
+                    console.error("[Saldo] Erro ao buscar saldo:", e);
                 }
             };
 
             const getLimiteCredito = async (conta) => {
+                console.log(`[Limite] Buscando limite de crédito para conta ${conta}...`);
                 try {
                     const res = await fetch(`http://${BACKEND_IP}:8087/registro-transacao/limiteCredito/${conta}`);
                     if (res.ok) {
                         const data = await res.json();
+                        console.log(`[Limite] R$ ${((data.limiteCredito || data) / 100).toFixed(2)}`);
                         setLimiteCredito(data.limiteCredito || data);
+                    } else {
+                        console.warn(`[Limite] Resposta não OK: ${res.status}`);
                     }
                 } catch (e) {
-                    console.error("Erro ao buscar limite de crédito:", e);
+                    console.error("[Limite] Erro ao buscar limite de crédito:", e);
                 }
             };
 
