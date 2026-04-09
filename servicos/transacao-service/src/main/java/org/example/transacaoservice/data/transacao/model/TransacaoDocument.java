@@ -23,5 +23,5 @@ public class TransacaoDocument {
     private TipoTransacao tipoTransacao;
     private LocalDateTime timeStamp;
     private String estabelecimento;
-    private boolean aprovada;
+    private boolean aprddovada;
 }

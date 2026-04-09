@@ -41,15 +41,8 @@ public class CamundaController {
         variaveis.put("TRANSACAO", transacao);
 
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("transacao-process", variaveis);
-        Transacao transacaoResultado = (Transacao) runtimeService.getVariable(processInstance.getId(), TRANSACAO_VARIABLE);
-        if(transacaoResultado == null){
-            log.info("TransacaoResultado null.");
-            return ResponseEntity.ok(false);
-        }
-        LinkedHashMap<String, Boolean> historico = (LinkedHashMap<String, Boolean>) transacaoResultado.getHistorico();
+        Boolean resultadoTranscao = (Boolean) runtimeService.getVariable(processInstance.getId(), RESULTADO_TRANSACAO);
 
-        boolean resultadoExecucao = historico.get(IS_EXECUCAO_SUCESSO_VARIABLE);
-
-        return ResponseEntity.ok(resultadoExecucao);
+        return ResponseEntity.ok(resultadoTranscao);
     }
 }

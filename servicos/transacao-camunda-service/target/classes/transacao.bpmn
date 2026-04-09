@@ -88,11 +88,10 @@
     <bpmn:sequenceFlow id="Flow_15ol60n" sourceRef="Gateway_1x6oe0u" targetRef="Gateway_1mtcmqc" />
     <bpmn:sequenceFlow id="Flow_0okg3e8" sourceRef="Gateway_1x6oe0u" targetRef="Activity_1ngtuka" />
     <bpmn:sequenceFlow id="Flow_0dnbrgv" sourceRef="Event_126pi3f" targetRef="validarFundos" />
+    <bpmn:sequenceFlow id="Flow_13g2j25" sourceRef="Activity_0ynr6cb" targetRef="Gateway_1tx5ip1" />
     <bpmn:startEvent id="Event_126pi3f">
       <bpmn:outgoing>Flow_0dnbrgv</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_1bn6df5" messageRef="Message_306jl4l" />
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="Flow_13g2j25" sourceRef="Activity_0ynr6cb" targetRef="Gateway_1tx5ip1" />
   </bpmn:process>
   <bpmn:message id="Message_306jl4l" name="Nova_Transacao" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -148,7 +147,7 @@
       <bpmndi:BPMNShape id="Gateway_1n902t9_di" bpmnElement="Gateway_1x6oe0u">
         <dc:Bounds x="1055" y="155" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1t9snzz_di" bpmnElement="Event_126pi3f">
+      <bpmndi:BPMNShape id="Event_0lczajv_di" bpmnElement="Event_126pi3f">
         <dc:Bounds x="152" y="162" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1plj3ol_di" bpmnElement="Flow_1plj3ol">

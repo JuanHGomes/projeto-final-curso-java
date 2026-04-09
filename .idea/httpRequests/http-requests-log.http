@@ -1,3 +1,12 @@
+GET http://localhost:8087/registro-transacao/extrato/1234
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+<> 2026-04-09T111704.200.json
+
+###
+
 POST http://localhost:8083/camundaTeste/
 Content-Type: application/json
 Content-Length: 164
@@ -931,26 +940,6 @@ Accept: */*
 }
 
 <> 2026-04-08T112124.200.json
-
-###
-
-POST http://localhost:8083/camundaTeste/
-Content-Type: application/json
-Content-Length: 163
-User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.3.2
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-{
-"numeroConta": "1234",
-"valor": 1500,
-"tipoTransacao": "DEBITO",
-"timeStamp": "2026-04-07T15:46:00",
-"estabelecimento": "Quiosque do Pedrinho",
-"historico": {}
-}
-
-<> 2026-04-08T112104.200.json
 
 ###
 
