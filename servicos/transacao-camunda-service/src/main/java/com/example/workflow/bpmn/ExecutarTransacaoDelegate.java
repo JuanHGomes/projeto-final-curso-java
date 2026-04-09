@@ -9,6 +9,7 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.springframework.stereotype.Component;
 
 import static com.example.workflow.commons.Camundakeys.IS_EXECUCAO_SUCESSO_VARIABLE;
+import static com.example.workflow.commons.Camundakeys.RESULTADO_TRANSACAO;
 import static com.example.workflow.commons.Camundakeys.TRANSACAO_VARIABLE;
 
 @Slf4j
@@ -34,5 +35,6 @@ public class ExecutarTransacaoDelegate implements JavaDelegate {
 
         execution.setVariable(TRANSACAO_VARIABLE, transacaoExecutada);
         execution.setVariable(IS_EXECUCAO_SUCESSO_VARIABLE, transacaoExecutadaComSucesso);
+        execution.setVariable(RESULTADO_TRANSACAO, transacaoExecutadaComSucesso);
     }
 }

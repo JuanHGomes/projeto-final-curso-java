@@ -7,9 +7,18 @@
     <list default="true" id="f1e2462e-52b3-4f92-a8c2-d4728cd0aaa4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/252e78b6-dc79-436e-b97b-277a15caca03.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/camunda-h2-database.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camunda-h2-database.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/api/CamundaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/api/CamundaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ExecutarTransacaoDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ExecutarTransacaoDelegate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/commons/Camundakeys.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/commons/Camundakeys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/resources/transacao.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/resources/transacao.bpmn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/api/CamundaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/api/CamundaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/ExecutarTransacaoDelegate.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/ExecutarTransacaoDelegate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/commons/Camundakeys.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/commons/Camundakeys.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/transacao.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/transacao.bpmn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +95,7 @@
   "keyToString": {
     "Application.notificao-service.executor": "Run",
     "Application.registro-transacao.executor": "Run",
-    "Application.transacao-camunda.executor": "Run",
+    "Application.transacao-camunda.executor": "Debug",
     "Application.transacao-service.executor": "Run",
     "Docker.Compose-projeto-final.executor": "Run",
     "Gradle.Build notificacao-service.executor": "Run",
@@ -96,7 +105,7 @@
     "Gradle.notificacao-service [:org.example.notificacaoservice.NotificacaoServiceApplication.main()].executor": "Run",
     "Gradle.registro-transacao-service [:org.example.registrotransacaoservice.RegistroTransacaoServiceApplication.main()].executor": "Run",
     "Gradle.testes-service [:org.example.testesservice.TestesServiceApplication.main()].executor": "Run",
-    "Gradle.transacao-service [:org.example.transacaoservice.TransacaoServiceApplication.main()].executor": "Run",
+    "Gradle.transacao-service [:org.example.transacaoservice.TransacaoServiceApplication.main()].executor": "Debug",
     "HTTP Request.generated-requests | #1.executor": "Run",
     "HTTP Request.generated-requests | #2.executor": "Run",
     "HTTP Request.generated-requests | #3.executor": "Run",
@@ -152,7 +161,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'transacao-service.test'">
+  <component name="RunManager" selected="Application.transacao-camunda">
     <configuration name="notificao-service" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="ms-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -345,41 +354,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryRedisImpl.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryRedisImpl.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryRedisImpl.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/TransacaoRepositoryRedisImpl.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/servicos/notificacao-service/src/main/java/org/example/notificacaoservice/business/NotificacaoHub.java</url>
           <line>51</line>
           <option name="timeStamp" value="41" />
@@ -389,14 +363,40 @@
           <line>37</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/business/validators/TransacaoRepeditaValidator.java</url>
-          <line>30</line>
-          <properties class="org.example.transacaoservice.business.validators.TransacaoRepeditaValidator" method="isValorEhEstabelecimentoIdenticos">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="34" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/api/CamundaController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/api/CamundaController.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/api/CamundaController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/api/CamundaController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ExecutarTransacaoDelegate.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ExecutarTransacaoDelegate.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ExecutarTransacaoDelegate.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_08ayz1u" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.44.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.24.0">
-  <bpmn:process id="Transacao" name="Transacao" isExecutable="true" camunda:historyTimeToLive="180">
+  <bpmn:process id="transacao-process" name="Transacao" isExecutable="true" camunda:historyTimeToLive="180">
     <bpmn:exclusiveGateway id="Gateway_0lo9ikp" name="Valido ?">
       <bpmn:incoming>Flow_1plj3ol</bpmn:incoming>
       <bpmn:outgoing>Flow_06fdy3f</bpmn:outgoing>
@@ -28,7 +28,7 @@
     <bpmn:sequenceFlow id="Flow_1w25qwf" name="Sim" sourceRef="Gateway_1bha5wb" targetRef="Activity_14mpukm">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!isFraude}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:serviceTask id="Activity_Estorno" name="Estornar Transação" camunda:asyncBefore="true" camunda:delegateExpression="${estornarTransacaoDelegate}">
+    <bpmn:serviceTask id="Activity_Estorno" name="Estornar Transação" camunda:delegateExpression="${estornarTransacaoDelegate}">
       <bpmn:incoming>Flow_0ibr43n</bpmn:incoming>
       <bpmn:incoming>Flow_0c5uz7j</bpmn:incoming>
       <bpmn:outgoing>Flow_Estorno_To_Gateway</bpmn:outgoing>
@@ -56,15 +56,15 @@
     <bpmn:sequenceFlow id="Flow_0c5uz7j" name="Não" sourceRef="Gateway_0sdvu51" targetRef="Activity_Estorno">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!execucaoSucesso}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:serviceTask id="validarFundos" name="Validar e alorcar fundos" camunda:asyncBefore="true" camunda:delegateExpression="${validarFundosDelegate}">
+    <bpmn:serviceTask id="validarFundos" name="Validar e alorcar fundos" camunda:delegateExpression="${validarFundosDelegate}">
       <bpmn:incoming>Flow_0dnbrgv</bpmn:incoming>
       <bpmn:outgoing>Flow_1plj3ol</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Activity_0t1vse6" name="Validar Fraude" camunda:asyncBefore="true" camunda:delegateExpression="${validarFraudeDelegate}">
+    <bpmn:serviceTask id="Activity_0t1vse6" name="Validar Fraude" camunda:delegateExpression="${validarFraudeDelegate}">
       <bpmn:incoming>Flow_06fdy3f</bpmn:incoming>
       <bpmn:outgoing>Flow_01p4a05</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Activity_14mpukm" name="Executar transação" camunda:asyncBefore="true" camunda:delegateExpression="${executarTransacaoDelegate}">
+    <bpmn:serviceTask id="Activity_14mpukm" name="Executar transação" camunda:delegateExpression="${executarTransacaoDelegate}">
       <bpmn:incoming>Flow_1w25qwf</bpmn:incoming>
       <bpmn:outgoing>Flow_1kd8xs8</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -88,7 +88,7 @@
     <bpmn:sequenceFlow id="Flow_15ol60n" sourceRef="Gateway_1x6oe0u" targetRef="Gateway_1mtcmqc" />
     <bpmn:sequenceFlow id="Flow_0okg3e8" sourceRef="Gateway_1x6oe0u" targetRef="Activity_1ngtuka" />
     <bpmn:sequenceFlow id="Flow_0dnbrgv" sourceRef="Event_126pi3f" targetRef="validarFundos" />
-    <bpmn:startEvent id="Event_126pi3f" camunda:asyncBefore="true">
+    <bpmn:startEvent id="Event_126pi3f">
       <bpmn:outgoing>Flow_0dnbrgv</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_1bn6df5" messageRef="Message_306jl4l" />
     </bpmn:startEvent>
@@ -96,7 +96,7 @@
   </bpmn:process>
   <bpmn:message id="Message_306jl4l" name="Nova_Transacao" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Transacao">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="transacao-process">
       <bpmndi:BPMNShape id="Gateway_0lo9ikp_di" bpmnElement="Gateway_0lo9ikp" isMarkerVisible="true">
         <dc:Bounds x="425" y="155" width="50" height="50" />
         <bpmndi:BPMNLabel>
