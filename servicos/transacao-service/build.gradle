@@ -2,7 +2,9 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '4.0.4'
     id 'io.spring.dependency-management' version '1.1.7'
-    id("info.solidsoft.pitest") version "1.19.0-rc.3"}
+    id("info.solidsoft.pitest") version "1.19.0-rc.3"
+    id 'jacoco'
+}
 
 group = 'org.example'
 version = '0.0.1-SNAPSHOT'
@@ -24,6 +26,45 @@ pitest {
     targetClasses = ['**.*Service*','*.service.*','*.batch.*']
     targetTests = ['**.*Service*','*.service.*', '*.batch.*']
     junit5PluginVersion = '1.2.1'
+}
+
+jacoco {
+    toolVersion = "0.8.13"
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                '**/model/**',
+                '**/enums/**',
+                '**/api/model/**',
+                '**/TransacaoServiceApplication*',
+                '**/config/**',
+                '**/TransacaoMapper*'
+            ])
+        }))
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.60
+            }
+        }
+    }
+}
+
+tasks.named('check') {
+    dependsOn jacocoTestCoverageVerification
 }
 
 repositories {

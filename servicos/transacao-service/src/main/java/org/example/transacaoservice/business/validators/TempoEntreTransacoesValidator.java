@@ -34,7 +34,8 @@ public class TempoEntreTransacoesValidator implements FraudeValidators {
     }
 
     private boolean isIntevaloEntreTransacoesMenorOuIgualAhMinimo(LocalDateTime timeStampTransacaoEmMemoria, LocalDateTime timeStampNovaTransacao) {
-        return Duration.between(timeStampTransacaoEmMemoria, timeStampNovaTransacao).compareTo(INTERVALO_MINITMO) <= 0;
+        Duration entreTransacoes = Duration.between(timeStampTransacaoEmMemoria, timeStampNovaTransacao).abs();
+        return entreTransacoes.compareTo(INTERVALO_MINITMO) <= 0;
     }
 
     private Optional<LocalDateTime> getTransacaoTimeStampByNumeroConta(String numeroConta) {

@@ -35,12 +35,14 @@
             const [status, setStatus] = useState('Desconectado');
             const [loading, setLoading] = useState(false);
             const [saldo, setSaldo] = useState(0);
+            const [limiteCredito, setLimiteCredito] = useState(0);
 
             // Simulation Form State
             const [formNumeroConta, setFormNumeroConta] = useState('');
             const [formValor, setFormValor] = useState('');
             const [formEstabelecimento, setFormEstabelecimento] = useState('');
             const [formTipo, setFormTipo] = useState('DEBITO');
+            const [formDataHora, setFormDataHora] = useState('');
 
             const fetchExtrato = useCallback(async (conta) => {
                 setLoading(true);
@@ -51,6 +53,7 @@
                         setExtrato(data.sort((a, b) => new Date(b.timeStamp) - new Date(a.timeStamp)));
                     }
                     getSaldo(conta);
+                    getLimiteCredito(conta);
                 } catch (e) {
                     console.error("Erro ao carregar extrato:", e);
                 } finally {
@@ -70,6 +73,18 @@
                 }
             };
 
+            const getLimiteCredito = async (conta) => {
+                try {
+                    const res = await fetch(`http://${BACKEND_IP}:8087/registro-transacao/limiteCredito/${conta}`);
+                    if (res.ok) {
+                        const data = await res.json();
+                        setLimiteCredito(data.limiteCredito || data);
+                    }
+                } catch (e) {
+                    console.error("Erro ao buscar limite de crédito:", e);
+                }
+            };
+
             const simulateTransaction = async () => {
                 if (!formNumeroConta || !formValor || !formEstabelecimento) {
                     alert("Preencha todos os campos, incluindo o número da conta destino!");
@@ -80,7 +95,7 @@
                     numeroConta: formNumeroConta,
                     valor: parseInt(parseFloat(formValor) * 100),
                     tipoTransacao: formTipo,
-                    timeStamp: new Date().toISOString(),
+                    timeStamp: formDataHora ? new Date(formDataHora).toISOString() : new Date().toISOString(),
                     estabelecimento: formEstabelecimento,
                     historico: {}
                 };
@@ -229,6 +244,22 @@
                                     </div>
                                 )}
 
+                                {/* Credit Limit Section */}
+                                {numeroConta && (
+                                    <div className="mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 overflow-hidden relative">
+                                        <div className="absolute top-0 right-0 p-4 opacity-5">
+                                            <svg className="w-20 h-20 text-indigo-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path><path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd"></path></svg>
+                                        </div>
+                                        <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Limite de Crédito</h2>
+                                        <div className="flex items-baseline space-x-2">
+                                            <span className="text-sm font-bold text-gray-500">R$</span>
+                                            <span className="text-3xl font-mono font-bold tracking-tighter text-indigo-600">
+                                                {(limiteCredito / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                            </span>
+                                        </div>
+                                    </div>
+                                )}
+
                                 {/* Simulation Form Section */}
                                 <div className="mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
                                     <h2 className="text-lg font-bold mb-6 flex items-center space-x-2 text-indigo-600">
@@ -248,12 +279,21 @@
                                         </div>
                                         <div>
                                             <label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Estabelecimento</label>
-                                            <input 
-                                                type="text" 
+                                            <input
+                                                type="text"
                                                 className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
                                                 placeholder="Ex: Starbucks"
                                                 value={formEstabelecimento}
                                                 onChange={(e) => setFormEstabelecimento(e.target.value)}
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Data e Hora</label>
+                                            <input
+                                                type="datetime-local"
+                                                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
+                                                value={formDataHora}
+                                                onChange={(e) => setFormDataHora(e.target.value)}
                                             />
                                         </div>
                                         <div className="grid grid-cols-2 gap-4">
@@ -296,7 +336,7 @@
                                     <h2 className="text-lg font-bold">Extrato Bancário</h2>
                                     <div className="flex space-x-2">
                                         <button 
-                                            onClick={() => window.location.href = `http://${BACKEND_IP}:8084/registro-transacao/extratoPdf/${numeroConta}`}
+                                            onClick={() => window.location.href = `http://${BACKEND_IP}:8087/registro-transacao/extratoPdf/${numeroConta}`}
                                             className="text-xs font-bold bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-lg hover:bg-indigo-100 transition-colors flex items-center space-x-1"
                                         >
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
@@ -305,7 +345,7 @@
                                         <button 
                                             onClick={async () => {
                                                 try {
-                                                    const res = await fetch(`http://${BACKEND_IP}:8084/registro-transacao/enviarExtratoEmail/${numeroConta}`, { method: 'POST' });
+                                                    const res = await fetch(`http://${BACKEND_IP}:8087/registro-transacao/enviarExtratoEmail/${numeroConta}`, { method: 'POST' });
                                                     if (res.ok) alert("Solicitação de e-mail enviada!");
                                                 } catch (e) { alert("Erro ao enviar e-mail"); }
                                             }}

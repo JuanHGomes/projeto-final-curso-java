@@ -63,4 +63,10 @@ public class TransacaoController {
         Long saldo = contaRepository.getSaldoByNumeroConta(numeroConta);
         return ResponseEntity.ok(saldo);
     }
+
+    @GetMapping("limiteCredito/{numeroConta}")
+    public ResponseEntity<Long> getLimiteCredito(@PathVariable String numeroConta) {
+        Long limiteCredito = contaRepository.getLimiteCreditoByNumeroConta(numeroConta);
+        return ResponseEntity.ok(limiteCredito);
+    }
 }

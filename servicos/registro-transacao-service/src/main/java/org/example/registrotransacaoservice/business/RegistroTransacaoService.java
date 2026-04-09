@@ -33,6 +33,10 @@ public class RegistroTransacaoService {
         return transacaoServiceClient.getSaldo(numeroConta);
     }
 
+    public Long getLimiteCredito(String numeroConta) {
+        return transacaoServiceClient.getLimiteCredito(numeroConta);
+    }
+
     public byte[] getExtratoPdf(String numeroConta) {
         List<Transacao> transacoes = getExtratoUltimosTrintaDias(numeroConta);
         

@@ -36,6 +36,11 @@ public class RegistroTransacaoController {
         return ResponseEntity.ok(registroTransacaoService.getSaldo(numeroConta));
     }
 
+    @GetMapping("limiteCredito/{numeroConta}")
+    public ResponseEntity<Long> getLimiteCredito(@PathVariable String numeroConta){
+        return ResponseEntity.ok(registroTransacaoService.getLimiteCredito(numeroConta));
+    }
+
     @GetMapping("extratoPdf/{numeroConta}")
     public ResponseEntity<byte[]> downloadExtratoPdf(@PathVariable String numeroConta){
        byte[] pdf = registroTransacaoService.getExtratoPdf(numeroConta);

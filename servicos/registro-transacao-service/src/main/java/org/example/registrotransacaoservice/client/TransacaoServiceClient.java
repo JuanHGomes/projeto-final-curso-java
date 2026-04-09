@@ -20,7 +20,7 @@ public class TransacaoServiceClient {
 
     public Long getSaldo(String numeroConta) {
         String url = transacaoServiceUrl + "/transacao/saldo/" + numeroConta;
-        
+
         try {
             ResponseEntity<Long> response = restTemplate.getForEntity(url, Long.class);
             if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
@@ -30,6 +30,22 @@ public class TransacaoServiceClient {
             return 0L;
         } catch (RestClientException e) {
             log.error("Erro ao consultar saldo do transacao-service para conta {}: {}", numeroConta, e.getMessage());
+            return 0L;
+        }
+    }
+
+    public Long getLimiteCredito(String numeroConta) {
+        String url = transacaoServiceUrl + "/transacao/limiteCredito/" + numeroConta;
+
+        try {
+            ResponseEntity<Long> response = restTemplate.getForEntity(url, Long.class);
+            if (response.getStatusCode().is2xxSuccessful() && response.getBody() != null) {
+                return response.getBody();
+            }
+            log.warn("Não foi possível obter limite de crédito para conta {}: status {}", numeroConta, response.getStatusCode());
+            return 0L;
+        } catch (RestClientException e) {
+            log.error("Erro ao consultar limite de crédito do transacao-service para conta {}: {}", numeroConta, e.getMessage());
             return 0L;
         }
     }
