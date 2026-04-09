@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1e2462e-52b3-4f92-a8c2-d4728cd0aaa4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/camunda-h2-database.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/camunda-h2-database.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/camunda-h2-database.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/api/CamundaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/api/CamundaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ValidarFraudeDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ValidarFraudeDelegate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ValidarFundosDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/java/com/example/workflow/bpmn/ValidarFundosDelegate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/resources/transacao.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/src/main/resources/transacao.bpmn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/api/CamundaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/api/CamundaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/ValidarFraudeDelegate.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/ValidarFraudeDelegate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/ValidarFundosDelegate.class" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/com/example/workflow/bpmn/ValidarFundosDelegate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/transacao.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-camunda-service/target/classes/transacao.bpmn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/model/TransacaoDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/transacao-service/src/main/java/org/example/transacaoservice/data/transacao/model/TransacaoDocument.java" afterDir="false" />
-    </list>
+    <list default="true" id="f1e2462e-52b3-4f92-a8c2-d4728cd0aaa4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
