@@ -49,7 +49,7 @@
             const connectSSE = () => {
                 if (!numeroConta) {
                     const id = Date.now();
-                    setNotifications(prev => [...prev, { id, msg: "Informe o numero da conta antes de conectar!", tipo: "warn" }]);
+                    setNotifications(prev => [...prev, { id, msg: "Informe o numero da conta antes de conectar!", tipo: "warn", lado: "esquerda" }]);
                     setTimeout(() => setNotifications(prev => prev.filter(n => n.id !== id)), 4000);
                     return;
                 }
@@ -82,7 +82,7 @@
 
                         if (data.mensagem.includes("Conexão estabelecida")) return;
 
-                        const newNotif = { id: Date.now(), msg: data.mensagem };
+                        const newNotif = { id: Date.now(), msg: data.mensagem, lado: "direita" };
                         setNotifications(prev => [newNotif, ...prev]);
                         fetchExtrato(numeroConta);
 
@@ -153,7 +153,7 @@
             const simulateTransaction = async () => {
                 if (!formNumeroConta || !formValor || !formEstabelecimento) {
                     const id = Date.now();
-                    setNotifications(prev => [...prev, { id, msg: "Preencha todos os campos!", tipo: "warn" }]);
+                    setNotifications(prev => [...prev, { id, msg: "Preencha todos os campos!", tipo: "warn", lado: "esquerda" }]);
                     setTimeout(() => setNotifications(prev => prev.filter(n => n.id !== id)), 4000);
                     return;
                 }
@@ -184,7 +184,8 @@
                             setNotifications(prev => [{
                                 id,
                                 msg: "Transacao aprovada!",
-                                tipo: "sucesso"
+                                tipo: "sucesso",
+                                lado: "esquerda"
                             }, ...prev]);
 
                             setTimeout(() => setNotifications(prev => prev.filter(n => n.id !== id)), 6000);
@@ -197,7 +198,8 @@
                             setNotifications(prev => [{
                                 id,
                                 msg: "Transacao reprovada!",
-                                tipo: "erro"
+                                tipo: "erro",
+                                lado: "esquerda"
                             }, ...prev]);
 
                             setTimeout(() => setNotifications(prev => prev.filter(n => n.id !== id)), 6000);
@@ -207,7 +209,8 @@
                         setNotifications(prev => [{
                             id,
                             msg: "Erro ao enviar transacao. Servidor indisponivel.",
-                            tipo: "erro"
+                            tipo: "erro",
+                            lado: "esquerda"
                         }, ...prev]);
                         setTimeout(() => setNotifications(prev => prev.filter(n => n.id !== id)), 6000);
                     }
@@ -217,7 +220,8 @@
                     setNotifications(prev => [{
                         id,
                         msg: "Erro ao conectar com o servidor.",
-                        tipo: "erro"
+                        tipo: "erro",
+                        lado: "esquerda"
                     }, ...prev]);
                     setTimeout(() => setNotifications(prev => prev.filter(n => n.id !== id)), 6000);
                 } finally {
@@ -255,9 +259,58 @@
                     </nav>
 
                     <div className="max-w-5xl mx-auto px-4 py-8">
-                        {/* Notifications Overlay */}
+                        {/* Notifications Overlay - Simulation (Left) */}
                         <div className="fixed top-20 left-4 z-50 space-y-3">
-                            {notifications.map(n => {
+                            {notifications.filter(n => n.lado === "esquerda").map(n => {
+                                const bgColors = {
+                                    sucesso: "bg-emerald-600 border-emerald-400",
+                                    erro: "bg-red-600 border-red-400",
+                                    warn: "bg-amber-500 border-amber-300",
+                                    default: "bg-indigo-600 border-indigo-400"
+                                };
+                                const icons = {
+                                    sucesso: (
+                                        <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    ),
+                                    erro: (
+                                        <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    ),
+                                    warn: (
+                                        <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                        </svg>
+                                    ),
+                                    default: (
+                                        <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                                        </svg>
+                                    )
+                                };
+                                const bg = bgColors[n.tipo] || bgColors.default;
+                                const icon = icons[n.tipo] || icons.default;
+
+                                return (
+                                    <div key={n.id} className={`notification-animation ${bg} text-white px-6 py-4 rounded-xl shadow-2xl flex items-start space-x-3 max-w-sm border`}>
+                                        {icon}
+                                        <div className="flex-1">
+                                            <h3 className="font-bold text-sm">
+                                                {n.tipo === "sucesso" ? "Sucesso" : n.tipo === "erro" ? "Erro" : n.tipo === "warn" ? "Atencao" : "Nova Atividade"}
+                                            </h3>
+                                            <p className="text-white/90 text-sm">{n.msg}</p>
+                                        </div>
+                                        <button onClick={() => setNotifications(prev => prev.filter(notif => notif.id !== n.id))} className="text-white/60 hover:text-white">&times;</button>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        {/* Notifications Overlay - SSE (Right) */}
+                        <div className="fixed top-20 right-4 z-50 space-y-3">
+                            {notifications.filter(n => n.lado === "direita").map(n => {
                                 const bgColors = {
                                     sucesso: "bg-emerald-600 border-emerald-400",
                                     erro: "bg-red-600 border-red-400",
