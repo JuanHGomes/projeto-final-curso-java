@@ -119,7 +119,7 @@
                             const id = Date.now();
                             setNotifications(prev => [{
                                 id,
-                                msg: `Transacao aprovada! ${formEstabelecimento} - R$ ${parseFloat(formValor).toFixed(2)}`,
+                                msg: "Transacao aprovada!",
                                 tipo: "sucesso"
                             }, ...prev]);
 
@@ -132,7 +132,7 @@
                             const id = Date.now();
                             setNotifications(prev => [{
                                 id,
-                                msg: `Transacao recusada. Verifique seu saldo ou limite.`,
+                                msg: "Transacao reprovada!",
                                 tipo: "erro"
                             }, ...prev]);
 
