@@ -37,6 +37,7 @@
             const [saldo, setSaldo] = useState(0);
             const [limiteCredito, setLimiteCredito] = useState(0);
             const [simulando, setSimulando] = useState(false);
+            const eventSourceRef = React.useRef(null);
 
             // Simulation Form State
             const [formNumeroConta, setFormNumeroConta] = useState('');
@@ -44,6 +45,69 @@
             const [formEstabelecimento, setFormEstabelecimento] = useState('');
             const [formTipo, setFormTipo] = useState('DEBITO');
             const [formDataHora, setFormDataHora] = useState('');
+
+            const connectSSE = () => {
+                if (!numeroConta) {
+                    const id = Date.now();
+                    setNotifications(prev => [...prev, { id, msg: "Informe o numero da conta antes de conectar!", tipo: "warn" }]);
+                    setTimeout(() => setNotifications(prev => prev.filter(n => n.id !== id)), 4000);
+                    return;
+                }
+
+                if (eventSourceRef.current) {
+                    eventSourceRef.current.close();
+                }
+
+                fetchExtrato(numeroConta);
+
+                console.log(`Iniciando SSE para conta: ${numeroConta}`);
+                setStatus('Conectando...');
+                const es = new EventSource(`http://${BACKEND_IP}:8085/notificacao?numeroConta=${numeroConta}`);
+                eventSourceRef.current = es;
+
+                es.onopen = () => {
+                    console.log("Conexão SSE estabelecida");
+                    setStatus('Conectado');
+                };
+
+                es.onmessage = (event) => {
+                    if (!event.data) {
+                        console.debug("Recebido heartbeat/comentário");
+                        return;
+                    }
+
+                    try {
+                        const data = JSON.parse(event.data);
+                        console.log("Notificação recebida:", data);
+
+                        if (data.mensagem.includes("Conexão estabelecida")) return;
+
+                        const newNotif = { id: Date.now(), msg: data.mensagem };
+                        setNotifications(prev => [newNotif, ...prev]);
+                        fetchExtrato(numeroConta);
+
+                        setTimeout(() => {
+                            setNotifications(prev => prev.filter(n => n.id !== newNotif.id));
+                        }, 6000);
+                    } catch (e) {
+                        console.error("Erro ao processar mensagem SSE:", e);
+                    }
+                };
+
+                es.onerror = (e) => {
+                    console.error("Erro SSE (Reconectando):", e);
+                    setStatus('Erro (Reconectando...)');
+                };
+            };
+
+            const disconnectSSE = () => {
+                if (eventSourceRef.current) {
+                    console.log("Fechando conexão SSE");
+                    eventSourceRef.current.close();
+                    eventSourceRef.current = null;
+                }
+                setStatus('Desconectado');
+            };
 
             const fetchExtrato = useCallback(async (conta) => {
                 setLoading(true);
@@ -162,54 +226,13 @@
             };
 
             useEffect(() => {
-                if (!numeroConta) return;
-
-                fetchExtrato(numeroConta);
-                
-                console.log(`Iniciando SSE para conta: ${numeroConta}`);
-                setStatus('Conectando...');
-                const es = new EventSource(`http://${BACKEND_IP}:8085/notificacao?numeroConta=${numeroConta}`);
-
-                es.onopen = () => {
-                    console.log("Conexão SSE estabelecida");
-                    setStatus('Conectado');
-                };
-                
-                es.onmessage = (event) => {
-                    if (!event.data) {
-                        console.debug("Recebido heartbeat/comentário");
-                        return;
-                    }
-
-                    try {
-                        const data = JSON.parse(event.data);
-                        console.log("Notificação recebida:", data);
-                        
-                        if (data.mensagem.includes("Conectado")) return;
-
-                        const newNotif = { id: Date.now(), msg: data.mensagem };
-                        setNotifications(prev => [newNotif, ...prev]);
-                        fetchExtrato(numeroConta);
-
-                        setTimeout(() => {
-                            setNotifications(prev => prev.filter(n => n.id !== newNotif.id));
-                        }, 6000);
-                    } catch (e) {
-                        console.error("Erro ao processar mensagem SSE:", e);
-                    }
-                };
-
-                es.onerror = (e) => {
-                    console.error("Erro SSE (Reconectando):", e);
-                    setStatus('Erro (Reconectando...)');
-                };
-
                 return () => {
-                    console.log("Fechando conexão SSE");
-                    es.close();
+                    if (eventSourceRef.current) {
+                        console.log("Fechando conexão SSE no cleanup");
+                        eventSourceRef.current.close();
+                    }
                 };
-            }, [numeroConta, fetchExtrato]);
-
+            }, []);
             return (
                 <div className="min-h-screen">
                     {/* Header */}
@@ -292,14 +315,25 @@
                                     <div className="space-y-4">
                                         <div>
                                             <label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Conectar a Conta</label>
-                                            <div className="relative">
-                                                <input 
-                                                    type="text" 
-                                                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all font-mono font-bold"
-                                                    value={numeroConta} 
+                                            <div className="flex space-x-2">
+                                                <input
+                                                    type="text"
+                                                    className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all font-mono font-bold"
+                                                    value={numeroConta}
                                                     onChange={(e) => setNumeroConta(e.target.value)}
                                                     placeholder="Ex: 123"
                                                 />
+                                                <button
+                                                    onClick={status === 'Conectado' ? disconnectSSE : connectSSE}
+                                                    disabled={!numeroConta && status !== 'Conectado'}
+                                                    className={`px-5 py-3 rounded-xl font-bold transition-all text-sm whitespace-nowrap ${
+                                                        status === 'Conectado'
+                                                            ? 'bg-red-600 text-white hover:bg-red-700'
+                                                            : 'bg-indigo-600 text-white hover:bg-indigo-700 disabled:bg-gray-300 disabled:cursor-not-allowed'
+                                                    }`}
+                                                >
+                                                    {status === 'Conectado' ? 'Desconectar' : 'Conectar'}
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
