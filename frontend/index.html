@@ -380,10 +380,10 @@
                                     <div className="space-y-4">
                                         <div>
                                             <label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Conectar a Conta</label>
-                                            <div className="flex space-x-2">
+                                            <div className="flex gap-2 min-w-0">
                                                 <input
                                                     type="text"
-                                                    className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all font-mono font-bold"
+                                                    className="min-w-0 flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all font-mono font-bold"
                                                     value={numeroConta}
                                                     onChange={(e) => setNumeroConta(e.target.value)}
                                                     placeholder="Ex: 123"
@@ -391,7 +391,7 @@
                                                 <button
                                                     onClick={status === 'Conectado' ? disconnectSSE : connectSSE}
                                                     disabled={!numeroConta && status !== 'Conectado'}
-                                                    className={`px-5 py-3 rounded-xl font-bold transition-all text-sm whitespace-nowrap ${
+                                                    className={`shrink-0 px-4 py-3 rounded-xl font-bold transition-all text-sm whitespace-nowrap ${
                                                         status === 'Conectado'
                                                             ? 'bg-red-600 text-white hover:bg-red-700'
                                                             : 'bg-indigo-600 text-white hover:bg-indigo-700 disabled:bg-gray-300 disabled:cursor-not-allowed'
