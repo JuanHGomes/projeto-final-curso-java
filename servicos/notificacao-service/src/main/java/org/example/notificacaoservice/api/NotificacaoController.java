@@ -30,11 +30,11 @@ public class NotificacaoController {
 
     @GetMapping(value = "/notificacao", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<ServerSentEvent<Notificacao>> dispararNotificacoes(@RequestParam String numeroConta){
-        
+
         ServerSentEvent<Notificacao> welcome = ServerSentEvent.<Notificacao>builder()
                 .data(Notificacao.builder()
                         .numeroConta(numeroConta)
-                        .mensagem("Conectado ao serviço de notificações.")
+                        .mensagem("Conexão estabelecida com sucesso. Aguardando atividades.")
                         .build())
                 .build();
 
@@ -55,7 +55,7 @@ public class NotificacaoController {
     public void testarMensagem(@RequestParam(defaultValue = "123") String numeroConta){
         Notificacao notificacaoTeste = Notificacao.builder()
                 .numeroConta(numeroConta)
-                .mensagem("Mensagem de teste SSE às " + java.time.LocalTime.now())
+                .mensagem("Notificação de teste enviada às " + java.time.LocalTime.now())
                 .build();
         notificacaoService.dispararNotificacao(notificacaoTeste);
     }

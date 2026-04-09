@@ -43,19 +43,34 @@ public class TransacaoService {
         String etapa = ultimaAtualizacaoHistorico.etapa();
         boolean resultado = ultimaAtualizacaoHistorico.resultado();
 
-        Notificacao notificacao = buildNotificacao(etapa, resultado, numeroConta);
+        Notificacao notificacao = buildNotificacao(etapa, resultado, numeroConta, transacao);
 
         log.info("Enviando notificaocao: {}", notificacao.toString());
         kafkaProducer.sendMessage(TOPICO_NOTIFICACAO, notificacao);
     }
 
-    private Notificacao buildNotificacao(String etapa, boolean resultado, String numeroConta) {
+    private Notificacao buildNotificacao(String etapa, boolean resultado, String numeroConta, Transacao transacao) {
        StringBuilder mensagem = new StringBuilder();
 
+       String estabelecimento = transacao.getEstabelecimento() != null ? transacao.getEstabelecimento() : "";
+       String contexto = !estabelecimento.isEmpty() ? " em " + estabelecimento : "";
+
        switch (etapa){
-           case "FUNDOS_SUFICIENTES" -> mensagem.append(BASE_NOTIFICACAO_TRANSACAO_NAO_CONCLUIDA + "Fundos insuficientes!");
-           case "FRAUDE" -> mensagem.append(BASE_NOTIFICACAO_TRANSACAO_NAO_CONCLUIDA + "Possível fraude detectada");
-           case "EXECUCAO_SUCESSO" -> mensagem.append("Transação concluída!");
+           case "FUNDOS_SUFICIENTES" -> {
+               if (resultado) {
+                   mensagem.append("Pagamento").append(contexto).append(" realizado com sucesso!");
+               } else {
+                   mensagem.append("Pagamento").append(contexto).append(" recusado: fundos insuficientes.");
+               }
+           }
+           case "FRAUDE" -> {
+               if (resultado) {
+                   mensagem.append("Pagamento").append(contexto).append(" aprovado após verificação.");
+               } else {
+                   mensagem.append("Pagamento").append(contexto).append(" bloqueado: possível fraude detectada.");
+               }
+           }
+           case "EXECUCAO_SUCESSO" -> mensagem.append("Transação").append(contexto).append(" concluída com sucesso!");
            default -> throw  new RuntimeException("Etapa não encontrada");
 
        }
