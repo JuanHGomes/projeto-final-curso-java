@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f1e2462e-52b3-4f92-a8c2-d4728cd0aaa4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/notificacao-service/src/test/java/org/example/notificacaoservice/business/NotificacaoHubIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/notificacao-service/src/test/java/org/example/notificacaoservice/business/NotificacaoServiceIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/notificacao-service/src/test/java/org/example/notificacaoservice/messaging/NotificacaoConsumerConfigIntegrationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicos/registro-transacao-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/servicos/registro-transacao-service/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +97,7 @@
     "Gradle.Build notificacao-service.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
     "Gradle.Load Gradle Dependencies.executor": "Run",
+    "Gradle.Tests in 'registro-transacao-service.test'.executor": "Coverage",
     "Gradle.Tests in 'transacao-service.test'.executor": "Coverage",
     "Gradle.notificacao-service [:org.example.notificacaoservice.NotificacaoServiceApplication.main()].executor": "Run",
     "Gradle.registro-transacao-service [:org.example.registrotransacaoservice.RegistroTransacaoServiceApplication.main()].executor": "Run",
@@ -115,7 +120,7 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/juan.henrique/repositorios/Estudos/Cursojava/projeto-final-curso-java",
+    "last_opened_file_path": "/home/juan/repos/agi/projeto-final-curso-java/servicos/transacao-service/build.gradle",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -153,7 +158,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Compound.Projeto-final">
+  <component name="RunManager" selected="Gradle.Tests in 'registro-transacao-service.test'">
     <configuration name="notificao-service" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="ms-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -198,6 +203,31 @@
       <toRun name="Compose-projeto-final" type="docker-deploy" />
       <method v="2" />
     </configuration>
+    <configuration name="Tests in 'registro-transacao-service.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/servicos/registro-transacao-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Tests in 'transacao-service.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -230,9 +260,6 @@
       <method v="2" />
     </configuration>
     <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#3" index="3" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#4" index="4" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -296,10 +323,10 @@
       <item itemvalue="Application.registro-transacao" />
       <item itemvalue="Compound.Projeto-final" />
       <item itemvalue="Docker.Compose-projeto-final" />
+      <item itemvalue="Gradle.Tests in 'registro-transacao-service.test'" />
       <item itemvalue="Gradle.Tests in 'transacao-service.test'" />
       <item itemvalue="HTTP Request.generated-requests | #2" />
       <item itemvalue="HTTP Request.generated-requests | #3" />
-      <item itemvalue="HTTP Request.generated-requests | #4" />
       <item itemvalue="HTTP Request.generated-requests | #1" />
       <item itemvalue="Spring Boot.TestesServiceApplication" />
       <item itemvalue="Spring Boot.NotificacaoServiceApplication" />
@@ -309,11 +336,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'registro-transacao-service.test'" />
         <item itemvalue="HTTP Request.generated-requests | #3" />
         <item itemvalue="Gradle.Tests in 'transacao-service.test'" />
         <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="HTTP Request.generated-requests | #2" />
-        <item itemvalue="HTTP Request.generated-requests | #4" />
       </list>
     </recent_temporary>
   </component>
@@ -336,7 +363,7 @@
       <workItem from="1775603379537" duration="6606000" />
       <workItem from="1775668904398" duration="4434000" />
       <workItem from="1775689816725" duration="4928000" />
-      <workItem from="1775768330067" duration="193000" />
+      <workItem from="1775775913130" duration="3027000" />
     </task>
     <servers />
   </component>
@@ -366,5 +393,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/projeto_final_curso_java$Tests_in__transacao_service_test_.ic" NAME="Tests in 'transacao-service.test' Coverage Results" MODIFIED="1775694942380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/projeto_final_curso_java$Tests_in__registro_transacao_service_test_.ic" NAME="Tests in 'registro-transacao-service.test' Coverage Results" MODIFIED="1775777881614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

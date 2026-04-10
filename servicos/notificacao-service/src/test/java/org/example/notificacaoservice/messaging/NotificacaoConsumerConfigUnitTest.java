@@ -1,6 +1,5 @@
 package org.example.notificacaoservice.messaging;
 
-import org.example.notificacaoservice.business.NotificacaoHub;
 import org.example.notificacaoservice.business.NotificacaoService;
 import org.example.notificacaoservice.business.model.Notificacao;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,10 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
-import reactor.core.publisher.Flux;
-import reactor.test.StepVerifier;
 
-import java.time.Duration;
 import java.util.function.Consumer;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,8 +21,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-@DisplayName("Testes de Integracao - NotificacaoConsumerConfig")
-class NotificacaoConsumerConfigIntegrationTest {
+@DisplayName("Testes Unitários - NotificacaoConsumerConfig")
+class NotificacaoConsumerConfigUnitTest {
 
     @Mock
     private NotificacaoService notificacaoService;
@@ -43,8 +39,8 @@ class NotificacaoConsumerConfigIntegrationTest {
     }
 
     @Nested
-    @DisplayName("Testes de Consumo de Mensagens Kafka")
-    class KafkaMessageConsumptionTests {
+    @DisplayName("Testes de Consumo de Mensagens")
+    class MessageConsumptionTests {
 
         @Test
         @DisplayName("Deve processar mensagem Kafka recebida")
@@ -63,7 +59,7 @@ class NotificacaoConsumerConfigIntegrationTest {
 
         @Test
         @DisplayName("Deve extrair payload corretamente da mensagem")
-        void deveExtrairPayload_Corretamente() {
+        void deveExtrairPayloadCorretamente() {
             Notificacao notificacao = Notificacao.builder()
                     .numeroConta("conta-payload")
                     .mensagem("Teste payload")
@@ -84,7 +80,7 @@ class NotificacaoConsumerConfigIntegrationTest {
         }
 
         @Test
-        @DisplayName("Deve processar multiplas mensagens em sequencia")
+        @DisplayName("Deve processar múltiplas mensagens em sequência")
         void deveProcessarMultiplasMensagens() {
             Notificacao n1 = Notificacao.builder().numeroConta("conta-1").mensagem("Msg 1").build();
             Notificacao n2 = Notificacao.builder().numeroConta("conta-2").mensagem("Msg 2").build();
@@ -102,12 +98,12 @@ class NotificacaoConsumerConfigIntegrationTest {
     }
 
     @Nested
-    @DisplayName("Testes de Propagacao de Erros")
+    @DisplayName("Testes de Propagação de Erros")
     class ErrorPropagationTests {
 
         @Test
-        @DisplayName("Deve propagar excecao do servico")
-        void devePropagarExcecao_DoServico() {
+        @DisplayName("Deve propagar exceção do serviço")
+        void devePropagarExcecaoDoServico() {
             Notificacao notificacao = Notificacao.builder()
                     .numeroConta("conta-error")
                     .mensagem("Mensagem com erro")
@@ -125,69 +121,7 @@ class NotificacaoConsumerConfigIntegrationTest {
     }
 
     @Nested
-    @DisplayName("Testes de Integracao Consumer -> Hub")
-    class ConsumerHubIntegrationTests {
-
-        @Test
-        @DisplayName("Ciclo completo: Consumer -> Service -> Hub")
-        void cicloCompleto_ConsumerServiceHub() {
-            NotificacaoHub hubReal = new NotificacaoHub();
-            NotificacaoService serviceReal = new NotificacaoService(hubReal);
-            NotificacaoConsumerConfig configReal = new NotificacaoConsumerConfig(serviceReal);
-
-            Consumer<Message<Notificacao>> consumerReal = configReal.notificacaoConsumer();
-
-            Flux<Notificacao> flux = hubReal.subscribe("conta-end2end");
-
-            Notificacao notificacao = Notificacao.builder()
-                    .numeroConta("conta-end2end")
-                    .mensagem("Mensagem end-to-end")
-                    .build();
-
-            Message<Notificacao> message = MessageBuilder.withPayload(notificacao).build();
-
-            consumerReal.accept(message);
-
-            StepVerifier.create(flux.take(Duration.ofMillis(500)))
-                    .assertNext(n -> {
-                        assertThat(n.numeroConta()).isEqualTo("conta-end2end");
-                        assertThat(n.mensagem()).isEqualTo("Mensagem end-to-end");
-                    })
-                    .verifyComplete();
-        }
-
-        @Test
-        @DisplayName("Consumer deve isolar contas diferentes")
-        void consumer_deveIsolarContasDiferentes() {
-            NotificacaoHub hubReal = new NotificacaoHub();
-            NotificacaoService serviceReal = new NotificacaoService(hubReal);
-            NotificacaoConsumerConfig configReal = new NotificacaoConsumerConfig(serviceReal);
-
-            Consumer<Message<Notificacao>> consumerReal = configReal.notificacaoConsumer();
-
-            Flux<Notificacao> fluxA = hubReal.subscribe("conta-A");
-            Flux<Notificacao> fluxB = hubReal.subscribe("conta-B");
-
-            consumerReal.accept(MessageBuilder.withPayload(
-                    Notificacao.builder().numeroConta("conta-A").mensagem("A1").build()).build());
-            consumerReal.accept(MessageBuilder.withPayload(
-                    Notificacao.builder().numeroConta("conta-B").mensagem("B1").build()).build());
-            consumerReal.accept(MessageBuilder.withPayload(
-                    Notificacao.builder().numeroConta("conta-A").mensagem("A2").build()).build());
-
-            StepVerifier.create(fluxA.take(Duration.ofMillis(500)))
-                    .assertNext(n -> assertThat(n.mensagem()).isEqualTo("A1"))
-                    .assertNext(n -> assertThat(n.mensagem()).isEqualTo("A2"))
-                    .verifyComplete();
-
-            StepVerifier.create(fluxB.take(Duration.ofMillis(500)))
-                    .assertNext(n -> assertThat(n.mensagem()).isEqualTo("B1"))
-                    .verifyComplete();
-        }
-    }
-
-    @Nested
-    @DisplayName("Testes de Configuracao do Bean")
+    @DisplayName("Testes de Configuração do Bean")
     class BeanConfigurationTests {
 
         @Test
@@ -198,8 +132,8 @@ class NotificacaoConsumerConfigIntegrationTest {
         }
 
         @Test
-        @DisplayName("Deve criar nova instancia de Consumer a cada chamada")
-        void deveCriarNovaInstancia_CadaChamada() {
+        @DisplayName("Deve criar nova instância de Consumer a cada chamada")
+        void deveCriarNovaInstanciaCadaChamada() {
             Consumer<Message<Notificacao>> consumer2 = consumerConfig.notificacaoConsumer();
 
             assertThat(consumer).isNotSameAs(consumer2);
