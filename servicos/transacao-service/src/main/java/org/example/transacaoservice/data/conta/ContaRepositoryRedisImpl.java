@@ -22,6 +22,7 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
     private static final String AGUARDANDO_CONFIRMACAO_PREFIX = "confirmacao:";
 
     private final RedisTemplate<String, Object> redisTemplate;
+    private final RedisTemplate<String, Long> redisTemplateNumeric;
     private final ObjectMapper objectMapper;
 
     @Override
@@ -46,11 +47,11 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
     public boolean updateSaldo(Transacao transacao) {
         String keyConta = CONTA_PREFIX + transacao.getNumeroConta();
 
-        Long saldoAtualizado = redisTemplate.opsForHash().increment(keyConta, "saldo", -transacao.getValor());
+        Long saldoAtualizado = redisTemplateNumeric.opsForHash().increment(keyConta, "saldo", -transacao.getValor());
 
         if (saldoAtualizado != null && saldoAtualizado < 0) {
             log.info("Saldo atualizado apos a transacao = {}, nao e possivel seguir");
-            redisTemplate.opsForHash().increment(keyConta, "saldo", transacao.getValor());
+            redisTemplateNumeric.opsForHash().increment(keyConta, "saldo", transacao.getValor());
             return false;
         }
 
@@ -67,10 +68,10 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
     public boolean updateLimiteCredito(Transacao transacao) {
         String contaKey = CONTA_PREFIX + transacao.getNumeroConta();
 
-        Long limiteAtualizado = redisTemplate.opsForHash().increment(contaKey, "limiteCredito", -transacao.getValor());
+        Long limiteAtualizado = redisTemplateNumeric.opsForHash().increment(contaKey, "limiteCredito", -transacao.getValor());
 
         if (limiteAtualizado != null && limiteAtualizado < 0) {
-            redisTemplate.opsForHash().increment(contaKey, "limiteCredito", transacao.getValor());
+            redisTemplateNumeric.opsForHash().increment(contaKey, "limiteCredito", transacao.getValor());
             return false;
         }
         return true;
@@ -99,9 +100,9 @@ public class ContaRepositoryRedisImpl implements ContaRepository, TransacaoOpera
         log.info("Estornando transação no Redis para a conta: {}", transacao.getNumeroConta());
 
         if (org.example.transacaoservice.enums.TipoTransacao.DEBITO.equals(transacao.getTipoTransacao())) {
-            redisTemplate.opsForHash().increment(contaKey, "saldo", transacao.getValor());
+            redisTemplateNumeric.opsForHash().increment(contaKey, "saldo", transacao.getValor());
         } else {
-            redisTemplate.opsForHash().increment(contaKey, "limiteCredito", transacao.getValor());
+            redisTemplateNumeric.opsForHash().increment(contaKey, "limiteCredito", transacao.getValor());
         }
 
         redisTemplate.delete(aguardandoConfirmacaoKey);

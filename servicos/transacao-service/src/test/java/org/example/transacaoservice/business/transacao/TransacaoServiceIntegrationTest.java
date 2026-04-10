@@ -13,13 +13,18 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -40,6 +45,12 @@ class TransacaoServiceIntegrationTest {
 
     @Mock
     private TransacaoOperators operator2;
+
+    @Mock
+    private RedisTemplate<String, Object> redisTemplate;
+
+    @Mock
+    private ValueOperations<String, Object> valueOperations;
 
     @InjectMocks
     private TransacaoService transacaoService;
@@ -84,6 +95,11 @@ class TransacaoServiceIntegrationTest {
         } catch (Exception e) {
             throw new RuntimeException("Erro ao configurar mocks via reflection", e);
         }
+
+        // Configurar mock do redisTemplate (usando lenient para evitar erros em testes que não usam redis)
+        lenient().when(redisTemplate.opsForValue()).thenReturn(valueOperations);
+        lenient().doNothing().when(valueOperations).set(anyString(), any());
+        lenient().doNothing().when(valueOperations).set(anyString(), any(), anyLong(), any(TimeUnit.class));
     }
 
     @Nested
