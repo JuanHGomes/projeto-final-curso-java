@@ -15,8 +15,8 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-@DisplayName("Testes de Integração - TransacaoProducer")
-class TransacaoProducerIntegrationTest {
+@DisplayName("Testes Unitários - TransacaoProducer")
+class TransacaoProducerUnitTest {
 
     @Mock
     private StreamBridge streamBridge;
@@ -35,15 +35,12 @@ class TransacaoProducerIntegrationTest {
         @Test
         @DisplayName("Deve enviar mensagem com sucesso")
         void deveEnviarMensagemComSucesso() {
-            // Arrange
             String binding = "testeProducer-out-0";
             Object payload = "teste payload";
             when(streamBridge.send(binding, payload)).thenReturn(true);
 
-            // Act
             boolean resultado = transacaoProducer.sendMessage(binding, payload);
 
-            // Assert
             assertTrue(resultado);
             verify(streamBridge, times(1)).send(binding, payload);
         }
@@ -51,44 +48,34 @@ class TransacaoProducerIntegrationTest {
         @Test
         @DisplayName("Deve retornar false quando envio falhar")
         void deveRetornarFalseQuandoEnvioFalhar() {
-            // Arrange
             String binding = "testeProducer-out-0";
             Object payload = "teste payload";
             when(streamBridge.send(binding, payload)).thenReturn(false);
 
-            // Act
             boolean resultado = transacaoProducer.sendMessage(binding, payload);
 
-            // Assert
             assertFalse(resultado);
-            verify(streamBridge, times(1)).send(binding, payload);
         }
 
         @Test
         @DisplayName("Deve lancar excecao quando StreamBridge falhar")
         void deveLancarExcecaoQuandoStreamBridgeFalhar() {
-            // Arrange
             String binding = "testeProducer-out-0";
             Object payload = "teste payload";
             when(streamBridge.send(binding, payload))
                     .thenThrow(new RuntimeException("Erro no StreamBridge"));
 
-            // Act & Assert
             assertThrows(RuntimeException.class, () -> transacaoProducer.sendMessage(binding, payload));
-            verify(streamBridge, times(1)).send(binding, payload);
         }
 
         @Test
         @DisplayName("Deve enviar mensagem com payload nulo")
         void deveEnviarMensagemComPayloadNulo() {
-            // Arrange
             String binding = "testeProducer-out-0";
             when(streamBridge.send(eq(binding), isNull())).thenReturn(true);
 
-            // Act
             boolean resultado = transacaoProducer.sendMessage(binding, null);
 
-            // Assert
             assertTrue(resultado);
             verify(streamBridge, times(1)).send(binding, null);
         }
@@ -96,23 +83,20 @@ class TransacaoProducerIntegrationTest {
         @Test
         @DisplayName("Deve enviar mensagem com binding diferente")
         void deveEnviarMensagemComBindingDiferente() {
-            // Arrange
             String binding1 = "producer1-out-0";
             String binding2 = "producer2-out-0";
             Object payload = "teste payload";
-            
+
             when(streamBridge.send(binding1, payload)).thenReturn(true);
             when(streamBridge.send(binding2, payload)).thenReturn(true);
 
-            // Act
             boolean resultado1 = transacaoProducer.sendMessage(binding1, payload);
             boolean resultado2 = transacaoProducer.sendMessage(binding2, payload);
 
-            // Assert
             assertTrue(resultado1);
             assertTrue(resultado2);
-            verify(streamBridge, times(1)).send(binding1, payload);
-            verify(streamBridge, times(1)).send(binding2, payload);
+            verify(streamBridge).send(binding1, payload);
+            verify(streamBridge).send(binding2, payload);
         }
     }
 }

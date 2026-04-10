@@ -21,7 +21,7 @@ public class EnviarNotificacaoDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        log.info("Iniciando envio de notificação");
+        log.info("Iniciando envio de notificação oara o topico: NOTIFICACAO-TOPIC");
         Transacao transacao = (Transacao) execution.getVariable("TRANSACAO");
         transacaoService.enviarNotificacao(transacao);
     }

@@ -8,6 +8,7 @@ import org.example.transacaoservice.business.validators.FraudeValidators;
 import org.example.transacaoservice.data.conta.ContaRepository;
 import org.example.transacaoservice.data.transacao.TransacaoRepository;
 import org.example.transacaoservice.enums.TipoTransacao;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,11 +21,13 @@ public class TransacaoService {
     private static final String FUNDOS_KEY = "FUNDOS_SUFICIENTES";
     private static final String EXECUCAO_KEY = "EXECUCAO_SUCESSO";
     private static final String FRAUDE_KEY = "FRAUDE";
+    private static final String REDIS_PREFIX = "confirmacao:";
 
 
     private final ContaRepository contaRepository;
     private final List<FraudeValidators> fraudeValidatorsList;
     private final List<TransacaoOperators> transacaoOperatorsList;
+    private final RedisTemplate<String, Object> redisTemplate;
 
     @Transactional
     public Transacao validarFundos(Transacao transacao) throws Exception {
@@ -35,7 +38,17 @@ public class TransacaoService {
             default -> throw new Exception("Tipo de transação inválida");
         };
 
+        if (isReservaSucesso) {
+            adicionarAListaAguardandoConfirmacao(transacao);
+        }
+
         return atualizarHistorico(transacao, FUNDOS_KEY, isReservaSucesso);
+    }
+
+    public void adicionarAListaAguardandoConfirmacao(Transacao transacao) {
+        String key = REDIS_PREFIX + transacao.getNumeroConta();
+        log.info("Adicionando transação ao Redis com chave: {}", key);
+        redisTemplate.opsForValue().set(key, transacao);
     }
 
     public Transacao validarFraude(Transacao transacao) {

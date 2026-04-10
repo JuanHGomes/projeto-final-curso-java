@@ -18,7 +18,7 @@ public class EnviarRegistroTransacaoDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        log.info("Iniciando envio da transação para garantia de registro");
+        log.info("Iniciando envio da transação para garantia de registro para o topico: TRANSACAO-TOPIC");
         Transacao transacao = (Transacao) delegateExecution.getVariable(TRANSACAO_VARIABLE);
         boolean transacaoRegistrada = transacaoService.enviarTransacaoParaRegistro(transacao);
 
